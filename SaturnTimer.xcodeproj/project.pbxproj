@@ -1,0 +1,507 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B15A43A41C7713BF005D605E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15A43A31C7713BF005D605E /* AppDelegate.swift */; };
+		B15A43A61C7713BF005D605E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15A43A51C7713BF005D605E /* ViewController.swift */; };
+		B15A43A91C7713BF005D605E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B15A43A71C7713BF005D605E /* Main.storyboard */; };
+		B15A43AB1C7713BF005D605E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B15A43AA1C7713BF005D605E /* Assets.xcassets */; };
+		B15A43AE1C7713BF005D605E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B15A43AC1C7713BF005D605E /* LaunchScreen.storyboard */; };
+		B15A43B91C7713BF005D605E /* SaturnTimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15A43B81C7713BF005D605E /* SaturnTimerTests.swift */; };
+		B15A43C41C7713BF005D605E /* SaturnTimerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15A43C31C7713BF005D605E /* SaturnTimerUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B15A43B51C7713BF005D605E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B15A43981C7713BF005D605E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B15A439F1C7713BF005D605E;
+			remoteInfo = SaturnTimer;
+		};
+		B15A43C01C7713BF005D605E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B15A43981C7713BF005D605E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B15A439F1C7713BF005D605E;
+			remoteInfo = SaturnTimer;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B15A43A01C7713BF005D605E /* SaturnTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SaturnTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B15A43A31C7713BF005D605E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B15A43A51C7713BF005D605E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B15A43A81C7713BF005D605E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B15A43AA1C7713BF005D605E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B15A43AD1C7713BF005D605E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B15A43AF1C7713BF005D605E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B15A43B41C7713BF005D605E /* SaturnTimerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SaturnTimerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B15A43B81C7713BF005D605E /* SaturnTimerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaturnTimerTests.swift; sourceTree = "<group>"; };
+		B15A43BA1C7713BF005D605E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B15A43BF1C7713BF005D605E /* SaturnTimerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SaturnTimerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B15A43C31C7713BF005D605E /* SaturnTimerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaturnTimerUITests.swift; sourceTree = "<group>"; };
+		B15A43C51C7713BF005D605E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B15A439D1C7713BF005D605E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B15A43B11C7713BF005D605E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B15A43BC1C7713BF005D605E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B15A43971C7713BF005D605E = {
+			isa = PBXGroup;
+			children = (
+				B15A43A21C7713BF005D605E /* SaturnTimer */,
+				B15A43B71C7713BF005D605E /* SaturnTimerTests */,
+				B15A43C21C7713BF005D605E /* SaturnTimerUITests */,
+				B15A43A11C7713BF005D605E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B15A43A11C7713BF005D605E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B15A43A01C7713BF005D605E /* SaturnTimer.app */,
+				B15A43B41C7713BF005D605E /* SaturnTimerTests.xctest */,
+				B15A43BF1C7713BF005D605E /* SaturnTimerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B15A43A21C7713BF005D605E /* SaturnTimer */ = {
+			isa = PBXGroup;
+			children = (
+				B15A43A31C7713BF005D605E /* AppDelegate.swift */,
+				B15A43A51C7713BF005D605E /* ViewController.swift */,
+				B15A43A71C7713BF005D605E /* Main.storyboard */,
+				B15A43AA1C7713BF005D605E /* Assets.xcassets */,
+				B15A43AC1C7713BF005D605E /* LaunchScreen.storyboard */,
+				B15A43AF1C7713BF005D605E /* Info.plist */,
+			);
+			path = SaturnTimer;
+			sourceTree = "<group>";
+		};
+		B15A43B71C7713BF005D605E /* SaturnTimerTests */ = {
+			isa = PBXGroup;
+			children = (
+				B15A43B81C7713BF005D605E /* SaturnTimerTests.swift */,
+				B15A43BA1C7713BF005D605E /* Info.plist */,
+			);
+			path = SaturnTimerTests;
+			sourceTree = "<group>";
+		};
+		B15A43C21C7713BF005D605E /* SaturnTimerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				B15A43C31C7713BF005D605E /* SaturnTimerUITests.swift */,
+				B15A43C51C7713BF005D605E /* Info.plist */,
+			);
+			path = SaturnTimerUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B15A439F1C7713BF005D605E /* SaturnTimer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B15A43C81C7713BF005D605E /* Build configuration list for PBXNativeTarget "SaturnTimer" */;
+			buildPhases = (
+				B15A439C1C7713BF005D605E /* Sources */,
+				B15A439D1C7713BF005D605E /* Frameworks */,
+				B15A439E1C7713BF005D605E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SaturnTimer;
+			productName = SaturnTimer;
+			productReference = B15A43A01C7713BF005D605E /* SaturnTimer.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B15A43B31C7713BF005D605E /* SaturnTimerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B15A43CB1C7713BF005D605E /* Build configuration list for PBXNativeTarget "SaturnTimerTests" */;
+			buildPhases = (
+				B15A43B01C7713BF005D605E /* Sources */,
+				B15A43B11C7713BF005D605E /* Frameworks */,
+				B15A43B21C7713BF005D605E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B15A43B61C7713BF005D605E /* PBXTargetDependency */,
+			);
+			name = SaturnTimerTests;
+			productName = SaturnTimerTests;
+			productReference = B15A43B41C7713BF005D605E /* SaturnTimerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		B15A43BE1C7713BF005D605E /* SaturnTimerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B15A43CE1C7713BF005D605E /* Build configuration list for PBXNativeTarget "SaturnTimerUITests" */;
+			buildPhases = (
+				B15A43BB1C7713BF005D605E /* Sources */,
+				B15A43BC1C7713BF005D605E /* Frameworks */,
+				B15A43BD1C7713BF005D605E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B15A43C11C7713BF005D605E /* PBXTargetDependency */,
+			);
+			name = SaturnTimerUITests;
+			productName = SaturnTimerUITests;
+			productReference = B15A43BF1C7713BF005D605E /* SaturnTimerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B15A43981C7713BF005D605E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Tidy Nine";
+				TargetAttributes = {
+					B15A439F1C7713BF005D605E = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
+					B15A43B31C7713BF005D605E = {
+						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = B15A439F1C7713BF005D605E;
+					};
+					B15A43BE1C7713BF005D605E = {
+						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = B15A439F1C7713BF005D605E;
+					};
+				};
+			};
+			buildConfigurationList = B15A439B1C7713BF005D605E /* Build configuration list for PBXProject "SaturnTimer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B15A43971C7713BF005D605E;
+			productRefGroup = B15A43A11C7713BF005D605E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B15A439F1C7713BF005D605E /* SaturnTimer */,
+				B15A43B31C7713BF005D605E /* SaturnTimerTests */,
+				B15A43BE1C7713BF005D605E /* SaturnTimerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B15A439E1C7713BF005D605E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B15A43AE1C7713BF005D605E /* LaunchScreen.storyboard in Resources */,
+				B15A43AB1C7713BF005D605E /* Assets.xcassets in Resources */,
+				B15A43A91C7713BF005D605E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B15A43B21C7713BF005D605E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B15A43BD1C7713BF005D605E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B15A439C1C7713BF005D605E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B15A43A61C7713BF005D605E /* ViewController.swift in Sources */,
+				B15A43A41C7713BF005D605E /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B15A43B01C7713BF005D605E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B15A43B91C7713BF005D605E /* SaturnTimerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B15A43BB1C7713BF005D605E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B15A43C41C7713BF005D605E /* SaturnTimerUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B15A43B61C7713BF005D605E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B15A439F1C7713BF005D605E /* SaturnTimer */;
+			targetProxy = B15A43B51C7713BF005D605E /* PBXContainerItemProxy */;
+		};
+		B15A43C11C7713BF005D605E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B15A439F1C7713BF005D605E /* SaturnTimer */;
+			targetProxy = B15A43C01C7713BF005D605E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B15A43A71C7713BF005D605E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B15A43A81C7713BF005D605E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B15A43AC1C7713BF005D605E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B15A43AD1C7713BF005D605E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B15A43C61C7713BF005D605E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B15A43C71C7713BF005D605E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B15A43C91C7713BF005D605E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SaturnTimer/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.rocketchild.SaturnTimer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		B15A43CA1C7713BF005D605E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SaturnTimer/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.rocketchild.SaturnTimer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		B15A43CC1C7713BF005D605E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = SaturnTimerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.rocketchild.SaturnTimerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SaturnTimer.app/SaturnTimer";
+			};
+			name = Debug;
+		};
+		B15A43CD1C7713BF005D605E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = SaturnTimerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.rocketchild.SaturnTimerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SaturnTimer.app/SaturnTimer";
+			};
+			name = Release;
+		};
+		B15A43CF1C7713BF005D605E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = SaturnTimerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.rocketchild.SaturnTimerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = SaturnTimer;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		B15A43D01C7713BF005D605E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = SaturnTimerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.rocketchild.SaturnTimerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = SaturnTimer;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B15A439B1C7713BF005D605E /* Build configuration list for PBXProject "SaturnTimer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B15A43C61C7713BF005D605E /* Debug */,
+				B15A43C71C7713BF005D605E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B15A43C81C7713BF005D605E /* Build configuration list for PBXNativeTarget "SaturnTimer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B15A43C91C7713BF005D605E /* Debug */,
+				B15A43CA1C7713BF005D605E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		B15A43CB1C7713BF005D605E /* Build configuration list for PBXNativeTarget "SaturnTimerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B15A43CC1C7713BF005D605E /* Debug */,
+				B15A43CD1C7713BF005D605E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		B15A43CE1C7713BF005D605E /* Build configuration list for PBXNativeTarget "SaturnTimerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B15A43CF1C7713BF005D605E /* Debug */,
+				B15A43D01C7713BF005D605E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B15A43981C7713BF005D605E /* Project object */;
+}
