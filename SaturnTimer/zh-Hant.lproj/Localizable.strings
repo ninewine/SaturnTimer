@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  SaturnTimer
+
+  Created by Tidy Nine on 2/24/16.
+  Copyright © 2016 Tidy Nine. All rights reserved.
+*/
+
+"Done"="好的";
+"Close"="關閉";
+"Back"="返回";
+"OK"="好的";
+"Settings"="設置";
+
+"AskForNotificationPermission"="為了讓計時器正常工作，請務必允許土星計時器向您發送通知";
+"CheckNotificationPermissionFailed"="土星計時器的通知功能被關閉了，請前往“設置”進行打開";

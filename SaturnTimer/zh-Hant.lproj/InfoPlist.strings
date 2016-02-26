@@ -1,0 +1,10 @@
+/* 
+  InfoPlist.strings
+  SaturnTimer
+
+  Created by Tidy Nine on 2/24/16.
+  Copyright © 2016 Tidy Nine. All rights reserved.
+*/
+
+"CFBundleDisplayName"="土星计时器";
+"CFBundleName"="土星计时器";
