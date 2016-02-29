@@ -17,6 +17,9 @@ class STHomeViewModel: STViewModel {
   let minute = MutableProperty<Int>(0)
   let second = MutableProperty<Int>(0)
   
+  let tagType = MutableProperty<STTagType>(STTagType.SaturnType)
+  let soundFileName = MutableProperty<String>(UILocalNotificationDefaultSoundName)
+  
   //Output
   let timeChangeSignal: Signal<STTime, NoError>
   let timeValidSignal: Signal<Bool, NoError>
@@ -50,7 +53,7 @@ class STHomeViewModel: STViewModel {
     })
   }()
   
-  lazy var rightBottomButtonAction: Action<Void, RigthBottomButtonActionType, NoError> = {
+  lazy var actionButtonAction: Action<Void, RigthBottomButtonActionType, NoError> = {
     return Action({[weak self] _ in
       guard let _self = self else {return SignalProducer(value: RigthBottomButtonActionType.None)}
       
@@ -77,7 +80,21 @@ class STHomeViewModel: STViewModel {
   private var timer : STTimer?
   private var timerDisposable: Disposable?
   
+  
+  //Lifecircle
+  //Lifecircle
+
   override init () {
+    if let fileName = NSUserDefaults.standardUserDefaults().stringForKey(HelperConstant.UserDefaultKey.CurrentSoundFileName) {
+      soundFileName.value = fileName
+    }
+    
+    if let typeName = NSUserDefaults.standardUserDefaults().stringForKey(HelperConstant.UserDefaultKey.CurrentTagTypeName) {
+      if let type = STTagType(rawValue: typeName) {
+        tagType.value = type
+      }
+    }
+    
     time = STTime(hour: 0, minute: 0, second: 0)
 
     let (timeChangeSignal, timeChangeObserver) = Signal<STTime, NoError>.pipe()
@@ -138,6 +155,20 @@ class STHomeViewModel: STViewModel {
           timeValidObserver.sendNext(_self.time.isValid())
         }
     }
+    
+    tagType
+      .producer
+      .observeOn(UIScheduler())
+      .startWithNext { (type) -> () in
+        NSUserDefaults.standardUserDefaults().setObject(type.rawValue, forKey: HelperConstant.UserDefaultKey.CurrentTagTypeName)
+    }
+    
+    soundFileName
+      .producer
+      .observeOn(UIScheduler())
+      .startWithNext { (fileName) -> () in
+        NSUserDefaults.standardUserDefaults().setObject(fileName, forKey: HelperConstant.UserDefaultKey.CurrentSoundFileName)
+    }
 
     self.registerNotification()
   }
@@ -175,7 +206,8 @@ class STHomeViewModel: STViewModel {
       else {
         if playing.value {
           invalidateTimer(clean: true)
-          timeValidObserver.sendNext(true)
+          playing.value = false
+//          timeValidObserver.sendNext(true)
           timeTikTokObserver.sendNext(time)
         }
       }
@@ -278,8 +310,8 @@ class STHomeViewModel: STViewModel {
     let date = NSDate().dateByAddingTimeInterval(remainingTime)
     let notification = UILocalNotification()
     notification.timeZone = NSTimeZone.defaultTimeZone()
-    notification.soundName = UILocalNotificationDefaultSoundName
-    notification.alertBody = "时间到了"
+    notification.soundName = soundFileName.value
+    notification.alertBody = tagType.value.tagTypeTimeIsUpString()
     notification.fireDate = date
     UIApplication.sharedApplication().scheduleLocalNotification(notification)
   }

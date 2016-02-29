@@ -8,6 +8,7 @@
 
 import UIKit
 import pop
+import ReactiveCocoa
 
 //MARK: - Sandglass
 
@@ -17,7 +18,6 @@ class Sandglass: AnimatableTag, UICollisionBehaviorDelegate {
 	
 	private var _sandAppearDuration: Double = 1.0
 	
-	private let _fixedSize: CGSize = CGSizeMake(20, 29)
 	private let _reverseCircleTimeInterval: Double = 4
 
 	private let _sandTop: CAShapeLayer = CAShapeLayer()
@@ -27,39 +27,38 @@ class Sandglass: AnimatableTag, UICollisionBehaviorDelegate {
 	
 	private var _particles: [UIView] = []
 	
-	required init?(coder aDecoder: NSCoder) {
-		super.init(coder: aDecoder)
-	}
-	
-	override init (frame: CGRect) {
-		super.init(frame: CGRectMake(frame.origin.x, frame.origin.y, _fixedSize.width, _fixedSize.height))
-	}
-	
-	override func awakeFromNib() {
-		super.awakeFromNib()
-		frame.size.width = _fixedSize.width
-		frame.size.height = _fixedSize.height
-	}
-	
 	override func viewConfig () {
+    _fixedSize = CGSizeMake(20, 29)
+    
 		super.viewConfig()
 		
-		backgroundColor = UIColor.clearColor()
-		
-		_glass = _Glass(frame: bounds)
-		addSubview(_glass)
+		_glass = _Glass(frame: _contentView.bounds)
+		_contentView.addSubview(_glass)
 		
 		let layersFill = [_sandTop, _sandBottom]
 		for layer in layersFill {
 			layer.opaque = true
 			layer.strokeColor = UIColor.clearColor().CGColor
-			layer.fillColor = HelperColor.primaryColor.CGColor
-			self.layer.addSublayer(layer)
+			layer.fillColor = currentAppearenceColor()
+      layer.colorType = .Fill
+			_contentView.layer.addSublayer(layer)
 		}
 		
 		_glass.glassShowing (_sandAppearDuration)
 		startAnimation()
 	}
+  
+  override func setHighlightStatus(hightlightd: Bool, animated: Bool) {
+    super.setHighlightStatus(hightlightd, animated: animated)
+
+    for particle in _particles {
+      particle.backgroundColor = UIColor(CGColor: currentAppearenceColor())
+    }
+  }
+  
+  override func layersNeedToBeHighlighted() -> [CAShapeLayer]? {
+    return [_glass._top, _glass._topGlass, _glass._base, _glass._baseGlass, _sandTop, _sandBottom]
+  }
 	
 	//MARK: - Animation
 	override func startAnimation () {
@@ -174,7 +173,7 @@ class Sandglass: AnimatableTag, UICollisionBehaviorDelegate {
 		if _particles.count == 0 {
 			_particles = (0...12).flatMap({ (_) -> UIView? in
 				let particle = UIView(frame: CGRectMake(frame.width * 0.5, frame.height * 0.5, 1, 1))
-				particle.backgroundColor = HelperColor.primaryColor
+        particle.backgroundColor = st_highlighted ? HelperColor.primaryColor : UIColor.whiteColor()
 				addSubview(particle)
 				return particle
 			})
@@ -257,7 +256,7 @@ class _Glass: UIView {
 			layer.miterLimit = 1.5
 			layer.strokeStart = 0.5
 			layer.strokeEnd = 0.5
-			layer.strokeColor = HelperColor.primaryColor.CGColor
+			layer.strokeColor = UIColor.whiteColor().CGColor
 			layer.fillColor = UIColor.clearColor().CGColor
 			self.layer.addSublayer(layer)
 		}

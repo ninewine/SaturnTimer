@@ -10,7 +10,6 @@ import UIKit
 import pop
 
 class Saturn: AnimatableTag {
-	private let _fixedSize: CGSize = CGSizeMake(30, 24)
 	
 	private let _planet: CAShapeLayer = CAShapeLayer()
 	private let _ring: CAShapeLayer = CAShapeLayer()
@@ -18,24 +17,11 @@ class Saturn: AnimatableTag {
 	private let _light2: CAShapeLayer = CAShapeLayer()
 
 	private let _duration: CFTimeInterval = 1.0
-	
-	required init?(coder aDecoder: NSCoder) {
-		super.init(coder: aDecoder)
-	}
-	
-	override init(frame: CGRect) {
-		super.init(frame: CGRectMake(frame.origin.x, frame.origin.y, _fixedSize.width, _fixedSize.height))
-	}
-	
-	override func awakeFromNib() {
-		super.awakeFromNib()
-		frame.size.width = _fixedSize.width
-		frame.size.height = _fixedSize.height
-	}
 
 	override func viewConfig() {
+    _fixedSize = CGSizeMake(30, 24)
+    
 		super.viewConfig()
-		backgroundColor = UIColor.clearColor()
 
 		_planet.path = _SaturnLayerPath.planetPath.CGPath
 		_ring.path = _SaturnLayerPath.ringPath.CGPath
@@ -50,14 +36,17 @@ class Saturn: AnimatableTag {
 			layer.miterLimit = 1.5
 			layer.strokeStart = 0.0
 			layer.strokeEnd = 0.0
-			layer.strokeColor = HelperColor.primaryColor.CGColor
+			layer.strokeColor = currentAppearenceColor()
 			layer.fillColor = UIColor.clearColor().CGColor
-			self.layer.addSublayer(layer)
+			_contentView.layer.addSublayer(layer)
 		}
 		
 		enterAnimation()
 	}
 	
+  override func layersNeedToBeHighlighted() -> [CAShapeLayer]? {
+    return [_planet, _ring, _light1, _light2]
+  }
 	
 	override func startAnimation() {
 		_pausing = false
@@ -101,10 +90,12 @@ class Saturn: AnimatableTag {
 			return
 		}
 
-    
-		_ring.setValueWithoutImplicitAnimation(0.0, forKey: "strokeStart")
-		_ring.setValueWithoutImplicitAnimation(0.0, forKey: "strokeEnd")
+    _ring.removeFromSuperlayer()
+    _ring.setValueWithoutImplicitAnimation(0.0, forKey: "strokeStart")
+    _ring.setValueWithoutImplicitAnimation(0.0, forKey: "strokeEnd")
+    _contentView.layer.addSublayer(_ring)
 		
+    
 		_ring.pathStokeAnimationFrom(0.0, to: 1.0, duration: _duration * 0.5, type: .End) {[weak self] () -> Void in
       guard let _self = self else {return}
 

@@ -10,8 +10,7 @@ import UIKit
 import pop
 
 class Television: AnimatableTag {
-	private let _fixedSize: CGSize = CGSizeMake(23, 24)
-	
+  
 	private let _body: CAShapeLayer = CAShapeLayer()
 	private let _st_screen: CAShapeLayer = CAShapeLayer()
 	private let _antenna1: CAShapeLayer = CAShapeLayer()
@@ -24,23 +23,10 @@ class Television: AnimatableTag {
 	
 	private let _duration: CFTimeInterval = 1.0
 	
-	required init?(coder aDecoder: NSCoder) {
-		super.init(coder: aDecoder)
-	}
-	
-	override init(frame: CGRect) {
-		super.init(frame: CGRectMake(frame.origin.x, frame.origin.y, _fixedSize.width, _fixedSize.height))
-	}
-	
-	override func awakeFromNib() {
-		super.awakeFromNib()
-		frame.size.width = _fixedSize.width
-		frame.size.height = _fixedSize.height
-	}
-	
 	override func viewConfig() {
+    _fixedSize = CGSizeMake(23, 24)
+    
 		super.viewConfig()
-		backgroundColor = UIColor.clearColor()
 		
 		_body.path = _TelevisionLayerPath.bodyPath.CGPath
 		_st_screen.path =  _TelevisionLayerPath.screenPath.CGPath
@@ -57,9 +43,9 @@ class Television: AnimatableTag {
 			layer.lineWidth = 1.5
 			layer.strokeStart = 0.0
 			layer.strokeEnd = 0.0
-			layer.strokeColor = HelperColor.primaryColor.CGColor
+			layer.strokeColor = currentAppearenceColor()
 			layer.fillColor = UIColor.clearColor().CGColor
-			self.layer.addSublayer(layer)
+			_contentView.layer.addSublayer(layer)
 		}
 		
 		_antenna1.frame = CGRect(x: 6, y: 3.28, width: 12, height: 6.56)
@@ -77,14 +63,17 @@ class Television: AnimatableTag {
 			let gap: Int = 2
 			snow.opacity = 0.0
 			snow.position = CGPointMake(CGFloat(row * gap) + 7.3, CGFloat(col * gap) + 13.1)
-			snow.backgroundColor = HelperColor.primaryColor.CGColor
-			layer.addSublayer(snow)
+			snow.backgroundColor = UIColor.whiteColor().CGColor
+			_contentView.layer.addSublayer(snow)
 			return snow
 		}).shuffle()
 
 		enterAnimation()
 	}
 	
+  override func layersNeedToBeHighlighted() -> [CAShapeLayer]? {
+    return [_body, _st_screen, _antenna1, _antenna2, _switch, _speaker1, _speaker2]
+  }
 	
 	override func startAnimation() {
 		_pausing = false
@@ -140,7 +129,7 @@ class Television: AnimatableTag {
 		if _pausing {
 			return
 		}
-		
+
 		let rotationAnimFrom1 = POPSpringAnimation(propertyNamed: kPOPLayerRotation)
 		rotationAnimFrom1.toValue = -M_PI_2 * 0.2
 		rotationAnimFrom1.completionBlock = {[weak self] anim in
@@ -180,7 +169,7 @@ class Television: AnimatableTag {
 			opacityAnim.toValue = 1.0
 			opacityAnim.repeatForever = true
 			opacityAnim.autoreverses = true
-			opacityAnim.duration = 0.5
+			opacityAnim.duration = 0.6
 			opacityAnim.beginTime = CACurrentMediaTime() + CFTimeInterval(index) * 0.7
 			snow.pop_addAnimation(opacityAnim, forKey: "OpacityAnimation")
 		}

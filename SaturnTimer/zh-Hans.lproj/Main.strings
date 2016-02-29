@@ -3,19 +3,52 @@
 "7ZL-Cf-qOG.text" = "00";
 
 /* Class = "UILabel"; text = "s"; ObjectID = "BuN-fA-lYJ"; */
-"BuN-fA-lYJ.text" = "s";
+"BuN-fA-lYJ.text" = "秒";
+
+/* Class = "UILabel"; text = "COUNTDOWN"; ObjectID = "Ep2-Qz-Yi2"; */
+"Ep2-Qz-Yi2.text" = "倒计时";
+
+/* Class = "UILabel"; text = "Δ"; ObjectID = "GbH-cu-KDY"; */
+"GbH-cu-KDY.text" = "Δ";
 
 /* Class = "UILabel"; text = "00"; ObjectID = "Jc7-UU-FWA"; */
 "Jc7-UU-FWA.text" = "00";
 
-/* Class = "UILabel"; text = "58"; ObjectID = "Wva-kN-cJ1"; */
-"Wva-kN-cJ1.text" = "58";
+/* Class = "UILabel"; text = "Δ"; ObjectID = "KCe-7U-l7Z"; */
+"KCe-7U-l7Z.text" = "Δ";
+
+/* Class = "UILabel"; text = "Sound Name"; ObjectID = "SGi-sX-Ce2"; */
+"SGi-sX-Ce2.text" = "声音名";
+
+/* Class = "UILabel"; text = "TAGS"; ObjectID = "T5b-u3-kih"; */
+"T5b-u3-kih.text" = "标签";
+
+/* Class = "UILabel"; text = "Sound Name"; ObjectID = "Unj-aw-1nk"; */
+"Unj-aw-1nk.text" = "声音名";
+
+/* Class = "UILabel"; text = "00"; ObjectID = "Wva-kN-cJ1"; */
+"Wva-kN-cJ1.text" = "00";
+
+/* Class = "UILabel"; text = "SOUNDS"; ObjectID = "ZPU-ST-3ju"; */
+"ZPU-ST-3ju.text" = "声音";
+
+/* Class = "UILabel"; text = "Sound:"; ObjectID = "bAD-zT-3E5"; */
+"bAD-zT-3E5.text" = "声音:";
+
+/* Class = "UILabel"; text = "SETTINGS"; ObjectID = "fCu-zf-QMK"; */
+"fCu-zf-QMK.text" = "设置";
 
 /* Class = "UILabel"; text = "m"; ObjectID = "fgl-n7-eK7"; */
-"fgl-n7-eK7.text" = "m";
+"fgl-n7-eK7.text" = "分";
 
 /* Class = "UILabel"; text = "h"; ObjectID = "iFG-Af-AAE"; */
-"iFG-Af-AAE.text" = "h";
+"iFG-Af-AAE.text" = "时";
 
-/* Class = "UIButton"; normalTitle = "Stop"; ObjectID = "tzN-3W-YOW"; */
-"tzN-3W-YOW.normalTitle" = "Stop";
+/* Class = "UILabel"; text = "Δ"; ObjectID = "oQN-YM-C1u"; */
+"oQN-YM-C1u.text" = "Δ";
+
+/* Class = "UILabel"; text = "Copyright© 2016 Rocket Alarm Studio All Rights Reserved"; ObjectID = "oby-KJ-KtB"; */
+"oby-KJ-KtB.text" = "Copyright© 2016 Rocket Alarm Studio All Rights Reserved";
+
+/* Class = "UILabel"; text = "Δ"; ObjectID = "vTE-3w-W4w"; */
+"vTE-3w-W4w.text" = "Δ";

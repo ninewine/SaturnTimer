@@ -3,10 +3,10 @@
 "7ZL-Cf-qOG.text" = "00";
 
 /* Class = "UILabel"; text = "s"; ObjectID = "BuN-fA-lYJ"; */
-"BuN-fA-lYJ.text" = "秒";
+"BuN-fA-lYJ.text" = "s";
 
 /* Class = "UILabel"; text = "COUNTDOWN"; ObjectID = "Ep2-Qz-Yi2"; */
-"Ep2-Qz-Yi2.text" = "倒計時";
+"Ep2-Qz-Yi2.text" = "COUNTDOWN";
 
 /* Class = "UILabel"; text = "Δ"; ObjectID = "GbH-cu-KDY"; */
 "GbH-cu-KDY.text" = "Δ";
@@ -18,31 +18,31 @@
 "KCe-7U-l7Z.text" = "Δ";
 
 /* Class = "UILabel"; text = "Sound Name"; ObjectID = "SGi-sX-Ce2"; */
-"SGi-sX-Ce2.text" = "聲音名";
+"SGi-sX-Ce2.text" = "Sound Name";
 
 /* Class = "UILabel"; text = "TAGS"; ObjectID = "T5b-u3-kih"; */
-"T5b-u3-kih.text" = "標籤";
+"T5b-u3-kih.text" = "TAGS";
 
 /* Class = "UILabel"; text = "Sound Name"; ObjectID = "Unj-aw-1nk"; */
-"Unj-aw-1nk.text" = "聲音名";
+"Unj-aw-1nk.text" = "Sound Name";
 
 /* Class = "UILabel"; text = "00"; ObjectID = "Wva-kN-cJ1"; */
 "Wva-kN-cJ1.text" = "00";
 
 /* Class = "UILabel"; text = "SOUNDS"; ObjectID = "ZPU-ST-3ju"; */
-"ZPU-ST-3ju.text" = "聲音";
+"ZPU-ST-3ju.text" = "SOUNDS";
 
 /* Class = "UILabel"; text = "Sound:"; ObjectID = "bAD-zT-3E5"; */
-"bAD-zT-3E5.text" = "聲音:";
+"bAD-zT-3E5.text" = "Sound:";
 
 /* Class = "UILabel"; text = "SETTINGS"; ObjectID = "fCu-zf-QMK"; */
-"fCu-zf-QMK.text" = "設定";
+"fCu-zf-QMK.text" = "SETTINGS";
 
 /* Class = "UILabel"; text = "m"; ObjectID = "fgl-n7-eK7"; */
-"fgl-n7-eK7.text" = "分";
+"fgl-n7-eK7.text" = "m";
 
 /* Class = "UILabel"; text = "h"; ObjectID = "iFG-Af-AAE"; */
-"iFG-Af-AAE.text" = "時";
+"iFG-Af-AAE.text" = "h";
 
 /* Class = "UILabel"; text = "Δ"; ObjectID = "oQN-YM-C1u"; */
 "oQN-YM-C1u.text" = "Δ";

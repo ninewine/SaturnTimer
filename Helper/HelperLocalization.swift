@@ -19,6 +19,11 @@ struct HelperLocalization {
   static let OK: String = HelperLocalization.string(key: "OK")
   static let Settings: String = HelperLocalization.string(key: "Settings")
 
+  static let timesupStringSaturnTag: String = HelperLocalization.string(key: "TimeIsUpStringSaturnTag")
+  static let timesupStringSandglassTag: String = HelperLocalization.string(key: "TimeIsUpStringSandglassTag")
+  static let timesupStringTelevisionTag: String = HelperLocalization.string(key: "TimeIsUpStringTelevisionTag")
+  static let timesupStringPlateTag: String = HelperLocalization.string(key: "TimeIsUpStringPlateTag")
+
   static func string (key key: String) -> String {
     return NSLocalizedString(key, comment: "")
   }

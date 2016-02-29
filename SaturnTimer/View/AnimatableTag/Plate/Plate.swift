@@ -10,7 +10,6 @@ import UIKit
 import pop
 
 class Plate: AnimatableTag {
-	private let _fixedSize: CGSize = CGSizeMake(25, 21)
 	
 	private let _top: CAShapeLayer = CAShapeLayer()
 	private let _topHandle1: CAShapeLayer = CAShapeLayer()
@@ -22,29 +21,21 @@ class Plate: AnimatableTag {
 	private let _duration: CFTimeInterval = 1.0
 	private var _originalLidPositionY: CGFloat = 0.0
 	
-	required init?(coder aDecoder: NSCoder) {
-		super.init(coder: aDecoder)
-	}
-	
-	override init(frame: CGRect) {
-		super.init(frame: CGRectMake(frame.origin.x, frame.origin.y, _fixedSize.width, _fixedSize.height))
-	}
-	
-	override func awakeFromNib() {
-		super.awakeFromNib()
-		frame.size.width = _fixedSize.width
-		frame.size.height = _fixedSize.height
-	}
-	
 	override func viewConfig() {
+    _fixedSize = CGSizeMake(25, 21)
+    
 		super.viewConfig()
-		backgroundColor = UIColor.clearColor()
 		
-		_lid.frame = CGRect(x: -frame.width * 0.5, y: frame.height * 0.5 * 0.5, width: frame.width, height: frame.height * 0.5)
+		_lid.frame = CGRect(
+      x: -_contentView.frame.width * 0.5,
+      y: _contentView.frame.height * 0.5 * 0.5,
+      width: _contentView.frame.width, height:
+      _contentView.frame.height * 0.5
+    )
 		_lid.anchorPoint = CGPoint(x: 0, y: 1)
 		_originalLidPositionY = _lid.position.y
 		
-		layer.addSublayer(_lid)
+		_contentView.layer.addSublayer(_lid)
 		
 		_top.path = _PlateLayerPath.topPath.CGPath
 		_topHandle1.path = _PlateLayerPath.topHandle1Path.CGPath
@@ -59,7 +50,7 @@ class Plate: AnimatableTag {
 			layer.lineJoin = kCALineJoinRound
 			layer.strokeStart = 0.0
 			layer.strokeEnd = 0.0
-			layer.strokeColor = HelperColor.primaryColor.CGColor
+			layer.strokeColor = currentAppearenceColor()
 			layer.fillColor = UIColor.clearColor().CGColor
 			_lid.addSublayer(layer)
 		}
@@ -71,14 +62,17 @@ class Plate: AnimatableTag {
 		_bottom.lineWidth = 1.5
 		_bottom.strokeStart = 0
 		_bottom.strokeEnd = 0
-		_bottom.strokeColor = HelperColor.primaryColor.CGColor
+		_bottom.strokeColor = currentAppearenceColor()
 		_bottom.fillColor = UIColor.clearColor().CGColor
-		layer.addSublayer(_bottom)
+		_contentView.layer.addSublayer(_bottom)
 		
 		enterAnimation()
 	}
 	
-	
+  override func layersNeedToBeHighlighted() -> [CAShapeLayer]? {
+    return [_top, _topHandle1, _topHandle2, _bottom]
+  }
+  
 	override func startAnimation() {
 		_pausing = false
 		lidAnimation()

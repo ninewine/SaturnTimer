@@ -7,6 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B104B34E1C818D0B00B097FD /* STMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B104B34D1C818D0B00B097FD /* STMenuViewController.swift */; };
+		B104B3501C818D2200B097FD /* STMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B104B34F1C818D2200B097FD /* STMenuViewModel.swift */; };
+		B104B3521C81A03F00B097FD /* NSObject+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B104B3511C81A03F00B097FD /* NSObject+Helper.swift */; };
+		B10775D61C80A9FB005025B5 /* CAShapeLayer+Swizzling.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10775D51C80A9FB005025B5 /* CAShapeLayer+Swizzling.swift */; };
+		B11734491C84193400BDDBE3 /* Airship.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B11734311C84193400BDDBE3 /* Airship.mp3 */; };
+		B117344A1C84193400BDDBE3 /* Alien Metron.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B11734321C84193400BDDBE3 /* Alien Metron.mp3 */; };
+		B117344B1C84193400BDDBE3 /* Astronaut.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B11734331C84193400BDDBE3 /* Astronaut.mp3 */; };
+		B117344C1C84193400BDDBE3 /* Baby Wake Up.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B11734341C84193400BDDBE3 /* Baby Wake Up.mp3 */; };
+		B117344D1C84193400BDDBE3 /* Bob Star Attack.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B11734351C84193400BDDBE3 /* Bob Star Attack.mp3 */; };
+		B117344E1C84193400BDDBE3 /* BoDeSa.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B11734361C84193400BDDBE3 /* BoDeSa.mp3 */; };
+		B117344F1C84193400BDDBE3 /* Calculator.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B11734371C84193400BDDBE3 /* Calculator.mp3 */; };
+		B11734501C84193400BDDBE3 /* Falling Stone.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B11734381C84193400BDDBE3 /* Falling Stone.mp3 */; };
+		B11734511C84193400BDDBE3 /* Firefly.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B11734391C84193400BDDBE3 /* Firefly.mp3 */; };
+		B11734521C84193400BDDBE3 /* Lantern Star.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B117343A1C84193400BDDBE3 /* Lantern Star.mp3 */; };
+		B11734531C84193400BDDBE3 /* Lemon Port.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B117343B1C84193400BDDBE3 /* Lemon Port.mp3 */; };
+		B11734541C84193400BDDBE3 /* Milky Way.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B117343C1C84193400BDDBE3 /* Milky Way.mp3 */; };
+		B11734551C84193400BDDBE3 /* Mineral.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B117343D1C84193400BDDBE3 /* Mineral.mp3 */; };
+		B11734561C84193400BDDBE3 /* Mushrooms Villain.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B117343E1C84193400BDDBE3 /* Mushrooms Villain.mp3 */; };
+		B11734571C84193400BDDBE3 /* Nothing.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B117343F1C84193400BDDBE3 /* Nothing.mp3 */; };
+		B11734581C84193400BDDBE3 /* Rich Base.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B11734401C84193400BDDBE3 /* Rich Base.mp3 */; };
+		B11734591C84193400BDDBE3 /* Satellite.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B11734411C84193400BDDBE3 /* Satellite.mp3 */; };
+		B117345A1C84193400BDDBE3 /* Secret Pyramid.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B11734421C84193400BDDBE3 /* Secret Pyramid.mp3 */; };
+		B117345C1C84193400BDDBE3 /* Time Machine.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B11734441C84193400BDDBE3 /* Time Machine.mp3 */; };
+		B117345E1C84193400BDDBE3 /* UFO.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B11734461C84193400BDDBE3 /* UFO.mp3 */; };
+		B117345F1C84193400BDDBE3 /* Unknown Creature.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B11734471C84193400BDDBE3 /* Unknown Creature.mp3 */; };
+		B11734601C84193400BDDBE3 /* Wormhole.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B11734481C84193400BDDBE3 /* Wormhole.mp3 */; };
+		B11734621C841A4F00BDDBE3 /* Sounds.plist in Resources */ = {isa = PBXBuildFile; fileRef = B11734611C841A4F00BDDBE3 /* Sounds.plist */; };
+		B11734641C84225B00BDDBE3 /* STSoundNameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11734631C84225B00BDDBE3 /* STSoundNameTableViewCell.swift */; };
 		B15A43A41C7713BF005D605E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15A43A31C7713BF005D605E /* AppDelegate.swift */; };
 		B15A43A91C7713BF005D605E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B15A43A71C7713BF005D605E /* Main.storyboard */; };
 		B15A43AB1C7713BF005D605E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B15A43AA1C7713BF005D605E /* Assets.xcassets */; };
@@ -21,8 +49,6 @@
 		B15A43F71C77160B005D605E /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B15A43F51C77160B005D605E /* ReactiveCocoa.framework */; };
 		B15A43F81C77160B005D605E /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B15A43F61C77160B005D605E /* Result.framework */; };
 		B1716CE61C7C03A800FFD7FF /* STTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1716CE51C7C03A800FFD7FF /* STTime.swift */; };
-		B1716CE81C7C0BA300FFD7FF /* STPlayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1716CE71C7C0BA300FFD7FF /* STPlayButton.swift */; };
-		B1716CEA1C7C139100FFD7FF /* STPlayButtonPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1716CE91C7C139100FFD7FF /* STPlayButtonPath.swift */; };
 		B17695CF1C7ABF7E00C99FEE /* ReactiveCocoa.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = B15A43F51C77160B005D605E /* ReactiveCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B17695D01C7ABF7E00C99FEE /* Result.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = B15A43F61C77160B005D605E /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B17695E81C7AD4D800C99FEE /* AnimatableTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17695D71C7AD4D800C99FEE /* AnimatableTag.swift */; };
@@ -34,22 +60,35 @@
 		B17695EE1C7AD4D800C99FEE /* SaturnLayerPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17695E01C7AD4D800C99FEE /* SaturnLayerPath.swift */; };
 		B17695EF1C7AD4D800C99FEE /* Television.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17695E21C7AD4D800C99FEE /* Television.swift */; };
 		B17695F01C7AD4D800C99FEE /* TelevisionLayerPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17695E31C7AD4D800C99FEE /* TelevisionLayerPath.swift */; };
-		B17695F11C7AD4D800C99FEE /* STDialPlateLayerPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17695E41C7AD4D800C99FEE /* STDialPlateLayerPath.swift */; };
-		B17695F21C7AD4D800C99FEE /* STDialPlateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17695E51C7AD4D800C99FEE /* STDialPlateView.swift */; };
-		B17695F31C7AD4D800C99FEE /* STHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17695E61C7AD4D800C99FEE /* STHomeViewController.swift */; };
-		B17695F41C7AD4D800C99FEE /* STViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17695E71C7AD4D800C99FEE /* STViewController.swift */; };
 		B17695FA1C7AD5A800C99FEE /* STViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17695F91C7AD5A800C99FEE /* STViewModel.swift */; };
 		B17695FC1C7AD5B700C99FEE /* STHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17695FB1C7AD5B700C99FEE /* STHomeViewModel.swift */; };
-		B17695FE1C7AD60700C99FEE /* STDialPlateSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17695FD1C7AD60700C99FEE /* STDialPlateSliderView.swift */; };
 		B17696001C7ADA4300C99FEE /* HelperConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17695FF1C7ADA4300C99FEE /* HelperConstant.swift */; };
+		B185D1DC1C844FAA000C61D8 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B185D1DB1C844FAA000C61D8 /* AVFoundation.framework */; };
+		B185D1DE1C845496000C61D8 /* STTagType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B185D1DD1C845496000C61D8 /* STTagType.swift */; };
+		B185D1E01C848074000C61D8 /* HelperCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B185D1DF1C848074000C61D8 /* HelperCommon.swift */; };
 		B186751F1C7C5F15002EA264 /* STTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B186751E1C7C5F15002EA264 /* STTimer.swift */; };
-		B1C239201C7DA39400C58A5B /* RCAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C2391F1C7DA39400C58A5B /* RCAlertView.swift */; };
+		B1AAF0921C84023900A9543A /* AnimatableArrowLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AAF0911C84023900A9543A /* AnimatableArrowLayer.swift */; };
 		B1C239221C7DA48E00C58A5B /* UIWindow+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C239211C7DA48E00C58A5B /* UIWindow+Helper.swift */; };
 		B1C2392B1C7DA72E00C58A5B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B1C2392D1C7DA72E00C58A5B /* Localizable.strings */; };
 		B1C239311C7DA73500C58A5B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B1C239331C7DA73500C58A5B /* InfoPlist.strings */; };
 		B1C239381C7DA88400C58A5B /* HelperLocalization.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C239371C7DA88400C58A5B /* HelperLocalization.swift */; };
 		B1C2393A1C7DAA4F00C58A5B /* HelperNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C239391C7DAA4F00C58A5B /* HelperNotification.swift */; };
-		B1FEEFE41C806CED00F9F5FD /* STStopOrMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FEEFE31C806CED00F9F5FD /* STStopOrMenuButton.swift */; };
+		B1FEEFF81C80986900F9F5FD /* ActionButtonLayerPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FEEFEB1C80986900F9F5FD /* ActionButtonLayerPath.swift */; };
+		B1FEEFF91C80986900F9F5FD /* STActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FEEFEC1C80986900F9F5FD /* STActionButton.swift */; };
+		B1FEEFFA1C80986900F9F5FD /* AnimatableLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FEEFED1C80986900F9F5FD /* AnimatableLayer.swift */; };
+		B1FEEFFB1C80986900F9F5FD /* RCAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FEEFEF1C80986900F9F5FD /* RCAlertView.swift */; };
+		B1FEEFFC1C80986900F9F5FD /* STViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FEEFF01C80986900F9F5FD /* STViewController.swift */; };
+		B1FEEFFD1C80986900F9F5FD /* STDialPlateLayerPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FEEFF21C80986900F9F5FD /* STDialPlateLayerPath.swift */; };
+		B1FEEFFE1C80986900F9F5FD /* STDialPlateSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FEEFF31C80986900F9F5FD /* STDialPlateSliderView.swift */; };
+		B1FEEFFF1C80986900F9F5FD /* STDialPlateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FEEFF41C80986900F9F5FD /* STDialPlateView.swift */; };
+		B1FEF0001C80986900F9F5FD /* STHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FEEFF51C80986900F9F5FD /* STHomeViewController.swift */; };
+		B1FEF0011C80986900F9F5FD /* STPlayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FEEFF61C80986900F9F5FD /* STPlayButton.swift */; };
+		B1FEF0021C80986900F9F5FD /* STPlayButtonPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FEEFF71C80986900F9F5FD /* STPlayButtonPath.swift */; };
+		B1FEF0041C8098FA00F9F5FD /* AnimatableSquareLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FEF0031C8098FA00F9F5FD /* AnimatableSquareLayer.swift */; };
+		B1FEF0061C80993000F9F5FD /* AnimatableGearLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FEF0051C80993000F9F5FD /* AnimatableGearLayer.swift */; };
+		B1FEF0081C80993E00F9F5FD /* AnimatableCrossLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FEF0071C80993E00F9F5FD /* AnimatableCrossLayer.swift */; };
+		B1FEF00A1C8099E200F9F5FD /* HighlightableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FEF0091C8099E200F9F5FD /* HighlightableProtocol.swift */; };
+		B1FEF00C1C809A4800F9F5FD /* AnimatableRingLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FEF00B1C809A4800F9F5FD /* AnimatableRingLayer.swift */; };
 		D263F8F2FD82C72FEA10A3F1 /* Pods_SaturnTimer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39BB3C67DF2FAC6FE6D3489D /* Pods_SaturnTimer.framework */; };
 /* End PBXBuildFile section */
 
@@ -88,6 +127,34 @@
 /* Begin PBXFileReference section */
 		39BB3C67DF2FAC6FE6D3489D /* Pods_SaturnTimer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SaturnTimer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		996269BD96DEE1838A3B4D72 /* Pods-SaturnTimer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaturnTimer.release.xcconfig"; path = "Pods/Target Support Files/Pods-SaturnTimer/Pods-SaturnTimer.release.xcconfig"; sourceTree = "<group>"; };
+		B104B34D1C818D0B00B097FD /* STMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = STMenuViewController.swift; path = Menu/STMenuViewController.swift; sourceTree = "<group>"; };
+		B104B34F1C818D2200B097FD /* STMenuViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STMenuViewModel.swift; sourceTree = "<group>"; };
+		B104B3511C81A03F00B097FD /* NSObject+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+Helper.swift"; sourceTree = "<group>"; };
+		B10775D51C80A9FB005025B5 /* CAShapeLayer+Swizzling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CAShapeLayer+Swizzling.swift"; sourceTree = "<group>"; };
+		B11734311C84193400BDDBE3 /* Airship.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Airship.mp3; sourceTree = "<group>"; };
+		B11734321C84193400BDDBE3 /* Alien Metron.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Alien Metron.mp3"; sourceTree = "<group>"; };
+		B11734331C84193400BDDBE3 /* Astronaut.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Astronaut.mp3; sourceTree = "<group>"; };
+		B11734341C84193400BDDBE3 /* Baby Wake Up.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Baby Wake Up.mp3"; sourceTree = "<group>"; };
+		B11734351C84193400BDDBE3 /* Bob Star Attack.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Bob Star Attack.mp3"; sourceTree = "<group>"; };
+		B11734361C84193400BDDBE3 /* BoDeSa.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = BoDeSa.mp3; sourceTree = "<group>"; };
+		B11734371C84193400BDDBE3 /* Calculator.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Calculator.mp3; sourceTree = "<group>"; };
+		B11734381C84193400BDDBE3 /* Falling Stone.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Falling Stone.mp3"; sourceTree = "<group>"; };
+		B11734391C84193400BDDBE3 /* Firefly.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Firefly.mp3; sourceTree = "<group>"; };
+		B117343A1C84193400BDDBE3 /* Lantern Star.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Lantern Star.mp3"; sourceTree = "<group>"; };
+		B117343B1C84193400BDDBE3 /* Lemon Port.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Lemon Port.mp3"; sourceTree = "<group>"; };
+		B117343C1C84193400BDDBE3 /* Milky Way.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Milky Way.mp3"; sourceTree = "<group>"; };
+		B117343D1C84193400BDDBE3 /* Mineral.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Mineral.mp3; sourceTree = "<group>"; };
+		B117343E1C84193400BDDBE3 /* Mushrooms Villain.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Mushrooms Villain.mp3"; sourceTree = "<group>"; };
+		B117343F1C84193400BDDBE3 /* Nothing.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Nothing.mp3; sourceTree = "<group>"; };
+		B11734401C84193400BDDBE3 /* Rich Base.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Rich Base.mp3"; sourceTree = "<group>"; };
+		B11734411C84193400BDDBE3 /* Satellite.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Satellite.mp3; sourceTree = "<group>"; };
+		B11734421C84193400BDDBE3 /* Secret Pyramid.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Secret Pyramid.mp3"; sourceTree = "<group>"; };
+		B11734441C84193400BDDBE3 /* Time Machine.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Time Machine.mp3"; sourceTree = "<group>"; };
+		B11734461C84193400BDDBE3 /* UFO.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = UFO.mp3; sourceTree = "<group>"; };
+		B11734471C84193400BDDBE3 /* Unknown Creature.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Unknown Creature.mp3"; sourceTree = "<group>"; };
+		B11734481C84193400BDDBE3 /* Wormhole.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Wormhole.mp3; sourceTree = "<group>"; };
+		B11734611C841A4F00BDDBE3 /* Sounds.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Sounds.plist; sourceTree = "<group>"; };
+		B11734631C84225B00BDDBE3 /* STSoundNameTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = STSoundNameTableViewCell.swift; path = Menu/STSoundNameTableViewCell.swift; sourceTree = "<group>"; };
 		B15A43A01C7713BF005D605E /* SaturnTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SaturnTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B15A43A31C7713BF005D605E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B15A43A81C7713BF005D605E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -108,8 +175,6 @@
 		B15A43F51C77160B005D605E /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/iOS/ReactiveCocoa.framework; sourceTree = "<group>"; };
 		B15A43F61C77160B005D605E /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
 		B1716CE51C7C03A800FFD7FF /* STTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STTime.swift; sourceTree = "<group>"; };
-		B1716CE71C7C0BA300FFD7FF /* STPlayButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STPlayButton.swift; sourceTree = "<group>"; };
-		B1716CE91C7C139100FFD7FF /* STPlayButtonPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STPlayButtonPath.swift; sourceTree = "<group>"; };
 		B17695D71C7AD4D800C99FEE /* AnimatableTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatableTag.swift; sourceTree = "<group>"; };
 		B17695D91C7AD4D800C99FEE /* Plate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plate.swift; sourceTree = "<group>"; };
 		B17695DA1C7AD4D800C99FEE /* PlateLayerPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlateLayerPath.swift; sourceTree = "<group>"; };
@@ -119,16 +184,17 @@
 		B17695E01C7AD4D800C99FEE /* SaturnLayerPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaturnLayerPath.swift; sourceTree = "<group>"; };
 		B17695E21C7AD4D800C99FEE /* Television.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Television.swift; sourceTree = "<group>"; };
 		B17695E31C7AD4D800C99FEE /* TelevisionLayerPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TelevisionLayerPath.swift; sourceTree = "<group>"; };
-		B17695E41C7AD4D800C99FEE /* STDialPlateLayerPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STDialPlateLayerPath.swift; sourceTree = "<group>"; };
-		B17695E51C7AD4D800C99FEE /* STDialPlateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STDialPlateView.swift; sourceTree = "<group>"; };
-		B17695E61C7AD4D800C99FEE /* STHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STHomeViewController.swift; sourceTree = "<group>"; };
-		B17695E71C7AD4D800C99FEE /* STViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STViewController.swift; sourceTree = "<group>"; };
 		B17695F91C7AD5A800C99FEE /* STViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STViewModel.swift; sourceTree = "<group>"; };
 		B17695FB1C7AD5B700C99FEE /* STHomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STHomeViewModel.swift; sourceTree = "<group>"; };
-		B17695FD1C7AD60700C99FEE /* STDialPlateSliderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STDialPlateSliderView.swift; sourceTree = "<group>"; };
 		B17695FF1C7ADA4300C99FEE /* HelperConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperConstant.swift; sourceTree = "<group>"; };
+		B185D1DB1C844FAA000C61D8 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		B185D1DD1C845496000C61D8 /* STTagType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STTagType.swift; sourceTree = "<group>"; };
+		B185D1DF1C848074000C61D8 /* HelperCommon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperCommon.swift; sourceTree = "<group>"; };
+		B185D1E41C84980C000C61D8 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
+		B185D1E61C849810000C61D8 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		B185D1E81C849816000C61D8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		B186751E1C7C5F15002EA264 /* STTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STTimer.swift; sourceTree = "<group>"; };
-		B1C2391F1C7DA39400C58A5B /* RCAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCAlertView.swift; sourceTree = "<group>"; };
+		B1AAF0911C84023900A9543A /* AnimatableArrowLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatableArrowLayer.swift; sourceTree = "<group>"; };
 		B1C239211C7DA48E00C58A5B /* UIWindow+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+Helper.swift"; sourceTree = "<group>"; };
 		B1C2392C1C7DA72E00C58A5B /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B1C2392E1C7DA72F00C58A5B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -140,7 +206,22 @@
 		B1C239361C7DA73800C58A5B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		B1C239371C7DA88400C58A5B /* HelperLocalization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperLocalization.swift; sourceTree = "<group>"; };
 		B1C239391C7DAA4F00C58A5B /* HelperNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperNotification.swift; sourceTree = "<group>"; };
-		B1FEEFE31C806CED00F9F5FD /* STStopOrMenuButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STStopOrMenuButton.swift; sourceTree = "<group>"; };
+		B1FEEFEB1C80986900F9F5FD /* ActionButtonLayerPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionButtonLayerPath.swift; sourceTree = "<group>"; };
+		B1FEEFEC1C80986900F9F5FD /* STActionButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STActionButton.swift; sourceTree = "<group>"; };
+		B1FEEFED1C80986900F9F5FD /* AnimatableLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatableLayer.swift; sourceTree = "<group>"; };
+		B1FEEFEF1C80986900F9F5FD /* RCAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCAlertView.swift; sourceTree = "<group>"; };
+		B1FEEFF01C80986900F9F5FD /* STViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STViewController.swift; sourceTree = "<group>"; };
+		B1FEEFF21C80986900F9F5FD /* STDialPlateLayerPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STDialPlateLayerPath.swift; sourceTree = "<group>"; };
+		B1FEEFF31C80986900F9F5FD /* STDialPlateSliderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STDialPlateSliderView.swift; sourceTree = "<group>"; };
+		B1FEEFF41C80986900F9F5FD /* STDialPlateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STDialPlateView.swift; sourceTree = "<group>"; };
+		B1FEEFF51C80986900F9F5FD /* STHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STHomeViewController.swift; sourceTree = "<group>"; };
+		B1FEEFF61C80986900F9F5FD /* STPlayButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STPlayButton.swift; sourceTree = "<group>"; };
+		B1FEEFF71C80986900F9F5FD /* STPlayButtonPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STPlayButtonPath.swift; sourceTree = "<group>"; };
+		B1FEF0031C8098FA00F9F5FD /* AnimatableSquareLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatableSquareLayer.swift; sourceTree = "<group>"; };
+		B1FEF0051C80993000F9F5FD /* AnimatableGearLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatableGearLayer.swift; sourceTree = "<group>"; };
+		B1FEF0071C80993E00F9F5FD /* AnimatableCrossLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatableCrossLayer.swift; sourceTree = "<group>"; };
+		B1FEF0091C8099E200F9F5FD /* HighlightableProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighlightableProtocol.swift; sourceTree = "<group>"; };
+		B1FEF00B1C809A4800F9F5FD /* AnimatableRingLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatableRingLayer.swift; sourceTree = "<group>"; };
 		E80CA5B8264A6A7FF674D4FD /* Pods-SaturnTimer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaturnTimer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SaturnTimer/Pods-SaturnTimer.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -149,6 +230,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B185D1DC1C844FAA000C61D8 /* AVFoundation.framework in Frameworks */,
 				B15A43F71C77160B005D605E /* ReactiveCocoa.framework in Frameworks */,
 				B15A43F81C77160B005D605E /* Result.framework in Frameworks */,
 				D263F8F2FD82C72FEA10A3F1 /* Pods_SaturnTimer.framework in Frameworks */,
@@ -175,6 +257,7 @@
 		5DF9A4A8415CF636FCEA24DC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B185D1DB1C844FAA000C61D8 /* AVFoundation.framework */,
 				B15A43F51C77160B005D605E /* ReactiveCocoa.framework */,
 				B15A43F61C77160B005D605E /* Result.framework */,
 				39BB3C67DF2FAC6FE6D3489D /* Pods_SaturnTimer.framework */,
@@ -189,6 +272,45 @@
 				996269BD96DEE1838A3B4D72 /* Pods-SaturnTimer.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		B104B34C1C818CCB00B097FD /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				B11734631C84225B00BDDBE3 /* STSoundNameTableViewCell.swift */,
+				B104B34D1C818D0B00B097FD /* STMenuViewController.swift */,
+			);
+			name = Menu;
+			sourceTree = "<group>";
+		};
+		B11734301C84193400BDDBE3 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				B11734611C841A4F00BDDBE3 /* Sounds.plist */,
+				B11734311C84193400BDDBE3 /* Airship.mp3 */,
+				B11734321C84193400BDDBE3 /* Alien Metron.mp3 */,
+				B11734331C84193400BDDBE3 /* Astronaut.mp3 */,
+				B11734341C84193400BDDBE3 /* Baby Wake Up.mp3 */,
+				B11734351C84193400BDDBE3 /* Bob Star Attack.mp3 */,
+				B11734361C84193400BDDBE3 /* BoDeSa.mp3 */,
+				B11734371C84193400BDDBE3 /* Calculator.mp3 */,
+				B11734381C84193400BDDBE3 /* Falling Stone.mp3 */,
+				B11734391C84193400BDDBE3 /* Firefly.mp3 */,
+				B117343A1C84193400BDDBE3 /* Lantern Star.mp3 */,
+				B117343B1C84193400BDDBE3 /* Lemon Port.mp3 */,
+				B117343C1C84193400BDDBE3 /* Milky Way.mp3 */,
+				B117343D1C84193400BDDBE3 /* Mineral.mp3 */,
+				B117343E1C84193400BDDBE3 /* Mushrooms Villain.mp3 */,
+				B117343F1C84193400BDDBE3 /* Nothing.mp3 */,
+				B11734401C84193400BDDBE3 /* Rich Base.mp3 */,
+				B11734411C84193400BDDBE3 /* Satellite.mp3 */,
+				B11734421C84193400BDDBE3 /* Secret Pyramid.mp3 */,
+				B11734441C84193400BDDBE3 /* Time Machine.mp3 */,
+				B11734461C84193400BDDBE3 /* UFO.mp3 */,
+				B11734471C84193400BDDBE3 /* Unknown Creature.mp3 */,
+				B11734481C84193400BDDBE3 /* Wormhole.mp3 */,
+			);
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 		B15A43971C7713BF005D605E = {
@@ -221,6 +343,7 @@
 				B15A43A31C7713BF005D605E /* AppDelegate.swift */,
 				B15A43A71C7713BF005D605E /* Main.storyboard */,
 				B15A43AA1C7713BF005D605E /* Assets.xcassets */,
+				B11734301C84193400BDDBE3 /* Sounds */,
 				B15A43AF1C7713BF005D605E /* Info.plist */,
 				B1C239331C7DA73500C58A5B /* InfoPlist.strings */,
 				B1C2392D1C7DA72E00C58A5B /* Localizable.strings */,
@@ -257,9 +380,11 @@
 			children = (
 				B15A43D61C7713F1005D605E /* Array+Helper.swift */,
 				B15A43D71C7713F1005D605E /* CALayer+Helper.swift */,
+				B10775D51C80A9FB005025B5 /* CAShapeLayer+Swizzling.swift */,
 				B15A43D81C7713F1005D605E /* Optinal+Helper.swift */,
 				B15A43D91C7713F1005D605E /* UIColor+Hex.swift */,
 				B1C239211C7DA48E00C58A5B /* UIWindow+Helper.swift */,
+				B104B3511C81A03F00B097FD /* NSObject+Helper.swift */,
 			);
 			path = Extension;
 			sourceTree = SOURCE_ROOT;
@@ -267,6 +392,7 @@
 		B15A43DA1C7713F1005D605E /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				B185D1DF1C848074000C61D8 /* HelperCommon.swift */,
 				B15A43DB1C7713F1005D605E /* HelperColor.swift */,
 				B17695FF1C7ADA4300C99FEE /* HelperConstant.swift */,
 				B1C239371C7DA88400C58A5B /* HelperLocalization.swift */,
@@ -278,9 +404,11 @@
 		B17695D41C7AD4D800C99FEE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B1FEEFEA1C80986900F9F5FD /* ActionButton */,
 				B17695D51C7AD4D800C99FEE /* AnimatableTag */,
-				B17695F51C7AD4EC00C99FEE /* Base */,
-				B17695F61C7AD4F400C99FEE /* Home */,
+				B1FEEFEE1C80986900F9F5FD /* Common */,
+				B1FEEFF11C80986900F9F5FD /* Home */,
+				B104B34C1C818CCB00B097FD /* Menu */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -341,34 +469,12 @@
 			path = Television;
 			sourceTree = "<group>";
 		};
-		B17695F51C7AD4EC00C99FEE /* Base */ = {
-			isa = PBXGroup;
-			children = (
-				B1C2391F1C7DA39400C58A5B /* RCAlertView.swift */,
-				B17695E71C7AD4D800C99FEE /* STViewController.swift */,
-			);
-			name = Base;
-			sourceTree = "<group>";
-		};
-		B17695F61C7AD4F400C99FEE /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				B17695E41C7AD4D800C99FEE /* STDialPlateLayerPath.swift */,
-				B17695E51C7AD4D800C99FEE /* STDialPlateView.swift */,
-				B17695FD1C7AD60700C99FEE /* STDialPlateSliderView.swift */,
-				B1716CE71C7C0BA300FFD7FF /* STPlayButton.swift */,
-				B1716CE91C7C139100FFD7FF /* STPlayButtonPath.swift */,
-				B17695E61C7AD4D800C99FEE /* STHomeViewController.swift */,
-				B1FEEFE31C806CED00F9F5FD /* STStopOrMenuButton.swift */,
-			);
-			name = Home;
-			sourceTree = "<group>";
-		};
 		B17695F71C7AD59D00C99FEE /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				B1716CE51C7C03A800FFD7FF /* STTime.swift */,
 				B186751E1C7C5F15002EA264 /* STTimer.swift */,
+				B185D1DD1C845496000C61D8 /* STTagType.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -378,8 +484,47 @@
 			children = (
 				B17695F91C7AD5A800C99FEE /* STViewModel.swift */,
 				B17695FB1C7AD5B700C99FEE /* STHomeViewModel.swift */,
+				B104B34F1C818D2200B097FD /* STMenuViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B1FEEFEA1C80986900F9F5FD /* ActionButton */ = {
+			isa = PBXGroup;
+			children = (
+				B1FEF0091C8099E200F9F5FD /* HighlightableProtocol.swift */,
+				B1FEEFEB1C80986900F9F5FD /* ActionButtonLayerPath.swift */,
+				B1FEEFED1C80986900F9F5FD /* AnimatableLayer.swift */,
+				B1FEF00B1C809A4800F9F5FD /* AnimatableRingLayer.swift */,
+				B1FEF0031C8098FA00F9F5FD /* AnimatableSquareLayer.swift */,
+				B1FEF0071C80993E00F9F5FD /* AnimatableCrossLayer.swift */,
+				B1AAF0911C84023900A9543A /* AnimatableArrowLayer.swift */,
+				B1FEF0051C80993000F9F5FD /* AnimatableGearLayer.swift */,
+				B1FEEFEC1C80986900F9F5FD /* STActionButton.swift */,
+			);
+			path = ActionButton;
+			sourceTree = "<group>";
+		};
+		B1FEEFEE1C80986900F9F5FD /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				B1FEEFEF1C80986900F9F5FD /* RCAlertView.swift */,
+				B1FEEFF01C80986900F9F5FD /* STViewController.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		B1FEEFF11C80986900F9F5FD /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				B1FEEFF21C80986900F9F5FD /* STDialPlateLayerPath.swift */,
+				B1FEEFF31C80986900F9F5FD /* STDialPlateSliderView.swift */,
+				B1FEEFF41C80986900F9F5FD /* STDialPlateView.swift */,
+				B1FEEFF61C80986900F9F5FD /* STPlayButton.swift */,
+				B1FEEFF71C80986900F9F5FD /* STPlayButtonPath.swift */,
+				B1FEEFF51C80986900F9F5FD /* STHomeViewController.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -456,6 +601,7 @@
 				TargetAttributes = {
 					B15A439F1C7713BF005D605E = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = AF2Q9UV2AS;
 					};
 					B15A43B31C7713BF005D605E = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -494,10 +640,33 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B11734501C84193400BDDBE3 /* Falling Stone.mp3 in Resources */,
+				B117344E1C84193400BDDBE3 /* BoDeSa.mp3 in Resources */,
+				B117344A1C84193400BDDBE3 /* Alien Metron.mp3 in Resources */,
 				B1C2392B1C7DA72E00C58A5B /* Localizable.strings in Resources */,
+				B117345A1C84193400BDDBE3 /* Secret Pyramid.mp3 in Resources */,
+				B117344D1C84193400BDDBE3 /* Bob Star Attack.mp3 in Resources */,
 				B1C239311C7DA73500C58A5B /* InfoPlist.strings in Resources */,
 				B15A43AB1C7713BF005D605E /* Assets.xcassets in Resources */,
+				B11734621C841A4F00BDDBE3 /* Sounds.plist in Resources */,
+				B11734521C84193400BDDBE3 /* Lantern Star.mp3 in Resources */,
+				B11734571C84193400BDDBE3 /* Nothing.mp3 in Resources */,
+				B11734541C84193400BDDBE3 /* Milky Way.mp3 in Resources */,
+				B117344F1C84193400BDDBE3 /* Calculator.mp3 in Resources */,
+				B11734511C84193400BDDBE3 /* Firefly.mp3 in Resources */,
+				B11734601C84193400BDDBE3 /* Wormhole.mp3 in Resources */,
+				B117345C1C84193400BDDBE3 /* Time Machine.mp3 in Resources */,
+				B117344B1C84193400BDDBE3 /* Astronaut.mp3 in Resources */,
+				B11734491C84193400BDDBE3 /* Airship.mp3 in Resources */,
+				B11734531C84193400BDDBE3 /* Lemon Port.mp3 in Resources */,
+				B117345E1C84193400BDDBE3 /* UFO.mp3 in Resources */,
+				B117344C1C84193400BDDBE3 /* Baby Wake Up.mp3 in Resources */,
+				B11734581C84193400BDDBE3 /* Rich Base.mp3 in Resources */,
+				B117345F1C84193400BDDBE3 /* Unknown Creature.mp3 in Resources */,
+				B11734551C84193400BDDBE3 /* Mineral.mp3 in Resources */,
+				B11734591C84193400BDDBE3 /* Satellite.mp3 in Resources */,
 				B15A43D31C7713D5005D605E /* Cartfile in Resources */,
+				B11734561C84193400BDDBE3 /* Mushrooms Villain.mp3 in Resources */,
 				B15A43A91C7713BF005D605E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -586,38 +755,53 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B17695F31C7AD4D800C99FEE /* STHomeViewController.swift in Sources */,
-				B1716CEA1C7C139100FFD7FF /* STPlayButtonPath.swift in Sources */,
-				B1FEEFE41C806CED00F9F5FD /* STStopOrMenuButton.swift in Sources */,
+				B104B3501C818D2200B097FD /* STMenuViewModel.swift in Sources */,
 				B17696001C7ADA4300C99FEE /* HelperConstant.swift in Sources */,
+				B1FEF0021C80986900F9F5FD /* STPlayButtonPath.swift in Sources */,
+				B1FEF0081C80993E00F9F5FD /* AnimatableCrossLayer.swift in Sources */,
+				B1FEF0061C80993000F9F5FD /* AnimatableGearLayer.swift in Sources */,
+				B185D1DE1C845496000C61D8 /* STTagType.swift in Sources */,
 				B17695ED1C7AD4D800C99FEE /* Saturn.swift in Sources */,
+				B10775D61C80A9FB005025B5 /* CAShapeLayer+Swizzling.swift in Sources */,
 				B186751F1C7C5F15002EA264 /* STTimer.swift in Sources */,
+				B185D1E01C848074000C61D8 /* HelperCommon.swift in Sources */,
 				B17695EF1C7AD4D800C99FEE /* Television.swift in Sources */,
+				B1FEF0001C80986900F9F5FD /* STHomeViewController.swift in Sources */,
 				B1C239381C7DA88400C58A5B /* HelperLocalization.swift in Sources */,
+				B1AAF0921C84023900A9543A /* AnimatableArrowLayer.swift in Sources */,
+				B1FEEFFF1C80986900F9F5FD /* STDialPlateView.swift in Sources */,
 				B15A43E71C7713F1005D605E /* Array+Helper.swift in Sources */,
+				B104B3521C81A03F00B097FD /* NSObject+Helper.swift in Sources */,
 				B1716CE61C7C03A800FFD7FF /* STTime.swift in Sources */,
 				B15A43A41C7713BF005D605E /* AppDelegate.swift in Sources */,
 				B17695EE1C7AD4D800C99FEE /* SaturnLayerPath.swift in Sources */,
+				B1FEEFFD1C80986900F9F5FD /* STDialPlateLayerPath.swift in Sources */,
 				B17695EB1C7AD4D800C99FEE /* Sandglass.swift in Sources */,
-				B17695F11C7AD4D800C99FEE /* STDialPlateLayerPath.swift in Sources */,
-				B1C239201C7DA39400C58A5B /* RCAlertView.swift in Sources */,
+				B1FEEFFA1C80986900F9F5FD /* AnimatableLayer.swift in Sources */,
 				B17695E81C7AD4D800C99FEE /* AnimatableTag.swift in Sources */,
-				B1716CE81C7C0BA300FFD7FF /* STPlayButton.swift in Sources */,
 				B17695F01C7AD4D800C99FEE /* TelevisionLayerPath.swift in Sources */,
+				B104B34E1C818D0B00B097FD /* STMenuViewController.swift in Sources */,
 				B15A43EB1C7713F1005D605E /* HelperColor.swift in Sources */,
 				B1C2393A1C7DAA4F00C58A5B /* HelperNotification.swift in Sources */,
-				B17695FE1C7AD60700C99FEE /* STDialPlateSliderView.swift in Sources */,
 				B17695E91C7AD4D800C99FEE /* Plate.swift in Sources */,
 				B15A43EA1C7713F1005D605E /* UIColor+Hex.swift in Sources */,
+				B1FEF0011C80986900F9F5FD /* STPlayButton.swift in Sources */,
 				B15A43E81C7713F1005D605E /* CALayer+Helper.swift in Sources */,
-				B17695F21C7AD4D800C99FEE /* STDialPlateView.swift in Sources */,
+				B1FEF0041C8098FA00F9F5FD /* AnimatableSquareLayer.swift in Sources */,
+				B1FEEFFB1C80986900F9F5FD /* RCAlertView.swift in Sources */,
 				B17695EA1C7AD4D800C99FEE /* PlateLayerPath.swift in Sources */,
-				B17695F41C7AD4D800C99FEE /* STViewController.swift in Sources */,
+				B1FEEFF81C80986900F9F5FD /* ActionButtonLayerPath.swift in Sources */,
 				B17695EC1C7AD4D800C99FEE /* SandglassLayerPath.swift in Sources */,
+				B1FEF00C1C809A4800F9F5FD /* AnimatableRingLayer.swift in Sources */,
 				B17695FC1C7AD5B700C99FEE /* STHomeViewModel.swift in Sources */,
+				B1FEEFFC1C80986900F9F5FD /* STViewController.swift in Sources */,
+				B1FEEFFE1C80986900F9F5FD /* STDialPlateSliderView.swift in Sources */,
+				B11734641C84225B00BDDBE3 /* STSoundNameTableViewCell.swift in Sources */,
 				B15A43E91C7713F1005D605E /* Optinal+Helper.swift in Sources */,
 				B17695FA1C7AD5A800C99FEE /* STViewModel.swift in Sources */,
+				B1FEEFF91C80986900F9F5FD /* STActionButton.swift in Sources */,
 				B1C239221C7DA48E00C58A5B /* UIWindow+Helper.swift in Sources */,
+				B1FEF00A1C8099E200F9F5FD /* HighlightableProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -657,6 +841,9 @@
 			isa = PBXVariantGroup;
 			children = (
 				B15A43A81C7713BF005D605E /* Base */,
+				B185D1E41C84980C000C61D8 /* zh-Hant */,
+				B185D1E61C849810000C61D8 /* zh-Hans */,
+				B185D1E81C849816000C61D8 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -775,6 +962,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -784,6 +972,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rocketchild.SaturnTimer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -793,6 +982,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -802,6 +992,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rocketchild.SaturnTimer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

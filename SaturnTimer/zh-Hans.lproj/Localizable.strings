@@ -11,6 +11,13 @@
 "Back"="返回";
 "OK"="好的";
 "Settings"="设置";
+"Random"="随机";
+
+"TimeIsUpStringSaturnTag"="💫时间到了。💫";
+"TimeIsUpStringSandglassTag"="⌛时间到了。⌛";
+"TimeIsUpStringTelevisionTag"="📺时间到了。📺";
+"TimeIsUpStringPlateTag"="🍽时间到了。🍽";
+
 
 "AskForNotificationPermission"="为了让计时器正常工作，请务必允许土星计时器向您发送通知。";
 "CheckNotificationPermissionFailed"="土星计时器的通知功能被关闭了，请前往“设置”进行打开。";

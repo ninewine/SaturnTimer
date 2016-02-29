@@ -12,12 +12,20 @@ struct HelperConstant {
   struct _UserDefaultKey {
     let IsFirstLaunch = "IsFirstLaunch"
     let AlreadyAskedForNotificationPermission = "AlreadyAskedForNotificationPermission"
+    let CurrentTagTypeName = "CurrentTagTypeName"
+    let CurrentSoundFileName = "CurrentSoundFileName"
+  }
+  
+  struct _UserDefaultValue {
+    let DefaultSoundFileName = "Firefly.mp3"
   }
   
   struct _NotificationName {
     let RightBottomButtonPressedNotification = "SaturnTimer.RightBottomButtonPressed"
+    let TagTypeChangedNotification = "SaturnTimer.TagTypeChanged"
   }
   
   static let UserDefaultKey = _UserDefaultKey()
+  static let UserDefaultValue = _UserDefaultValue()
   static let NotificationName = _NotificationName()
 }

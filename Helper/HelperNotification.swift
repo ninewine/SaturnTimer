@@ -33,14 +33,14 @@ struct HelperNotification {
       self.checkNotificationAccessibility()
     }
     else {
-      let alert = RCAlertView(title: nil, message: HelperLocalization.AskForNotificationPermission, image: nil)
+      let alert = RCAlertView(title: nil, message: HelperLocalization.AskForNotificationPermission, image: UIImage(named: "pic-logo-without-text"))
       alert.addButtonWithTitle(HelperLocalization.OK, type: RCAlertViewButtonType.Fill) { (_) -> Void in
+        NSUserDefaults.standardUserDefaults().setBool(true, forKey: HelperConstant.UserDefaultKey.AlreadyAskedForNotificationPermission)
         let types:UIUserNotificationType = [.Badge, .Sound, .Alert]
         let settings = UIUserNotificationSettings(forTypes: types, categories: nil)
         UIApplication.sharedApplication().registerUserNotificationSettings(settings)
       }
       alert.show()
-      NSUserDefaults.standardUserDefaults().setBool(true, forKey: HelperConstant.UserDefaultKey.AlreadyAskedForNotificationPermission)
     }
   }
 }
