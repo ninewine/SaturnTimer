@@ -28,10 +28,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       firstLaunchAction()
     }
   
+    configUmeng()
     handleLaunchOptions(launchOptions)
     return true
   }
 
+  func configUmeng () {
+    MobClick.startWithAppkey(HelperConstant.UmengReference.AppKey, reportPolicy: BATCH, channelId: nil)
+  }
   
   func handleLaunchOptions (launchOptions: [NSObject: AnyObject]?) {
     if let option = launchOptions {

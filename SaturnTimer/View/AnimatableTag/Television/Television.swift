@@ -63,7 +63,7 @@ class Television: AnimatableTag {
 			let gap: Int = 2
 			snow.opacity = 0.0
 			snow.position = CGPointMake(CGFloat(row * gap) + 7.3, CGFloat(col * gap) + 13.1)
-			snow.backgroundColor = UIColor.whiteColor().CGColor
+			snow.backgroundColor = HelperColor.lightGrayColor.CGColor
 			_contentView.layer.addSublayer(snow)
 			return snow
 		}).shuffle()

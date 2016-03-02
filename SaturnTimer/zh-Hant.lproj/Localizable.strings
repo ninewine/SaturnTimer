@@ -13,10 +13,10 @@
 "Settings"="設置";
 "Random"="隨機";
 
-"TimeIsUpStringSaturnTag"="💫時間到了。💫";
-"TimeIsUpStringSandglassTag"="⌛時間到了。⌛";
-"TimeIsUpStringTelevisionTag"="📺時間到了。📺";
-"TimeIsUpStringPlateTag"="🍽時間到了。🍽";
+"TimeIsUpStringSaturnTag"="💫時間到了💫";
+"TimeIsUpStringSandglassTag"="⌛時間到了⌛";
+"TimeIsUpStringTelevisionTag"="📺時間到了📺";
+"TimeIsUpStringPlateTag"="🍽時間到了🍽";
 
 "AskForNotificationPermission"="為了讓計時器正常工作，請務必允許土星計時器向您傳送通知";
 "CheckNotificationPermissionFailed"="土星計時器的通知功能被關閉了，請前往“設置”進行打開";

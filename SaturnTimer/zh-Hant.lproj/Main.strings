@@ -3,7 +3,7 @@
 "7ZL-Cf-qOG.text" = "00";
 
 /* Class = "UILabel"; text = "s"; ObjectID = "BuN-fA-lYJ"; */
-"BuN-fA-lYJ.text" = "秒";
+"BuN-fA-lYJ.text" = "s";
 
 /* Class = "UILabel"; text = "COUNTDOWN"; ObjectID = "Ep2-Qz-Yi2"; */
 "Ep2-Qz-Yi2.text" = "倒計時";
@@ -39,10 +39,10 @@
 "fCu-zf-QMK.text" = "設定";
 
 /* Class = "UILabel"; text = "m"; ObjectID = "fgl-n7-eK7"; */
-"fgl-n7-eK7.text" = "分";
+"fgl-n7-eK7.text" = "m";
 
 /* Class = "UILabel"; text = "h"; ObjectID = "iFG-Af-AAE"; */
-"iFG-Af-AAE.text" = "時";
+"iFG-Af-AAE.text" = "h";
 
 /* Class = "UILabel"; text = "Δ"; ObjectID = "oQN-YM-C1u"; */
 "oQN-YM-C1u.text" = "Δ";

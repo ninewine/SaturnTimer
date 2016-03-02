@@ -48,15 +48,15 @@ class AnimatableArrowLayer: AnimatableLayer {
   }
   
   override func transitionIn(completion: (() -> ())?) {
-    _arrowTop.pathStokeAnimationFrom(nil, to: 0.0, duration: transitionDuration * 0.5, type: .Start)
-    _arrowBottom.pathStokeAnimationFrom(nil, to: 0.0, duration: transitionDuration * 0.5, type: .Start)
-    _arrowTop.pathStokeAnimationFrom(nil, to: 1.0, duration: transitionDuration * 0.5, type: .End) {[weak self] () -> Void in
+    _arrowTop.pathStokeAnimationFrom(nil, to: 0.0, duration: transitionDuration * 0.3, type: .Start)
+    _arrowBottom.pathStokeAnimationFrom(nil, to: 0.0, duration: transitionDuration * 0.3, type: .Start)
+    _arrowTop.pathStokeAnimationFrom(nil, to: 1.0, duration: transitionDuration * 0.3, type: .End) {[weak self] () -> Void in
       guard let _self = self else {return}
-      _self._arrowTop.rotateAnimation(nil, to: CGFloat(-M_PI_4) * 0.9, duration: _self.transitionDuration * 0.5)
+      _self._arrowTop.rotateAnimation(nil, to: CGFloat(-M_PI_4) * 0.9, duration: _self.transitionDuration * 0.3)
     }
-    _arrowBottom.pathStokeAnimationFrom(nil, to: 1.0, duration: transitionDuration * 0.5, type: .End) {[weak self] () -> Void in
+    _arrowBottom.pathStokeAnimationFrom(nil, to: 1.0, duration: transitionDuration * 0.3, type: .End) {[weak self] () -> Void in
       guard let _self = self else {return}
-      _self._arrowBottom.rotateAnimation(nil, to: CGFloat(M_PI_4) * 0.9, duration: _self.transitionDuration * 0.5) { () -> Void in
+      _self._arrowBottom.rotateAnimation(nil, to: CGFloat(M_PI_4) * 0.9, duration: _self.transitionDuration * 0.3) { () -> Void in
         if let block = completion {
           block()
         }
@@ -66,13 +66,13 @@ class AnimatableArrowLayer: AnimatableLayer {
   
   
   override func transitionOut(completion: (() -> ())?) {
-    _arrowTop.rotateAnimation(nil, to: 0.0, duration: transitionDuration * 0.5)
-    _arrowBottom.rotateAnimation(nil, to: 0.0, duration: transitionDuration * 0.5) {[weak self] () -> Void in
+    _arrowTop.rotateAnimation(nil, to: 0.0, duration: transitionDuration * 0.3)
+    _arrowBottom.rotateAnimation(nil, to: 0.0, duration: transitionDuration * 0.3) {[weak self] () -> Void in
       guard let _self = self else {return}
-      _self._arrowTop.pathStokeAnimationFrom(nil, to: 0.5, duration: _self.transitionDuration * 0.5, type: .Start)
-      _self._arrowBottom.pathStokeAnimationFrom(nil, to: 0.5, duration: _self.transitionDuration * 0.5, type: .Start)
-      _self._arrowTop.pathStokeAnimationFrom(nil, to: 0.5, duration: _self.transitionDuration * 0.5, type: .End)
-      _self._arrowBottom.pathStokeAnimationFrom(nil, to: 0.5, duration: _self.transitionDuration * 0.5, type: .End){ () -> Void in
+      _self._arrowTop.pathStokeAnimationFrom(nil, to: 0.5, duration: _self.transitionDuration * 0.3, type: .Start)
+      _self._arrowBottom.pathStokeAnimationFrom(nil, to: 0.5, duration: _self.transitionDuration * 0.3, type: .Start)
+      _self._arrowTop.pathStokeAnimationFrom(nil, to: 0.5, duration: _self.transitionDuration * 0.3, type: .End)
+      _self._arrowBottom.pathStokeAnimationFrom(nil, to: 0.5, duration: _self.transitionDuration * 0.3, type: .End){ () -> Void in
         if let block = completion {
           block()
         }

@@ -130,14 +130,12 @@ class STDialPlateView: UIView {
       .filter { (progress) -> Bool in
         return progress >= 0.0 && progress <= 1.0
       }
-      .observeOn(QueueScheduler.mainQueueScheduler)
+      .observeOn(UIScheduler())
       .startWithNext {[weak self] (progress) -> () in
         guard let _self = self else {return}
 
-        CATransaction.begin()
-        CATransaction.setValue(kCFBooleanTrue, forKey: kCATransactionDisableActions)
-        _self._outerCyanRing.strokeEnd = CGFloat(progress)
-        CATransaction.commit()
+        _self._outerCyanRing.setValueWithoutImplicitAnimation(CGFloat(progress), forKey: "strokeEnd")
+
     }
     
     hourSlider
@@ -146,14 +144,11 @@ class STDialPlateView: UIView {
       .filter { (progress) -> Bool in
         return progress >= 0.0 && progress <= 1.0
       }
-      .observeOn(QueueScheduler.mainQueueScheduler)
+      .observeOn(UIScheduler())
       .startWithNext {[weak self] (progress) -> () in
         guard let _self = self else {return}
         
-        CATransaction.begin()
-        CATransaction.setValue(kCFBooleanTrue, forKey: kCATransactionDisableActions)
-        _self._innerCyanRing.strokeEnd = CGFloat(progress)
-        CATransaction.commit()
+        _self._innerCyanRing.setValueWithoutImplicitAnimation(CGFloat(progress), forKey: "strokeEnd")
     }
   }
   
@@ -243,6 +238,8 @@ class STDialPlateView: UIView {
   
   func enableSlider (enabled: Bool) {
     _sliderEnabled = enabled
+    minuteSlider.enabled = enabled
+    hourSlider.enabled = enabled
   }
   
   func slideSlidersToProgress (progress: Double, duration: Double) {
@@ -291,13 +288,22 @@ class STDialPlateView: UIView {
   }
   
   override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    if let point = touches.first?.locationInView(self), let slider = _activeSlider {
+      slider.slideWithRefrencePoint(point)
+    }
+    
     hourSlider.active = false
     minuteSlider.active = false
     _activeSlider = nil
     touchEndObserver.sendNext()
+
   }
   
   override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
+    if let point = touches?.first?.locationInView(self), let slider = _activeSlider {
+      slider.slideWithRefrencePoint(point)
+    }
+    
     hourSlider.active = false
     minuteSlider.active = false
     _activeSlider = nil

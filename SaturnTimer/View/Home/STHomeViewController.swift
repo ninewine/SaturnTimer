@@ -25,9 +25,9 @@ class STHomeViewController: STViewController {
 
   var dialPlateView: STDialPlateView!
   
-  @IBOutlet weak var layoutConstraintWidthHourView: NSLayoutConstraint!
-  @IBOutlet weak var layoutConstraintWidthSecondView: NSLayoutConstraint!
-  @IBOutlet weak var layoutConstraintTopTagContentView: NSLayoutConstraint!
+  @IBOutlet weak var constraintWidthHourView: NSLayoutConstraint!
+  @IBOutlet weak var constraintWidthSecondView: NSLayoutConstraint!
+  @IBOutlet weak var constraintTopTagContentView: NSLayoutConstraint!
   
   @IBOutlet weak var tagContentView: UIView!
   @IBOutlet weak var hourItemView: UIView!
@@ -44,6 +44,11 @@ class STHomeViewController: STViewController {
   private var playButtonAction: CocoaAction!
   private var actionButtonAction: CocoaAction!
   
+  private let cometManager = STCometManager()
+  
+  private var blurScreenshotImage: UIImage?
+  private let blurScreenshotWorkerQueue: dispatch_queue_t = dispatch_queue_create("SaturnTimer.BlurScreenshotWorkerQueue", DISPATCH_QUEUE_SERIAL)
+  
   let widthOfTimeItem: CGFloat = 60
   
   
@@ -57,6 +62,7 @@ class STHomeViewController: STViewController {
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
     HelperNotification.askForNotificationPermission()
+    generateScreenshotWithBlurEffect()
   }
   
   func configView () {
@@ -110,6 +116,7 @@ class STHomeViewController: STViewController {
         if _self.viewModel.minute.value == 0 {
           _self.dialPlateView.slideMinuteSliderToProgress(0.0, duration: 0.5)
         }
+        _self.generateScreenshotWithBlurEffect()
     }
     
     actionButton.rac_signalForControlEvents(.TouchUpInside).subscribeNext {[weak self] (button) -> Void in
@@ -131,14 +138,15 @@ class STHomeViewController: STViewController {
     }
     
     configTagView()
+    configComet()
     
-    layoutConstraintWidthSecondView.constant = 0
+    constraintWidthSecondView.constant = 0
     
     if HelperCommon.currentDeviceType == .iPhone4 {
-      layoutConstraintTopTagContentView.constant = 30.0
+      constraintTopTagContentView.constant = 30.0
     }
     else if HelperCommon.currentDeviceType == .iPad {
-      layoutConstraintTopTagContentView.constant = 150.0
+      constraintTopTagContentView.constant = 150.0
     }
     
     view.layoutIfNeeded()
@@ -155,6 +163,10 @@ class STHomeViewController: STViewController {
         tagContentView.addSubview(tag)
       }
     }
+  }
+  
+  func configComet () {
+    cometManager.startWithContentView(self.view)
   }
   
   func bindViewModel () {
@@ -202,19 +214,19 @@ class STHomeViewController: STViewController {
         UIView.setAnimationCurve(.EaseInOut)
         if playing {
           if _self.viewModel.hour.value == 0 {
-            _self.layoutConstraintWidthHourView.constant = 0
+            _self.constraintWidthHourView.constant = 0
             _self.hourItemView.alpha = 0.0
           }
           else {
-            _self.layoutConstraintWidthHourView.constant = _self.widthOfTimeItem
+            _self.constraintWidthHourView.constant = _self.widthOfTimeItem
             _self.hourItemView.alpha = 1.0
           }
-          _self.layoutConstraintWidthSecondView.constant = _self.widthOfTimeItem
+          _self.constraintWidthSecondView.constant = _self.widthOfTimeItem
           _self.secondItemView.alpha = 1.0
         }
         else {
-          _self.layoutConstraintWidthHourView.constant = _self.widthOfTimeItem
-          _self.layoutConstraintWidthSecondView.constant = 0
+          _self.constraintWidthHourView.constant = _self.widthOfTimeItem
+          _self.constraintWidthSecondView.constant = 0
           _self.hourItemView.alpha = 1.0
           _self.secondItemView.alpha = 0.0
         }
@@ -225,6 +237,8 @@ class STHomeViewController: STViewController {
         _self.dialPlateView.changePlayButtonAppearence(playing)
         
         _self.actionButton.type = playing ? .Stop : .Menu
+        
+        _self.generateScreenshotWithBlurEffect()
     }
     
     viewModel.tagType
@@ -268,7 +282,7 @@ class STHomeViewController: STViewController {
     
     if menuViewController == nil {
       if let viewController = self.storyboard?.instantiateViewControllerWithIdentifier(STMenuViewController.classString()) as? STMenuViewController {
-        if let image = screenshotWithBlurEffect() {
+        if let image = blurScreenshotImage {
           viewController.view.layer.contents = image.CGImage
         }
         viewController.bindViewModelToHomeViewModel(viewModel)
@@ -310,37 +324,40 @@ class STHomeViewController: STViewController {
   
   
   
-  func screenshotWithBlurEffect () -> UIImage? {
-    let screenBounds = UIScreen.mainScreen().bounds
-    let screenScale = UIScreen.mainScreen().scale
-    
-    UIGraphicsBeginImageContextWithOptions(screenBounds.size, true, screenScale)
-    var screenshot: UIImage?
-    if let context = UIGraphicsGetCurrentContext() {
-      view.window?.layer.renderInContext(context)
-      screenshot = UIGraphicsGetImageFromCurrentImageContext()
+  func generateScreenshotWithBlurEffect () {
+    dispatch_async(blurScreenshotWorkerQueue) {[weak self] () -> Void in
+      let screenBounds = UIScreen.mainScreen().bounds
+      let screenScale = UIScreen.mainScreen().scale
+      
+      UIGraphicsBeginImageContextWithOptions(screenBounds.size, true, screenScale)
+      var screenshot: UIImage?
+      if let context = UIGraphicsGetCurrentContext() {
+        self?.view.window?.layer.renderInContext(context)
+        screenshot = UIGraphicsGetImageFromCurrentImageContext()
+      }
+      UIGraphicsEndImageContext()
+      
+      //resize
+      let size = CGSize(width: screenBounds.width / screenScale, height: screenBounds.height / screenScale)
+      UIGraphicsBeginImageContext(size)
+      screenshot?.drawInRect(CGRect(x: 0, y: 0, width: size.width, height: size.height))
+      let image = UIGraphicsGetImageFromCurrentImageContext()
+      UIGraphicsEndImageContext()
+      
+      let blurImageSource = GPUImagePicture(image: image)
+      
+      let blurImageFillter = GPUImageGaussianBlurFilter() // GPUImageiOSBlurFilter()
+      blurImageFillter.forceProcessingAtSize(screenBounds.size)
+      blurImageFillter.blurRadiusInPixels = 12
+      blurImageSource.addTarget(blurImageFillter)
+      blurImageFillter.useNextFrameForImageCapture()
+      blurImageSource.processImage()
+      
+      let outputImage = blurImageFillter.imageFromCurrentFramebuffer()
+            
+      self?.blurScreenshotImage = outputImage
     }
-    UIGraphicsEndImageContext()
-
-    //resize
-    let size = CGSize(width: screenBounds.width / screenScale, height: screenBounds.height / screenScale)
-    UIGraphicsBeginImageContext(size)
-    screenshot?.drawInRect(CGRect(x: 0, y: 0, width: size.width, height: size.height))
-    let image = UIGraphicsGetImageFromCurrentImageContext()
-    UIGraphicsEndImageContext()
     
-    let blurImageSource = GPUImagePicture(image: image)
-    
-    let blurImageFillter = GPUImageGaussianBlurFilter() // GPUImageiOSBlurFilter()
-    blurImageFillter.forceProcessingAtSize(screenBounds.size)
-    blurImageFillter.blurRadiusInPixels = 12
-    blurImageSource.addTarget(blurImageFillter)
-    blurImageFillter.useNextFrameForImageCapture()
-    blurImageSource.processImage()
-    
-    let outputImage = blurImageFillter.imageFromCurrentFramebuffer()
-    
-    return outputImage
   }
 }
 

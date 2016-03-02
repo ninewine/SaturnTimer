@@ -88,7 +88,7 @@ class STMenuViewModel: STViewModel {
     let soundName = soundFileName.stringByReplacingOccurrencesOfString(".mp3", withString: "")
     let isSurrentSoundFileName = self.soundFileName.value == soundFileName
     let attributes = [
-      NSForegroundColorAttributeName: isSurrentSoundFileName ? HelperColor.primaryColor : UIColor.whiteColor()
+      NSForegroundColorAttributeName: isSurrentSoundFileName ? HelperColor.primaryColor : HelperColor.lightGrayColor
     ]
     let sound = NSAttributedString(string: soundName, attributes: attributes)
     return sound

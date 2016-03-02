@@ -25,7 +25,13 @@ struct HelperConstant {
     let TagTypeChangedNotification = "SaturnTimer.TagTypeChanged"
   }
   
+  struct _UmengReference {
+    let AppKey = "56d56c1967e58e97e7001e8c"
+  }
+  
   static let UserDefaultKey = _UserDefaultKey()
   static let UserDefaultValue = _UserDefaultValue()
   static let NotificationName = _NotificationName()
+  static let UmengReference = _UmengReference()
+
 }

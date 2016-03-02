@@ -173,7 +173,7 @@ class Sandglass: AnimatableTag, UICollisionBehaviorDelegate {
 		if _particles.count == 0 {
 			_particles = (0...12).flatMap({ (_) -> UIView? in
 				let particle = UIView(frame: CGRectMake(frame.width * 0.5, frame.height * 0.5, 1, 1))
-        particle.backgroundColor = st_highlighted ? HelperColor.primaryColor : UIColor.whiteColor()
+        particle.backgroundColor = st_highlighted ? HelperColor.primaryColor : HelperColor.lightGrayColor
 				addSubview(particle)
 				return particle
 			})
@@ -256,7 +256,7 @@ class _Glass: UIView {
 			layer.miterLimit = 1.5
 			layer.strokeStart = 0.5
 			layer.strokeEnd = 0.5
-			layer.strokeColor = UIColor.whiteColor().CGColor
+			layer.strokeColor = HelperColor.lightGrayColor.CGColor
 			layer.fillColor = UIColor.clearColor().CGColor
 			self.layer.addSublayer(layer)
 		}

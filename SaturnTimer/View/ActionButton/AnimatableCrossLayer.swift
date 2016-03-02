@@ -46,15 +46,15 @@ class AnimatableCrossLayer: AnimatableLayer {
   }
   
   override func transitionIn(completion: (() -> ())?) {
-    _cross1.pathStokeAnimationFrom(nil, to: 0.0, duration: transitionDuration * 0.5, type: .Start)
-    _cross2.pathStokeAnimationFrom(nil, to: 0.0, duration: transitionDuration * 0.5, type: .Start)
-    _cross1.pathStokeAnimationFrom(nil, to: 1.0, duration: transitionDuration * 0.5, type: .End) {[weak self] () -> Void in
+    _cross1.pathStokeAnimationFrom(nil, to: 0.0, duration: transitionDuration * 0.4, type: .Start)
+    _cross2.pathStokeAnimationFrom(nil, to: 0.0, duration: transitionDuration * 0.4, type: .Start)
+    _cross1.pathStokeAnimationFrom(nil, to: 1.0, duration: transitionDuration * 0.4, type: .End) {[weak self] () -> Void in
       guard let _self = self else {return}
-      _self._cross1.rotateAnimation(nil, to: CGFloat(-M_PI_4), duration: _self.transitionDuration * 0.5)
+      _self._cross1.rotateAnimation(nil, to: CGFloat(-M_PI_4), duration: _self.transitionDuration * 0.4)
     }
-    _cross2.pathStokeAnimationFrom(nil, to: 1.0, duration: transitionDuration * 0.5, type: .End) {[weak self] () -> Void in
+    _cross2.pathStokeAnimationFrom(nil, to: 1.0, duration: transitionDuration * 0.4, type: .End) {[weak self] () -> Void in
       guard let _self = self else {return}
-      _self._cross2.rotateAnimation(nil, to: CGFloat(M_PI_4), duration: _self.transitionDuration * 0.5) { () -> Void in
+      _self._cross2.rotateAnimation(nil, to: CGFloat(M_PI_4), duration: _self.transitionDuration * 0.4) { () -> Void in
         if let block = completion {
           block()
         }
@@ -64,13 +64,13 @@ class AnimatableCrossLayer: AnimatableLayer {
   
   
   override func transitionOut(completion: (() -> ())?) {
-    _cross1.rotateAnimation(nil, to: 0.0, duration: transitionDuration * 0.5)
-    _cross2.rotateAnimation(nil, to: 0.0, duration: transitionDuration * 0.5) {[weak self] () -> Void in
+    _cross1.rotateAnimation(nil, to: 0.0, duration: transitionDuration * 0.4)
+    _cross2.rotateAnimation(nil, to: 0.0, duration: transitionDuration * 0.4) {[weak self] () -> Void in
       guard let _self = self else {return}
-      _self._cross1.pathStokeAnimationFrom(nil, to: 0.5, duration: _self.transitionDuration * 0.5, type: .Start)
-      _self._cross2.pathStokeAnimationFrom(nil, to: 0.5, duration: _self.transitionDuration * 0.5, type: .Start)
-      _self._cross1.pathStokeAnimationFrom(nil, to: 0.5, duration: _self.transitionDuration * 0.5, type: .End)
-      _self._cross2.pathStokeAnimationFrom(nil, to: 0.5, duration: _self.transitionDuration * 0.5, type: .End){ () -> Void in
+      _self._cross1.pathStokeAnimationFrom(nil, to: 0.5, duration: _self.transitionDuration * 0.4, type: .Start)
+      _self._cross2.pathStokeAnimationFrom(nil, to: 0.5, duration: _self.transitionDuration * 0.4, type: .Start)
+      _self._cross1.pathStokeAnimationFrom(nil, to: 0.5, duration: _self.transitionDuration * 0.4, type: .End)
+      _self._cross2.pathStokeAnimationFrom(nil, to: 0.5, duration: _self.transitionDuration * 0.4, type: .End){ () -> Void in
         if let block = completion {
           block()
         }

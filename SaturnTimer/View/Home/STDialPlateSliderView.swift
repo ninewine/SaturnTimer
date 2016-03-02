@@ -18,6 +18,12 @@ enum SlidingDirection: Int {
 class STDialPlateSliderView: UIView {
   
   var active: Bool = false
+  var enabled: Bool = false {
+    willSet {
+      dazzlelightAnimation(newValue)
+    }
+  }
+  
   let progress: MutableProperty<Double> = MutableProperty(0.0)  //From 0.0 to 1.0
   
   var ovalCenter: CGPoint?
@@ -26,6 +32,7 @@ class STDialPlateSliderView: UIView {
 
   private var degree: CGFloat = 0
   private let imageLayer = CALayer()
+  private let dazzlelightLayer = CALayer()
   
   private var direction: SlidingDirection = .Forward
   
@@ -49,15 +56,34 @@ class STDialPlateSliderView: UIView {
     imageLayer.contents = image.CGImage
     layer.addSublayer(imageLayer)
     
-//    DynamicProperty(object: self, keyPath: "frame").signal.observeNext { (frame) -> () in
-//      print(frame)
-//    }
+    let dazzlelightFrame = CGRectInset(imageLayer.frame, -4, -4)
+    dazzlelightLayer.frame = dazzlelightFrame
+    dazzlelightLayer.contents = UIImage(named: "pic-dazzlelight")?.CGImage
+    layer.insertSublayer(dazzlelightLayer, below: imageLayer)
   }
   
+  func dazzlelightAnimation (enabled: Bool) {
+    if enabled {
+      dazzlelightLayer.opacityAnimation(0.0, to: 1.0, duration: 1.0, completion: {[weak self] () -> Void in
+        let scaleAnim = POPBasicAnimation(propertyNamed: kPOPLayerScaleXY)
+        scaleAnim.fromValue = NSValue(CGPoint:CGPointMake(1.0, 1.0))
+        scaleAnim.toValue = NSValue(CGPoint:CGPointMake(1.2, 1.2))
+        scaleAnim.duration = 1.5
+        scaleAnim.autoreverses = true
+        scaleAnim.repeatForever = true
+        self?.dazzlelightLayer.pop_addAnimation(scaleAnim, forKey: "ScaleAnimation")
+      })
+    }
+    else {
+      dazzlelightLayer.opacityAnimation(1.0, to: 0.0, duration: 1.0, completion: {[weak self] () -> Void in
+        self?.dazzlelightLayer.pop_removeAllAnimations()
+      })
+    }
+  }
   
   func slideWithRefrencePoint (point: CGPoint) {
     guard let center = ovalCenter, let radius = ovalRadius else {
-      print("Slide must has the oval center and radius")
+      print("Slide must have a oval center and a radius")
       return
     }
     
@@ -68,7 +94,7 @@ class STDialPlateSliderView: UIView {
     
     let moveToDegree = fourQuadrantRadian * 180 / CGFloat(M_PI)
   
-    let moveToProgress: Double = Double(degree) / 360.0
+    let moveToProgress: Double = Double(moveToDegree) / 360.0
 
     let targetX = sin(oneQuadrantRadian) * radius
     let targetY = cos(oneQuadrantRadian) * radius * factor
@@ -86,21 +112,14 @@ class STDialPlateSliderView: UIView {
 
     progress.value = moveToProgress
   }
-  
-//  func slideToZeroPointWithAnimation(duration duration: Double) {
-//    if degree > 0.0 {
-//      slideAnimationFrom(self.center, to: zeroPointCenter, duration: duration)
-//      degree = 0.0
-//    }
-//  }
-//  
+
   func slideToProgress (progress: Double, duration: Double) {    
     if progress < 0.0 || progress > 1.0 {
-      print("Progress must be value between 0.0 and 1.0")
+      print("Progress must be a value between 0.0 and 1.0")
       return
     }
     guard let center = ovalCenter, let radius = ovalRadius else {
-      print("Slide must has the oval center and radius")
+      print("Slide must have a oval center and a radius")
       return
     }
     let radian = 2 * M_PI * progress
@@ -122,7 +141,7 @@ class STDialPlateSliderView: UIView {
   
   func slideAnimationFrom(from: CGPoint, to: CGPoint, duration: Double, clockwise: Bool) {
     guard let center = ovalCenter, let radius = ovalRadius else {
-      print("Slide must has the oval center and radius")
+      print("Slide must have a oval center and a radius")
       return
     }
     let (_, fromRadian) = calculateDeltaAngle(from)
@@ -142,7 +161,7 @@ class STDialPlateSliderView: UIView {
   
   func calculateDeltaAngle (referncePoint: CGPoint) -> (oneQuadrantRadian: CGFloat, fourQuadrantRadian : CGFloat) {
     guard let center = ovalCenter else {
-      print("Slide must has the oval center and radius")
+      print("Slide must have a oval center and  radius")
       return (0, 0)
     }
     

@@ -948,7 +948,6 @@ class RCAlertView: UIView, POPAnimationDelegate {
         }
       }
     }
-
   }
   
   func buttonForItemIndex(index: Int) -> UIButton? {
@@ -993,7 +992,7 @@ class RCAlertView: UIView, POPAnimationDelegate {
       if self.imageView == nil {
         self.imageView = UIImageView(image: image)
         self.imageView?.frame = CGRectZero
-        self.imageView?.contentMode = UIViewContentMode.ScaleAspectFit
+        self.imageView?.contentMode = UIViewContentMode.Center
         self.containerView?.addSubview(self.imageView!)
       }
     }

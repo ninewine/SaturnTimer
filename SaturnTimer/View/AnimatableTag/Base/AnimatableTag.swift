@@ -84,7 +84,7 @@ class AnimatableTag: UIControl, HighlightableProtocol {
 	}
   
   func currentAppearenceColor () -> CGColorRef {
-    return _highlighted ? HelperColor.primaryColor.CGColor : UIColor.whiteColor().CGColor
+    return _highlighted ? HelperColor.primaryColor.CGColor : HelperColor.lightGrayColor.CGColor
   }
   
   func setHighlightStatus(highlighted: Bool, animated: Bool) {
@@ -101,15 +101,15 @@ class AnimatableTag: UIControl, HighlightableProtocol {
         let propertyName = layer.colorType == .Fill ? kPOPShapeLayerFillColor : kPOPShapeLayerStrokeColor
         let colorAnimation = POPBasicAnimation(propertyNamed: propertyName)
         colorAnimation.duration = 0.2
-        colorAnimation.toValue = highlighted ? HelperColor.primaryColor.CGColor : UIColor.whiteColor().CGColor
+        colorAnimation.toValue = highlighted ? HelperColor.primaryColor.CGColor : HelperColor.lightGrayColor.CGColor
         layer.pop_addAnimation(colorAnimation, forKey: "ColorAnimation")
       }
       else {
         if layer.colorType == .Fill {
-          layer.fillColor = highlighted ? HelperColor.primaryColor.CGColor : UIColor.whiteColor().CGColor
+          layer.fillColor = highlighted ? HelperColor.primaryColor.CGColor : HelperColor.lightGrayColor.CGColor
         }
         else {
-          layer.strokeColor = highlighted ? HelperColor.primaryColor.CGColor : UIColor.whiteColor().CGColor
+          layer.strokeColor = highlighted ? HelperColor.primaryColor.CGColor : HelperColor.lightGrayColor.CGColor
         }
       }
       return layer

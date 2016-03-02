@@ -20,9 +20,11 @@ class STMenuViewController: STViewController, UITableViewDataSource, UITableView
   @IBOutlet weak var television: Television!
   @IBOutlet weak var plate: Plate!
   
-  @IBOutlet weak var layoutConstraintSettingsLeading: NSLayoutConstraint!
-  @IBOutlet weak var layoutConstraintTopSettingsLabel: NSLayoutConstraint!
-  @IBOutlet weak var layoutConstraintTopSoundsLabel: NSLayoutConstraint!
+  @IBOutlet weak var constraintLeadingSettings: NSLayoutConstraint!
+  @IBOutlet weak var constraintTopSettingsLabel: NSLayoutConstraint!
+  @IBOutlet weak var constraintTopTagsLabel: NSLayoutConstraint!
+  @IBOutlet weak var constraintTopSoundsLabel: NSLayoutConstraint!
+  @IBOutlet weak var constraintTopSandglass: NSLayoutConstraint!
   
   @IBOutlet weak var soundNameLabel: UILabel!
   
@@ -53,7 +55,7 @@ class STMenuViewController: STViewController, UITableViewDataSource, UITableView
       .observeOn(UIScheduler())
       .map {$0.stringByReplacingOccurrencesOfString(".mp3", withString: "")}
       .startWithNext {[weak self] (soundName) -> () in
-        self?.soundNameLabel.text = soundName
+        self?.soundNameLabel?.text = soundName
     }
     
   }
@@ -61,12 +63,32 @@ class STMenuViewController: STViewController, UITableViewDataSource, UITableView
   func configView() {
     configTagView()
     
+    switch HelperCommon.currentDeviceType {
+    case .iPhone4:
+      constraintTopSettingsLabel.constant = 20
+      constraintTopSoundsLabel.constant = 20
+      constraintTopSandglass.constant = 10
+      break
+    case .iPhone6, .iPhone6Plus:
+      constraintTopTagsLabel.constant = 70
+      break
+    case .iPad:
+      constraintTopSettingsLabel.constant = 150
+      constraintTopSoundsLabel.constant = 150
+      constraintTopTagsLabel.constant = 80
+      break
+    default:
+      break
+    }
+    
     if HelperCommon.currentDeviceType == .iPhone4 {
-      layoutConstraintTopSettingsLabel.constant = 30
+      constraintTopSettingsLabel.constant = 20
+      constraintTopSoundsLabel.constant = 20
+      constraintTopSandglass.constant = 10
     }
     else if HelperCommon.currentDeviceType == .iPad {
-      layoutConstraintTopSettingsLabel.constant = 150
-      layoutConstraintTopSoundsLabel.constant = 150
+      constraintTopSettingsLabel.constant = 150
+      constraintTopSoundsLabel.constant = 150
     }
   }
   
@@ -145,6 +167,8 @@ class STMenuViewController: STViewController, UITableViewDataSource, UITableView
   }
   
   func moveSoundsList (show: Bool) {
+    constraintLeadingSettings.constant = show ? -settingsPanelView.frame.width : 0
+
     let frame1 = settingsPanelView.frame
     let frameAnim1 = POPSpringAnimation(propertyNamed: kPOPViewFrame)
 
@@ -170,10 +194,10 @@ class STMenuViewController: STViewController, UITableViewDataSource, UITableView
           height: frame2.height
         )
     )
-    frameAnim2.animationDidReachToValueBlock = {[weak self] _ in
-      guard let _self = self else {return}
-      _self.layoutConstraintSettingsLeading.constant = show ? -_self.settingsPanelView.frame.width : 0
-    }
+//    frameAnim2.animationDidReachToValueBlock = {[weak self] _ in
+//      guard let _self = self else {return}
+//      _self.layoutConstraintSettingsLeading.constant = show ? -_self.settingsPanelView.frame.width : 0
+//    }
     
     soundsPanelView.pop_addAnimation(frameAnim2, forKey: "CenterAnimation")
   }

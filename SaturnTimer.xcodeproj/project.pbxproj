@@ -10,29 +10,17 @@
 		B104B34E1C818D0B00B097FD /* STMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B104B34D1C818D0B00B097FD /* STMenuViewController.swift */; };
 		B104B3501C818D2200B097FD /* STMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B104B34F1C818D2200B097FD /* STMenuViewModel.swift */; };
 		B104B3521C81A03F00B097FD /* NSObject+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B104B3511C81A03F00B097FD /* NSObject+Helper.swift */; };
-		B10775D61C80A9FB005025B5 /* CAShapeLayer+Swizzling.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10775D51C80A9FB005025B5 /* CAShapeLayer+Swizzling.swift */; };
+		B10775D61C80A9FB005025B5 /* CAShapeLayer+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10775D51C80A9FB005025B5 /* CAShapeLayer+Helper.swift */; };
 		B11734491C84193400BDDBE3 /* Airship.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B11734311C84193400BDDBE3 /* Airship.mp3 */; };
 		B117344A1C84193400BDDBE3 /* Alien Metron.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B11734321C84193400BDDBE3 /* Alien Metron.mp3 */; };
-		B117344B1C84193400BDDBE3 /* Astronaut.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B11734331C84193400BDDBE3 /* Astronaut.mp3 */; };
-		B117344C1C84193400BDDBE3 /* Baby Wake Up.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B11734341C84193400BDDBE3 /* Baby Wake Up.mp3 */; };
-		B117344D1C84193400BDDBE3 /* Bob Star Attack.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B11734351C84193400BDDBE3 /* Bob Star Attack.mp3 */; };
-		B117344E1C84193400BDDBE3 /* BoDeSa.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B11734361C84193400BDDBE3 /* BoDeSa.mp3 */; };
-		B117344F1C84193400BDDBE3 /* Calculator.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B11734371C84193400BDDBE3 /* Calculator.mp3 */; };
 		B11734501C84193400BDDBE3 /* Falling Stone.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B11734381C84193400BDDBE3 /* Falling Stone.mp3 */; };
 		B11734511C84193400BDDBE3 /* Firefly.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B11734391C84193400BDDBE3 /* Firefly.mp3 */; };
 		B11734521C84193400BDDBE3 /* Lantern Star.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B117343A1C84193400BDDBE3 /* Lantern Star.mp3 */; };
 		B11734531C84193400BDDBE3 /* Lemon Port.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B117343B1C84193400BDDBE3 /* Lemon Port.mp3 */; };
-		B11734541C84193400BDDBE3 /* Milky Way.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B117343C1C84193400BDDBE3 /* Milky Way.mp3 */; };
-		B11734551C84193400BDDBE3 /* Mineral.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B117343D1C84193400BDDBE3 /* Mineral.mp3 */; };
 		B11734561C84193400BDDBE3 /* Mushrooms Villain.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B117343E1C84193400BDDBE3 /* Mushrooms Villain.mp3 */; };
 		B11734571C84193400BDDBE3 /* Nothing.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B117343F1C84193400BDDBE3 /* Nothing.mp3 */; };
-		B11734581C84193400BDDBE3 /* Rich Base.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B11734401C84193400BDDBE3 /* Rich Base.mp3 */; };
-		B11734591C84193400BDDBE3 /* Satellite.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B11734411C84193400BDDBE3 /* Satellite.mp3 */; };
 		B117345A1C84193400BDDBE3 /* Secret Pyramid.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B11734421C84193400BDDBE3 /* Secret Pyramid.mp3 */; };
 		B117345C1C84193400BDDBE3 /* Time Machine.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B11734441C84193400BDDBE3 /* Time Machine.mp3 */; };
-		B117345E1C84193400BDDBE3 /* UFO.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B11734461C84193400BDDBE3 /* UFO.mp3 */; };
-		B117345F1C84193400BDDBE3 /* Unknown Creature.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B11734471C84193400BDDBE3 /* Unknown Creature.mp3 */; };
-		B11734601C84193400BDDBE3 /* Wormhole.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B11734481C84193400BDDBE3 /* Wormhole.mp3 */; };
 		B11734621C841A4F00BDDBE3 /* Sounds.plist in Resources */ = {isa = PBXBuildFile; fileRef = B11734611C841A4F00BDDBE3 /* Sounds.plist */; };
 		B11734641C84225B00BDDBE3 /* STSoundNameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11734631C84225B00BDDBE3 /* STSoundNameTableViewCell.swift */; };
 		B15A43A41C7713BF005D605E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15A43A31C7713BF005D605E /* AppDelegate.swift */; };
@@ -46,11 +34,9 @@
 		B15A43E91C7713F1005D605E /* Optinal+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15A43D81C7713F1005D605E /* Optinal+Helper.swift */; };
 		B15A43EA1C7713F1005D605E /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15A43D91C7713F1005D605E /* UIColor+Hex.swift */; };
 		B15A43EB1C7713F1005D605E /* HelperColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15A43DB1C7713F1005D605E /* HelperColor.swift */; };
-		B15A43F71C77160B005D605E /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B15A43F51C77160B005D605E /* ReactiveCocoa.framework */; };
-		B15A43F81C77160B005D605E /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B15A43F61C77160B005D605E /* Result.framework */; };
 		B1716CE61C7C03A800FFD7FF /* STTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1716CE51C7C03A800FFD7FF /* STTime.swift */; };
-		B17695CF1C7ABF7E00C99FEE /* ReactiveCocoa.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = B15A43F51C77160B005D605E /* ReactiveCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B17695D01C7ABF7E00C99FEE /* Result.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = B15A43F61C77160B005D605E /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B1730EFE1C869EA80050E48C /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1730EFC1C869EA80050E48C /* ReactiveCocoa.framework */; };
+		B1730EFF1C869EA80050E48C /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1730EFD1C869EA80050E48C /* Result.framework */; };
 		B17695E81C7AD4D800C99FEE /* AnimatableTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17695D71C7AD4D800C99FEE /* AnimatableTag.swift */; };
 		B17695E91C7AD4D800C99FEE /* Plate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17695D91C7AD4D800C99FEE /* Plate.swift */; };
 		B17695EA1C7AD4D800C99FEE /* PlateLayerPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17695DA1C7AD4D800C99FEE /* PlateLayerPath.swift */; };
@@ -66,6 +52,9 @@
 		B185D1DC1C844FAA000C61D8 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B185D1DB1C844FAA000C61D8 /* AVFoundation.framework */; };
 		B185D1DE1C845496000C61D8 /* STTagType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B185D1DD1C845496000C61D8 /* STTagType.swift */; };
 		B185D1E01C848074000C61D8 /* HelperCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B185D1DF1C848074000C61D8 /* HelperCommon.swift */; };
+		B185D2151C8574C9000C61D8 /* STComet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B185D2141C8574C9000C61D8 /* STComet.swift */; };
+		B185D2171C8585EC000C61D8 /* Number+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B185D2161C8585EC000C61D8 /* Number+Helper.swift */; };
+		B185D2191C85891F000C61D8 /* RangeReplaceableCollectionType+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B185D2181C85891F000C61D8 /* RangeReplaceableCollectionType+Helper.swift */; };
 		B186751F1C7C5F15002EA264 /* STTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B186751E1C7C5F15002EA264 /* STTimer.swift */; };
 		B1AAF0921C84023900A9543A /* AnimatableArrowLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AAF0911C84023900A9543A /* AnimatableArrowLayer.swift */; };
 		B1C239221C7DA48E00C58A5B /* UIWindow+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C239211C7DA48E00C58A5B /* UIWindow+Helper.swift */; };
@@ -109,50 +98,23 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		B17695CE1C7ABF6E00C99FEE /* Copy Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				B17695CF1C7ABF7E00C99FEE /* ReactiveCocoa.framework in Copy Frameworks */,
-				B17695D01C7ABF7E00C99FEE /* Result.framework in Copy Frameworks */,
-			);
-			name = "Copy Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		39BB3C67DF2FAC6FE6D3489D /* Pods_SaturnTimer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SaturnTimer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		996269BD96DEE1838A3B4D72 /* Pods-SaturnTimer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaturnTimer.release.xcconfig"; path = "Pods/Target Support Files/Pods-SaturnTimer/Pods-SaturnTimer.release.xcconfig"; sourceTree = "<group>"; };
 		B104B34D1C818D0B00B097FD /* STMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = STMenuViewController.swift; path = Menu/STMenuViewController.swift; sourceTree = "<group>"; };
 		B104B34F1C818D2200B097FD /* STMenuViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STMenuViewModel.swift; sourceTree = "<group>"; };
 		B104B3511C81A03F00B097FD /* NSObject+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+Helper.swift"; sourceTree = "<group>"; };
-		B10775D51C80A9FB005025B5 /* CAShapeLayer+Swizzling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CAShapeLayer+Swizzling.swift"; sourceTree = "<group>"; };
+		B10775D51C80A9FB005025B5 /* CAShapeLayer+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CAShapeLayer+Helper.swift"; sourceTree = "<group>"; };
 		B11734311C84193400BDDBE3 /* Airship.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Airship.mp3; sourceTree = "<group>"; };
 		B11734321C84193400BDDBE3 /* Alien Metron.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Alien Metron.mp3"; sourceTree = "<group>"; };
-		B11734331C84193400BDDBE3 /* Astronaut.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Astronaut.mp3; sourceTree = "<group>"; };
-		B11734341C84193400BDDBE3 /* Baby Wake Up.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Baby Wake Up.mp3"; sourceTree = "<group>"; };
-		B11734351C84193400BDDBE3 /* Bob Star Attack.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Bob Star Attack.mp3"; sourceTree = "<group>"; };
-		B11734361C84193400BDDBE3 /* BoDeSa.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = BoDeSa.mp3; sourceTree = "<group>"; };
-		B11734371C84193400BDDBE3 /* Calculator.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Calculator.mp3; sourceTree = "<group>"; };
 		B11734381C84193400BDDBE3 /* Falling Stone.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Falling Stone.mp3"; sourceTree = "<group>"; };
 		B11734391C84193400BDDBE3 /* Firefly.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Firefly.mp3; sourceTree = "<group>"; };
 		B117343A1C84193400BDDBE3 /* Lantern Star.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Lantern Star.mp3"; sourceTree = "<group>"; };
 		B117343B1C84193400BDDBE3 /* Lemon Port.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Lemon Port.mp3"; sourceTree = "<group>"; };
-		B117343C1C84193400BDDBE3 /* Milky Way.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Milky Way.mp3"; sourceTree = "<group>"; };
-		B117343D1C84193400BDDBE3 /* Mineral.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Mineral.mp3; sourceTree = "<group>"; };
 		B117343E1C84193400BDDBE3 /* Mushrooms Villain.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Mushrooms Villain.mp3"; sourceTree = "<group>"; };
 		B117343F1C84193400BDDBE3 /* Nothing.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Nothing.mp3; sourceTree = "<group>"; };
-		B11734401C84193400BDDBE3 /* Rich Base.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Rich Base.mp3"; sourceTree = "<group>"; };
-		B11734411C84193400BDDBE3 /* Satellite.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Satellite.mp3; sourceTree = "<group>"; };
 		B11734421C84193400BDDBE3 /* Secret Pyramid.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Secret Pyramid.mp3"; sourceTree = "<group>"; };
 		B11734441C84193400BDDBE3 /* Time Machine.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Time Machine.mp3"; sourceTree = "<group>"; };
-		B11734461C84193400BDDBE3 /* UFO.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = UFO.mp3; sourceTree = "<group>"; };
-		B11734471C84193400BDDBE3 /* Unknown Creature.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Unknown Creature.mp3"; sourceTree = "<group>"; };
-		B11734481C84193400BDDBE3 /* Wormhole.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Wormhole.mp3; sourceTree = "<group>"; };
 		B11734611C841A4F00BDDBE3 /* Sounds.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Sounds.plist; sourceTree = "<group>"; };
 		B11734631C84225B00BDDBE3 /* STSoundNameTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = STSoundNameTableViewCell.swift; path = Menu/STSoundNameTableViewCell.swift; sourceTree = "<group>"; };
 		B15A43A01C7713BF005D605E /* SaturnTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SaturnTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -172,9 +134,9 @@
 		B15A43D81C7713F1005D605E /* Optinal+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Optinal+Helper.swift"; sourceTree = "<group>"; };
 		B15A43D91C7713F1005D605E /* UIColor+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		B15A43DB1C7713F1005D605E /* HelperColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperColor.swift; sourceTree = "<group>"; };
-		B15A43F51C77160B005D605E /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/iOS/ReactiveCocoa.framework; sourceTree = "<group>"; };
-		B15A43F61C77160B005D605E /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
 		B1716CE51C7C03A800FFD7FF /* STTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STTime.swift; sourceTree = "<group>"; };
+		B1730EFC1C869EA80050E48C /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/iOS/ReactiveCocoa.framework; sourceTree = "<group>"; };
+		B1730EFD1C869EA80050E48C /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
 		B17695D71C7AD4D800C99FEE /* AnimatableTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatableTag.swift; sourceTree = "<group>"; };
 		B17695D91C7AD4D800C99FEE /* Plate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plate.swift; sourceTree = "<group>"; };
 		B17695DA1C7AD4D800C99FEE /* PlateLayerPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlateLayerPath.swift; sourceTree = "<group>"; };
@@ -193,6 +155,11 @@
 		B185D1E41C84980C000C61D8 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
 		B185D1E61C849810000C61D8 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		B185D1E81C849816000C61D8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		B185D1E91C854A58000C61D8 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
+		B185D2141C8574C9000C61D8 /* STComet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STComet.swift; sourceTree = "<group>"; };
+		B185D2161C8585EC000C61D8 /* Number+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Number+Helper.swift"; sourceTree = "<group>"; };
+		B185D2181C85891F000C61D8 /* RangeReplaceableCollectionType+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RangeReplaceableCollectionType+Helper.swift"; sourceTree = "<group>"; };
+		B185D21A1C85A81C000C61D8 /* SaturnTimer-bridging-header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SaturnTimer-bridging-header.h"; sourceTree = "<group>"; };
 		B186751E1C7C5F15002EA264 /* STTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STTimer.swift; sourceTree = "<group>"; };
 		B1AAF0911C84023900A9543A /* AnimatableArrowLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatableArrowLayer.swift; sourceTree = "<group>"; };
 		B1C239211C7DA48E00C58A5B /* UIWindow+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+Helper.swift"; sourceTree = "<group>"; };
@@ -230,9 +197,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1730EFE1C869EA80050E48C /* ReactiveCocoa.framework in Frameworks */,
+				B1730EFF1C869EA80050E48C /* Result.framework in Frameworks */,
 				B185D1DC1C844FAA000C61D8 /* AVFoundation.framework in Frameworks */,
-				B15A43F71C77160B005D605E /* ReactiveCocoa.framework in Frameworks */,
-				B15A43F81C77160B005D605E /* Result.framework in Frameworks */,
 				D263F8F2FD82C72FEA10A3F1 /* Pods_SaturnTimer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -257,9 +224,10 @@
 		5DF9A4A8415CF636FCEA24DC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B1730EFC1C869EA80050E48C /* ReactiveCocoa.framework */,
+				B1730EFD1C869EA80050E48C /* Result.framework */,
+				B185D1E91C854A58000C61D8 /* SpriteKit.framework */,
 				B185D1DB1C844FAA000C61D8 /* AVFoundation.framework */,
-				B15A43F51C77160B005D605E /* ReactiveCocoa.framework */,
-				B15A43F61C77160B005D605E /* Result.framework */,
 				39BB3C67DF2FAC6FE6D3489D /* Pods_SaturnTimer.framework */,
 			);
 			name = Frameworks;
@@ -289,26 +257,14 @@
 				B11734611C841A4F00BDDBE3 /* Sounds.plist */,
 				B11734311C84193400BDDBE3 /* Airship.mp3 */,
 				B11734321C84193400BDDBE3 /* Alien Metron.mp3 */,
-				B11734331C84193400BDDBE3 /* Astronaut.mp3 */,
-				B11734341C84193400BDDBE3 /* Baby Wake Up.mp3 */,
-				B11734351C84193400BDDBE3 /* Bob Star Attack.mp3 */,
-				B11734361C84193400BDDBE3 /* BoDeSa.mp3 */,
-				B11734371C84193400BDDBE3 /* Calculator.mp3 */,
 				B11734381C84193400BDDBE3 /* Falling Stone.mp3 */,
 				B11734391C84193400BDDBE3 /* Firefly.mp3 */,
 				B117343A1C84193400BDDBE3 /* Lantern Star.mp3 */,
 				B117343B1C84193400BDDBE3 /* Lemon Port.mp3 */,
-				B117343C1C84193400BDDBE3 /* Milky Way.mp3 */,
-				B117343D1C84193400BDDBE3 /* Mineral.mp3 */,
 				B117343E1C84193400BDDBE3 /* Mushrooms Villain.mp3 */,
 				B117343F1C84193400BDDBE3 /* Nothing.mp3 */,
-				B11734401C84193400BDDBE3 /* Rich Base.mp3 */,
-				B11734411C84193400BDDBE3 /* Satellite.mp3 */,
 				B11734421C84193400BDDBE3 /* Secret Pyramid.mp3 */,
 				B11734441C84193400BDDBE3 /* Time Machine.mp3 */,
-				B11734461C84193400BDDBE3 /* UFO.mp3 */,
-				B11734471C84193400BDDBE3 /* Unknown Creature.mp3 */,
-				B11734481C84193400BDDBE3 /* Wormhole.mp3 */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -340,6 +296,7 @@
 		B15A43A21C7713BF005D605E /* SaturnTimer */ = {
 			isa = PBXGroup;
 			children = (
+				B185D21A1C85A81C000C61D8 /* SaturnTimer-bridging-header.h */,
 				B15A43A31C7713BF005D605E /* AppDelegate.swift */,
 				B15A43A71C7713BF005D605E /* Main.storyboard */,
 				B15A43AA1C7713BF005D605E /* Assets.xcassets */,
@@ -379,12 +336,14 @@
 			isa = PBXGroup;
 			children = (
 				B15A43D61C7713F1005D605E /* Array+Helper.swift */,
+				B185D2181C85891F000C61D8 /* RangeReplaceableCollectionType+Helper.swift */,
 				B15A43D71C7713F1005D605E /* CALayer+Helper.swift */,
-				B10775D51C80A9FB005025B5 /* CAShapeLayer+Swizzling.swift */,
+				B10775D51C80A9FB005025B5 /* CAShapeLayer+Helper.swift */,
 				B15A43D81C7713F1005D605E /* Optinal+Helper.swift */,
 				B15A43D91C7713F1005D605E /* UIColor+Hex.swift */,
 				B1C239211C7DA48E00C58A5B /* UIWindow+Helper.swift */,
 				B104B3511C81A03F00B097FD /* NSObject+Helper.swift */,
+				B185D2161C8585EC000C61D8 /* Number+Helper.swift */,
 			);
 			path = Extension;
 			sourceTree = SOURCE_ROOT;
@@ -404,6 +363,7 @@
 		B17695D41C7AD4D800C99FEE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B185D20C1C857384000C61D8 /* Comet */,
 				B1FEEFEA1C80986900F9F5FD /* ActionButton */,
 				B17695D51C7AD4D800C99FEE /* AnimatableTag */,
 				B1FEEFEE1C80986900F9F5FD /* Common */,
@@ -489,6 +449,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		B185D20C1C857384000C61D8 /* Comet */ = {
+			isa = PBXGroup;
+			children = (
+				B185D2141C8574C9000C61D8 /* STComet.swift */,
+			);
+			path = Comet;
+			sourceTree = "<group>";
+		};
 		B1FEEFEA1C80986900F9F5FD /* ActionButton */ = {
 			isa = PBXGroup;
 			children = (
@@ -540,8 +508,8 @@
 				B15A439E1C7713BF005D605E /* Resources */,
 				9B4E36AEBB2D75C183DD15CC /* Embed Pods Frameworks */,
 				858355FF4E402677F8877F6D /* Copy Pods Resources */,
-				B17695CE1C7ABF6E00C99FEE /* Copy Frameworks */,
 				B19705911C7EB448006185F2 /* Auto-Increment Build Number */,
+				B1730F001C869ED30050E48C /* Copy Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -641,30 +609,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				B11734501C84193400BDDBE3 /* Falling Stone.mp3 in Resources */,
-				B117344E1C84193400BDDBE3 /* BoDeSa.mp3 in Resources */,
 				B117344A1C84193400BDDBE3 /* Alien Metron.mp3 in Resources */,
 				B1C2392B1C7DA72E00C58A5B /* Localizable.strings in Resources */,
 				B117345A1C84193400BDDBE3 /* Secret Pyramid.mp3 in Resources */,
-				B117344D1C84193400BDDBE3 /* Bob Star Attack.mp3 in Resources */,
 				B1C239311C7DA73500C58A5B /* InfoPlist.strings in Resources */,
 				B15A43AB1C7713BF005D605E /* Assets.xcassets in Resources */,
 				B11734621C841A4F00BDDBE3 /* Sounds.plist in Resources */,
 				B11734521C84193400BDDBE3 /* Lantern Star.mp3 in Resources */,
 				B11734571C84193400BDDBE3 /* Nothing.mp3 in Resources */,
-				B11734541C84193400BDDBE3 /* Milky Way.mp3 in Resources */,
-				B117344F1C84193400BDDBE3 /* Calculator.mp3 in Resources */,
 				B11734511C84193400BDDBE3 /* Firefly.mp3 in Resources */,
-				B11734601C84193400BDDBE3 /* Wormhole.mp3 in Resources */,
 				B117345C1C84193400BDDBE3 /* Time Machine.mp3 in Resources */,
-				B117344B1C84193400BDDBE3 /* Astronaut.mp3 in Resources */,
 				B11734491C84193400BDDBE3 /* Airship.mp3 in Resources */,
 				B11734531C84193400BDDBE3 /* Lemon Port.mp3 in Resources */,
-				B117345E1C84193400BDDBE3 /* UFO.mp3 in Resources */,
-				B117344C1C84193400BDDBE3 /* Baby Wake Up.mp3 in Resources */,
-				B11734581C84193400BDDBE3 /* Rich Base.mp3 in Resources */,
-				B117345F1C84193400BDDBE3 /* Unknown Creature.mp3 in Resources */,
-				B11734551C84193400BDDBE3 /* Mineral.mp3 in Resources */,
-				B11734591C84193400BDDBE3 /* Satellite.mp3 in Resources */,
 				B15A43D31C7713D5005D605E /* Cartfile in Resources */,
 				B11734561C84193400BDDBE3 /* Mushrooms Villain.mp3 in Resources */,
 				B15A43A91C7713BF005D605E /* Main.storyboard in Resources */,
@@ -734,6 +690,22 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SaturnTimer/Pods-SaturnTimer-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		B1730F001C869ED30050E48C /* Copy Embed Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Result.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/ReactiveCocoa.framework",
+			);
+			name = "Copy Embed Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
 		B19705911C7EB448006185F2 /* Auto-Increment Build Number */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -762,7 +734,7 @@
 				B1FEF0061C80993000F9F5FD /* AnimatableGearLayer.swift in Sources */,
 				B185D1DE1C845496000C61D8 /* STTagType.swift in Sources */,
 				B17695ED1C7AD4D800C99FEE /* Saturn.swift in Sources */,
-				B10775D61C80A9FB005025B5 /* CAShapeLayer+Swizzling.swift in Sources */,
+				B10775D61C80A9FB005025B5 /* CAShapeLayer+Helper.swift in Sources */,
 				B186751F1C7C5F15002EA264 /* STTimer.swift in Sources */,
 				B185D1E01C848074000C61D8 /* HelperCommon.swift in Sources */,
 				B17695EF1C7AD4D800C99FEE /* Television.swift in Sources */,
@@ -778,6 +750,7 @@
 				B1FEEFFD1C80986900F9F5FD /* STDialPlateLayerPath.swift in Sources */,
 				B17695EB1C7AD4D800C99FEE /* Sandglass.swift in Sources */,
 				B1FEEFFA1C80986900F9F5FD /* AnimatableLayer.swift in Sources */,
+				B185D2151C8574C9000C61D8 /* STComet.swift in Sources */,
 				B17695E81C7AD4D800C99FEE /* AnimatableTag.swift in Sources */,
 				B17695F01C7AD4D800C99FEE /* TelevisionLayerPath.swift in Sources */,
 				B104B34E1C818D0B00B097FD /* STMenuViewController.swift in Sources */,
@@ -793,10 +766,12 @@
 				B1FEEFF81C80986900F9F5FD /* ActionButtonLayerPath.swift in Sources */,
 				B17695EC1C7AD4D800C99FEE /* SandglassLayerPath.swift in Sources */,
 				B1FEF00C1C809A4800F9F5FD /* AnimatableRingLayer.swift in Sources */,
+				B185D2171C8585EC000C61D8 /* Number+Helper.swift in Sources */,
 				B17695FC1C7AD5B700C99FEE /* STHomeViewModel.swift in Sources */,
 				B1FEEFFC1C80986900F9F5FD /* STViewController.swift in Sources */,
 				B1FEEFFE1C80986900F9F5FD /* STDialPlateSliderView.swift in Sources */,
 				B11734641C84225B00BDDBE3 /* STSoundNameTableViewCell.swift in Sources */,
+				B185D2191C85891F000C61D8 /* RangeReplaceableCollectionType+Helper.swift in Sources */,
 				B15A43E91C7713F1005D605E /* Optinal+Helper.swift in Sources */,
 				B17695FA1C7AD5A800C99FEE /* STViewModel.swift in Sources */,
 				B1FEEFF91C80986900F9F5FD /* STActionButton.swift in Sources */,
@@ -890,6 +865,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -963,6 +939,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -972,6 +949,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rocketchild.SaturnTimer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SaturnTimer/SaturnTimer-bridging-header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -982,7 +960,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Guizhou Timeline Information Technology Co., Ltd. (AF2Q9UV2AS)";
+				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -992,6 +971,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rocketchild.SaturnTimer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SaturnTimer/SaturnTimer-bridging-header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
