@@ -13,7 +13,6 @@ pod 'pop'
 pod 'SnapKit'
 pod 'QorumLogs'
 pod 'GPUImage'
-pod 'Reveal-iOS-SDK', :configurations => ['Debug']
 pod 'UMengAnalytics-NO-IDFA'
 
 end

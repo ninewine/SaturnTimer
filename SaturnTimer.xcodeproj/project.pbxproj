@@ -54,6 +54,7 @@
 		B185D2171C8585EC000C61D8 /* Number+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B185D2161C8585EC000C61D8 /* Number+Helper.swift */; };
 		B185D2191C85891F000C61D8 /* RangeReplaceableCollectionType+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B185D2181C85891F000C61D8 /* RangeReplaceableCollectionType+Helper.swift */; };
 		B186751F1C7C5F15002EA264 /* STTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B186751E1C7C5F15002EA264 /* STTimer.swift */; };
+		B18A94881C8DE2BC004494C6 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = B18A94871C8DE2BC004494C6 /* Podfile */; };
 		B1AAF0921C84023900A9543A /* AnimatableArrowLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AAF0911C84023900A9543A /* AnimatableArrowLayer.swift */; };
 		B1C239221C7DA48E00C58A5B /* UIWindow+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C239211C7DA48E00C58A5B /* UIWindow+Helper.swift */; };
 		B1C2392B1C7DA72E00C58A5B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B1C2392D1C7DA72E00C58A5B /* Localizable.strings */; };
@@ -136,6 +137,7 @@
 		B185D2181C85891F000C61D8 /* RangeReplaceableCollectionType+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RangeReplaceableCollectionType+Helper.swift"; sourceTree = "<group>"; };
 		B185D21A1C85A81C000C61D8 /* SaturnTimer-bridging-header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SaturnTimer-bridging-header.h"; sourceTree = "<group>"; };
 		B186751E1C7C5F15002EA264 /* STTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STTimer.swift; sourceTree = "<group>"; };
+		B18A94871C8DE2BC004494C6 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; };
 		B1AAF0911C84023900A9543A /* AnimatableArrowLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatableArrowLayer.swift; sourceTree = "<group>"; };
 		B1C239211C7DA48E00C58A5B /* UIWindow+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+Helper.swift"; sourceTree = "<group>"; };
 		B1C2392C1C7DA72E00C58A5B /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -240,6 +242,7 @@
 				B15A43AF1C7713BF005D605E /* Info.plist */,
 				B1C239331C7DA73500C58A5B /* InfoPlist.strings */,
 				B1C2392D1C7DA72E00C58A5B /* Localizable.strings */,
+				B18A94871C8DE2BC004494C6 /* Podfile */,
 				B15A43D11C7713D5005D605E /* Cartfile */,
 			);
 			name = Resources;
@@ -509,6 +512,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B18A94881C8DE2BC004494C6 /* Podfile in Resources */,
 				B11734501C84193400BDDBE3 /* Falling Stone.mp3 in Resources */,
 				B117344A1C84193400BDDBE3 /* Alien Metron.mp3 in Resources */,
 				B1C2392B1C7DA72E00C58A5B /* Localizable.strings in Resources */,

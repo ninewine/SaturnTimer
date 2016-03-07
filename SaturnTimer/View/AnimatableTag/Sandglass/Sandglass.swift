@@ -8,7 +8,6 @@
 
 import UIKit
 import pop
-import ReactiveCocoa
 
 //MARK: - Sandglass
 
