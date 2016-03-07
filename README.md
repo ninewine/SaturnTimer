@@ -21,7 +21,8 @@ Saturn Timer is a free and open sourse iOS app, building with MVVM architectural
 - etc.
 
 #Requirements
-- [Cocoapods](https://github.com/CocoaPods/CocoaPods) 0.39.0
+- [Cocoapods](https://github.com/CocoaPods/CocoaPods) 0.39.0+
+- [Carthage](https://github.com/Carthage/Carthage) 0.11+
 - iOS 8.0+ 
 - Xcode 7.2+
 
