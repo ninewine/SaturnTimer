@@ -31,7 +31,6 @@ Saturn Timer is a free and open sourse iOS app, building with MVVM architectural
 cd SaturnTimer
 pod install
 carthage update
-
 ```
 
 #Demo
@@ -41,7 +40,7 @@ carthage update
 ![image](https://raw.githubusercontent.com/ninewine/ninewine.github.io/master/assets/saturntimer/image/tag-saturn.gif)  ![image](https://raw.githubusercontent.com/ninewine/ninewine.github.io/master/assets/saturntimer/image/tag-sandglass.gif)  ![image](https://raw.githubusercontent.com/ninewine/ninewine.github.io/master/assets/saturntimer/image/tag-tv.gif)  ![image](https://raw.githubusercontent.com/ninewine/ninewine.github.io/master/assets/saturntimer/image/tag-plate.gif)
 
 #License
-Saturn Timer is released under the MIT License, see [LICENSE](https://github.com/ninewine/SaturnTimer/blob/master/LICENSE) for details.
+Saturn Timer is released under the MIT License, see [LICENSE](https://github.com/ninewine/SaturnTimer/blob/master/LICENSE.md) for details.
 
 #TODO
 - More Tags
