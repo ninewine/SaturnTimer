@@ -26,8 +26,6 @@
 		B15A43A41C7713BF005D605E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15A43A31C7713BF005D605E /* AppDelegate.swift */; };
 		B15A43A91C7713BF005D605E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B15A43A71C7713BF005D605E /* Main.storyboard */; };
 		B15A43AB1C7713BF005D605E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B15A43AA1C7713BF005D605E /* Assets.xcassets */; };
-		B15A43B91C7713BF005D605E /* SaturnTimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15A43B81C7713BF005D605E /* SaturnTimerTests.swift */; };
-		B15A43C41C7713BF005D605E /* SaturnTimerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15A43C31C7713BF005D605E /* SaturnTimerUITests.swift */; };
 		B15A43D31C7713D5005D605E /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = B15A43D11C7713D5005D605E /* Cartfile */; };
 		B15A43E71C7713F1005D605E /* Array+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15A43D61C7713F1005D605E /* Array+Helper.swift */; };
 		B15A43E81C7713F1005D605E /* CALayer+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15A43D71C7713F1005D605E /* CALayer+Helper.swift */; };
@@ -81,23 +79,6 @@
 		D263F8F2FD82C72FEA10A3F1 /* Pods_SaturnTimer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39BB3C67DF2FAC6FE6D3489D /* Pods_SaturnTimer.framework */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		B15A43B51C7713BF005D605E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B15A43981C7713BF005D605E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B15A439F1C7713BF005D605E;
-			remoteInfo = SaturnTimer;
-		};
-		B15A43C01C7713BF005D605E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B15A43981C7713BF005D605E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B15A439F1C7713BF005D605E;
-			remoteInfo = SaturnTimer;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		39BB3C67DF2FAC6FE6D3489D /* Pods_SaturnTimer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SaturnTimer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		996269BD96DEE1838A3B4D72 /* Pods-SaturnTimer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaturnTimer.release.xcconfig"; path = "Pods/Target Support Files/Pods-SaturnTimer/Pods-SaturnTimer.release.xcconfig"; sourceTree = "<group>"; };
@@ -122,12 +103,6 @@
 		B15A43A81C7713BF005D605E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B15A43AA1C7713BF005D605E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B15A43AF1C7713BF005D605E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B15A43B41C7713BF005D605E /* SaturnTimerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SaturnTimerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B15A43B81C7713BF005D605E /* SaturnTimerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaturnTimerTests.swift; sourceTree = "<group>"; };
-		B15A43BA1C7713BF005D605E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B15A43BF1C7713BF005D605E /* SaturnTimerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SaturnTimerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B15A43C31C7713BF005D605E /* SaturnTimerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaturnTimerUITests.swift; sourceTree = "<group>"; };
-		B15A43C51C7713BF005D605E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B15A43D11C7713D5005D605E /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
 		B15A43D61C7713F1005D605E /* Array+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Helper.swift"; sourceTree = "<group>"; };
 		B15A43D71C7713F1005D605E /* CALayer+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CALayer+Helper.swift"; sourceTree = "<group>"; };
@@ -204,20 +179,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B15A43B11C7713BF005D605E /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B15A43BC1C7713BF005D605E /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -269,12 +230,25 @@
 			path = Sounds;
 			sourceTree = "<group>";
 		};
+		B14001331C8A8E1D0089B1C5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B185D21A1C85A81C000C61D8 /* SaturnTimer-bridging-header.h */,
+				B15A43A71C7713BF005D605E /* Main.storyboard */,
+				B15A43AA1C7713BF005D605E /* Assets.xcassets */,
+				B11734301C84193400BDDBE3 /* Sounds */,
+				B15A43AF1C7713BF005D605E /* Info.plist */,
+				B1C239331C7DA73500C58A5B /* InfoPlist.strings */,
+				B1C2392D1C7DA72E00C58A5B /* Localizable.strings */,
+				B15A43D11C7713D5005D605E /* Cartfile */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		B15A43971C7713BF005D605E = {
 			isa = PBXGroup;
 			children = (
 				B15A43A21C7713BF005D605E /* SaturnTimer */,
-				B15A43B71C7713BF005D605E /* SaturnTimerTests */,
-				B15A43C21C7713BF005D605E /* SaturnTimerUITests */,
 				B15A43A11C7713BF005D605E /* Products */,
 				A2A88EC13E5F6151BF1AA0AD /* Pods */,
 				5DF9A4A8415CF636FCEA24DC /* Frameworks */,
@@ -287,8 +261,6 @@
 			isa = PBXGroup;
 			children = (
 				B15A43A01C7713BF005D605E /* SaturnTimer.app */,
-				B15A43B41C7713BF005D605E /* SaturnTimerTests.xctest */,
-				B15A43BF1C7713BF005D605E /* SaturnTimerUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -296,15 +268,8 @@
 		B15A43A21C7713BF005D605E /* SaturnTimer */ = {
 			isa = PBXGroup;
 			children = (
-				B185D21A1C85A81C000C61D8 /* SaturnTimer-bridging-header.h */,
 				B15A43A31C7713BF005D605E /* AppDelegate.swift */,
-				B15A43A71C7713BF005D605E /* Main.storyboard */,
-				B15A43AA1C7713BF005D605E /* Assets.xcassets */,
-				B11734301C84193400BDDBE3 /* Sounds */,
-				B15A43AF1C7713BF005D605E /* Info.plist */,
-				B1C239331C7DA73500C58A5B /* InfoPlist.strings */,
-				B1C2392D1C7DA72E00C58A5B /* Localizable.strings */,
-				B15A43D11C7713D5005D605E /* Cartfile */,
+				B14001331C8A8E1D0089B1C5 /* Resources */,
 				B15A43D51C7713F1005D605E /* Extension */,
 				B15A43DA1C7713F1005D605E /* Helper */,
 				B17695F71C7AD59D00C99FEE /* Model */,
@@ -312,24 +277,6 @@
 				B17695D41C7AD4D800C99FEE /* View */,
 			);
 			path = SaturnTimer;
-			sourceTree = "<group>";
-		};
-		B15A43B71C7713BF005D605E /* SaturnTimerTests */ = {
-			isa = PBXGroup;
-			children = (
-				B15A43B81C7713BF005D605E /* SaturnTimerTests.swift */,
-				B15A43BA1C7713BF005D605E /* Info.plist */,
-			);
-			path = SaturnTimerTests;
-			sourceTree = "<group>";
-		};
-		B15A43C21C7713BF005D605E /* SaturnTimerUITests */ = {
-			isa = PBXGroup;
-			children = (
-				B15A43C31C7713BF005D605E /* SaturnTimerUITests.swift */,
-				B15A43C51C7713BF005D605E /* Info.plist */,
-			);
-			path = SaturnTimerUITests;
 			sourceTree = "<group>";
 		};
 		B15A43D51C7713F1005D605E /* Extension */ = {
@@ -520,42 +467,6 @@
 			productReference = B15A43A01C7713BF005D605E /* SaturnTimer.app */;
 			productType = "com.apple.product-type.application";
 		};
-		B15A43B31C7713BF005D605E /* SaturnTimerTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = B15A43CB1C7713BF005D605E /* Build configuration list for PBXNativeTarget "SaturnTimerTests" */;
-			buildPhases = (
-				B15A43B01C7713BF005D605E /* Sources */,
-				B15A43B11C7713BF005D605E /* Frameworks */,
-				B15A43B21C7713BF005D605E /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				B15A43B61C7713BF005D605E /* PBXTargetDependency */,
-			);
-			name = SaturnTimerTests;
-			productName = SaturnTimerTests;
-			productReference = B15A43B41C7713BF005D605E /* SaturnTimerTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		B15A43BE1C7713BF005D605E /* SaturnTimerUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = B15A43CE1C7713BF005D605E /* Build configuration list for PBXNativeTarget "SaturnTimerUITests" */;
-			buildPhases = (
-				B15A43BB1C7713BF005D605E /* Sources */,
-				B15A43BC1C7713BF005D605E /* Frameworks */,
-				B15A43BD1C7713BF005D605E /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				B15A43C11C7713BF005D605E /* PBXTargetDependency */,
-			);
-			name = SaturnTimerUITests;
-			productName = SaturnTimerUITests;
-			productReference = B15A43BF1C7713BF005D605E /* SaturnTimerUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -570,14 +481,6 @@
 					B15A439F1C7713BF005D605E = {
 						CreatedOnToolsVersion = 7.2.1;
 						DevelopmentTeam = AF2Q9UV2AS;
-					};
-					B15A43B31C7713BF005D605E = {
-						CreatedOnToolsVersion = 7.2.1;
-						TestTargetID = B15A439F1C7713BF005D605E;
-					};
-					B15A43BE1C7713BF005D605E = {
-						CreatedOnToolsVersion = 7.2.1;
-						TestTargetID = B15A439F1C7713BF005D605E;
 					};
 				};
 			};
@@ -597,8 +500,6 @@
 			projectRoot = "";
 			targets = (
 				B15A439F1C7713BF005D605E /* SaturnTimer */,
-				B15A43B31C7713BF005D605E /* SaturnTimerTests */,
-				B15A43BE1C7713BF005D605E /* SaturnTimerUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -624,20 +525,6 @@
 				B15A43D31C7713D5005D605E /* Cartfile in Resources */,
 				B11734561C84193400BDDBE3 /* Mushrooms Villain.mp3 in Resources */,
 				B15A43A91C7713BF005D605E /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B15A43B21C7713BF005D605E /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B15A43BD1C7713BF005D605E /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -780,36 +667,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B15A43B01C7713BF005D605E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B15A43B91C7713BF005D605E /* SaturnTimerTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B15A43BB1C7713BF005D605E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B15A43C41C7713BF005D605E /* SaturnTimerUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		B15A43B61C7713BF005D605E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = B15A439F1C7713BF005D605E /* SaturnTimer */;
-			targetProxy = B15A43B51C7713BF005D605E /* PBXContainerItemProxy */;
-		};
-		B15A43C11C7713BF005D605E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = B15A439F1C7713BF005D605E /* SaturnTimer */;
-			targetProxy = B15A43C01C7713BF005D605E /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		B15A43A71C7713BF005D605E /* Main.storyboard */ = {
@@ -945,6 +803,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = SaturnTimer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rocketchild.SaturnTimer;
@@ -967,60 +826,13 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = SaturnTimer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rocketchild.SaturnTimer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "SaturnTimer/SaturnTimer-bridging-header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		B15A43CC1C7713BF005D605E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = SaturnTimerTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.rocketchild.SaturnTimerTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SaturnTimer.app/SaturnTimer";
-			};
-			name = Debug;
-		};
-		B15A43CD1C7713BF005D605E /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = SaturnTimerTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.rocketchild.SaturnTimerTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SaturnTimer.app/SaturnTimer";
-			};
-			name = Release;
-		};
-		B15A43CF1C7713BF005D605E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = SaturnTimerUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.rocketchild.SaturnTimerUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = SaturnTimer;
-				USES_XCTRUNNER = YES;
-			};
-			name = Debug;
-		};
-		B15A43D01C7713BF005D605E /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = SaturnTimerUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.rocketchild.SaturnTimerUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = SaturnTimer;
-				USES_XCTRUNNER = YES;
 			};
 			name = Release;
 		};
@@ -1041,24 +853,6 @@
 			buildConfigurations = (
 				B15A43C91C7713BF005D605E /* Debug */,
 				B15A43CA1C7713BF005D605E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		B15A43CB1C7713BF005D605E /* Build configuration list for PBXNativeTarget "SaturnTimerTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B15A43CC1C7713BF005D605E /* Debug */,
-				B15A43CD1C7713BF005D605E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		B15A43CE1C7713BF005D605E /* Build configuration list for PBXNativeTarget "SaturnTimerUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B15A43CF1C7713BF005D605E /* Debug */,
-				B15A43D01C7713BF005D605E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

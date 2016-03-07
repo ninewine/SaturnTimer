@@ -11,10 +11,6 @@ import QorumLogs
 import ReactiveCocoa
 import pop
 
-enum SlidingDirection: Int {
-  case Forward, Backward
-}
-
 class STDialPlateSliderView: UIView {
   
   var active: Bool = false
@@ -33,9 +29,7 @@ class STDialPlateSliderView: UIView {
   private var degree: CGFloat = 0
   private let imageLayer = CALayer()
   private let dazzlelightLayer = CALayer()
-  
-  private var direction: SlidingDirection = .Forward
-  
+    
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder);
   }
@@ -60,6 +54,22 @@ class STDialPlateSliderView: UIView {
     dazzlelightLayer.frame = dazzlelightFrame
     dazzlelightLayer.contents = UIImage(named: "pic-dazzlelight")?.CGImage
     layer.insertSublayer(dazzlelightLayer, below: imageLayer)
+    
+    NSNotificationCenter
+      .defaultCenter()
+      .rac_addObserverForName(UIApplicationWillResignActiveNotification, object: nil)
+      .takeUntil(self.rac_willDeallocSignal()).subscribeNext {[weak self] (_) -> Void in
+        self?.dazzlelightLayer.removeAllAnimations()
+    }
+    
+    NSNotificationCenter
+      .defaultCenter()
+      .rac_addObserverForName(UIApplicationWillEnterForegroundNotification, object: nil)
+      .takeUntil(self.rac_willDeallocSignal()).subscribeNext {[weak self] (_) -> Void in
+        guard let _self = self else {return}
+        let enabled = _self.enabled
+        _self.enabled = enabled
+    }
   }
   
   func dazzlelightAnimation (enabled: Bool) {
