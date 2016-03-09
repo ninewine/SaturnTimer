@@ -6,9 +6,7 @@
 [![GitHub release](https://img.shields.io/github/release/ninewine/SaturnTimer.svg)](https://github.com/ninewine/SaturnTimer/releases)
 [![License MIT](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/ninewine/SaturnTimer/blob/master/LICENSE)
 
-Saturn Timer is a free and open sourse iOS app, building with MVVM architectural pattern and some cool frameworks, such as 
-
-- [ReactiveCocoa](https://github.com/ReactiveCocoa/ReactiveCocoa)
+[Saturn Timer](https://itunes.apple.com/cn/app/id1089182083) is a free and open sourse iOS app, building with MVVM architectural pattern and [ReactiveCocoa](https://github.com/ReactiveCocoa/ReactiveCocoa) 4.0 Swift API and some other awesome frameworks, such as 
 
 - [pop](https://github.com/facebook/pop)
 
@@ -33,7 +31,7 @@ cd SaturnTimer
 pod install
 carthage update
 ```
-
+Wait for it to finish. Using `SaturnTimer.xcworkspace` to open the project instead of `SaturnTimer.xcodeproj`.
 #Demo
 ##Screenshot
 ![](https://raw.githubusercontent.com/ninewine/ninewine.github.io/master/assets/saturntimer/image/saturntimer1.gif)  ![](https://raw.githubusercontent.com/ninewine/ninewine.github.io/master/assets/saturntimer/image/saturntimer2.gif)
@@ -44,6 +42,7 @@ carthage update
 Saturn Timer is released under the MIT License, see [LICENSE](https://github.com/ninewine/SaturnTimer/blob/master/LICENSE.md) for details.
 
 #TODO
+- Bugs fix
 - More Tags
 
 
