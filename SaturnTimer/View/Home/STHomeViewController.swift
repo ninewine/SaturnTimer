@@ -61,7 +61,7 @@ class STHomeViewController: STViewController {
   
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
-    HelperNotification.askForNotificationPermission()
+    HelperNotification.askForPermission()
     generateScreenshotWithBlurEffect()
   }
   

@@ -76,7 +76,7 @@ extension CALayer {
 	
 	func setValueWithoutImplicitAnimation(value: AnyObject?, forKey key: String) {
 		CATransaction.begin()
-		CATransaction.setValue(true, forKeyPath: kCATransactionDisableActions)
+    CATransaction.setDisableActions(true)
 		self.setValue(value, forKeyPath: key)
 		CATransaction.commit()
 	}

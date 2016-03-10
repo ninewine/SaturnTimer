@@ -18,6 +18,7 @@ struct HelperLocalization {
   static let Back: String = HelperLocalization.string(key: "Back")
   static let OK: String = HelperLocalization.string(key: "OK")
   static let Settings: String = HelperLocalization.string(key: "Settings")
+  static let Ignore: String = HelperLocalization.string(key: "Ignore")
 
   static let timesupStringSaturnTag: String = HelperLocalization.string(key: "TimeIsUpStringSaturnTag")
   static let timesupStringSandglassTag: String = HelperLocalization.string(key: "TimeIsUpStringSandglassTag")

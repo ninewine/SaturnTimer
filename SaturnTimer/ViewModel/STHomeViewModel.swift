@@ -266,6 +266,10 @@ class STHomeViewModel: STViewModel {
               if hour == 0 && minute == 0 && second == 0 {
                 _self.playing.value = false
                 _self.pausing.value = false
+                if !HelperNotification.isAccessible() {
+                  STTimerNotification.shareInstance.showNotificationWithString(_self.tagType.value.tagTypeTimeIsUpString())
+                  STTimerNotification.shareInstance.playSoundWithFileName(_self.soundFileName.value)
+                }
               }
             }
       }
@@ -296,6 +300,10 @@ class STHomeViewModel: STViewModel {
       cancelNotification()
     }
   }
+  
+  //MARK: - Withtout Notification
+  
+  
   
   //MARK: - Notification
   func scheduledNotificationExist () -> (exist: Bool, notification: UILocalNotification?) {

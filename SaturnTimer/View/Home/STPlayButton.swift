@@ -97,14 +97,14 @@ class STPlayButton: UIView {
     if !enabled {
       return
     }
-    if !HelperNotification.checkNotificationAccessibility() {
-      return
-    }
     
-    highlighting = !highlighting
-    pressedObserver?.sendNext()
-
-    userInteractionEnabled = false
+    HelperNotification.checkAccessibility {[unowned self] (granted, ignore) -> Void in
+      if granted || ignore{
+        self.highlighting = !self.highlighting
+        self.pressedObserver?.sendNext()
+        self.userInteractionEnabled = false
+      }
+    }
   }
   
   func enableButton (enabled: Bool) {

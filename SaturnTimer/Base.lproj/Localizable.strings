@@ -12,11 +12,12 @@
 "OK"="OK";
 "Settings"="Settings";
 "Random"="Random";
+"Ignore"="Ignore";
 
 "TimeIsUpStringSaturnTag"="💫Time's up.💫";
 "TimeIsUpStringSandglassTag"="⌛Time's up.⌛";
 "TimeIsUpStringTelevisionTag"="📺Time's up.📺";
 "TimeIsUpStringPlateTag"="🍽Time's up.🍽";
 
-"AskForNotificationPermission"="为了让计时器正常工作，请务必允许土星计时器向您发送通知。";
-"CheckNotificationPermissionFailed"="土星计时器的通知功能被关闭了，请前往设置进行打开。";
+"AskForNotificationPermission"="In order for Saturn Timer to works correctly, you need to enable notifications.";
+"CheckNotificationPermissionFailed"="In order for Saturn Timer to works correctly, you need to enable notifications in Settings, or you can ignore it.";
