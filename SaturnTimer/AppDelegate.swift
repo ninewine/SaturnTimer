@@ -42,6 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
   }
 
+  
   //MARK: - Action
   
   func isFirstLaunch () -> Bool {

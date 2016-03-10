@@ -72,7 +72,6 @@ extension CALayer {
     anim.timingFunction = CAMediaTimingFunction(name: timingFunctionName)
     self.pop_addAnimation(anim, forKey: propertyName)
   }
-  
 	
 	func setValueWithoutImplicitAnimation(value: AnyObject?, forKey key: String) {
 		CATransaction.begin()

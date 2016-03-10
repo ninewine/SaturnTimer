@@ -9,6 +9,7 @@
 import UIKit
 
 struct HelperNotification {
+  
   static func isAccessible () -> Bool {
     if let settings = UIApplication.sharedApplication().currentUserNotificationSettings() {
       if settings.types.contains(.Alert) && settings.types.contains(.Sound) {

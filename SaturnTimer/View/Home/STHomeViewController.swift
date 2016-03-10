@@ -51,7 +51,6 @@ class STHomeViewController: STViewController {
   
   let widthOfTimeItem: CGFloat = 60
   
-  
   //MARK: - Lifecircle
   override func viewDidLoad() {
     super.viewDidLoad()

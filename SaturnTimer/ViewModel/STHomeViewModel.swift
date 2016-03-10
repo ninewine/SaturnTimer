@@ -301,10 +301,6 @@ class STHomeViewModel: STViewModel {
     }
   }
   
-  //MARK: - Withtout Notification
-  
-  
-  
   //MARK: - Notification
   func scheduledNotificationExist () -> (exist: Bool, notification: UILocalNotification?) {
     if let notifications = UIApplication.sharedApplication().scheduledLocalNotifications where notifications.count > 0 {

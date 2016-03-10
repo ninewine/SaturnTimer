@@ -19,5 +19,6 @@
 "TimeIsUpStringTelevisionTag"="📺時間到了📺";
 "TimeIsUpStringPlateTag"="🍽時間到了🍽";
 
+
 "AskForNotificationPermission"="為了讓計時器正常工作，請允許土星計時器向您傳送通知";
 "CheckNotificationPermissionFailed"="通知功能被關閉了，這可能會影響到計時器的正常工作，您可以前往“設置”進行打開，或者忽略。";

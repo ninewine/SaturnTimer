@@ -19,5 +19,6 @@
 "TimeIsUpStringTelevisionTag"="📺Time's up.📺";
 "TimeIsUpStringPlateTag"="🍽Time's up.🍽";
 
+
 "AskForNotificationPermission"="In order for Saturn Timer to works correctly, you need to enable notifications.";
 "CheckNotificationPermissionFailed"="In order for Saturn Timer to works correctly, you need to enable notifications in Settings, or you can ignore it.";
