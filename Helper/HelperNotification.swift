@@ -40,7 +40,6 @@ struct HelperNotification {
   
   static func askForPermission () {
     let asked = NSUserDefaults.standardUserDefaults().boolForKey(HelperConstant.UserDefaultKey.AlreadyAskedForNotificationPermission)
-    
     if asked {
       self.checkAccessibility(nil)
     }
