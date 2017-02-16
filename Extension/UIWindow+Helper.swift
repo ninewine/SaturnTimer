@@ -19,16 +19,16 @@ extension UIWindow {
   
   func viewControllerForStatusBarStyle () ->UIViewController? {
     let currentViewController = self.currentViewController()
-    if currentViewController?.childViewControllerForStatusBarStyle() != nil {
-      return currentViewController?.childViewControllerForStatusBarStyle()
+    if currentViewController?.childViewControllerForStatusBarStyle != nil {
+      return currentViewController?.childViewControllerForStatusBarStyle
     }
     return currentViewController
   }
   
   func viewControllerForStatusBarHidden () ->UIViewController? {
     let currentViewController = self.currentViewController()
-    if currentViewController?.childViewControllerForStatusBarHidden() != nil {
-      return currentViewController?.childViewControllerForStatusBarHidden()
+    if currentViewController?.childViewControllerForStatusBarHidden != nil {
+      return currentViewController?.childViewControllerForStatusBarHidden
     }
     return currentViewController
   }

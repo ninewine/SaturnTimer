@@ -11,16 +11,16 @@ import ReactiveCocoa
 import Result
 
 class STTimer: NSObject {
-  dynamic var remainingTime: NSTimeInterval 
+  dynamic var remainingTime: TimeInterval 
   
-  private var innerTimer: NSTimer?
+  fileprivate var innerTimer: Timer?
   
-  init (remainingTime: NSTimeInterval) {
+  init (remainingTime: TimeInterval) {
     self.remainingTime = remainingTime
   }
   
   func fire () {
-    innerTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("tikTok"), userInfo: nil, repeats: true)
+    innerTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(STTimer.tikTok), userInfo: nil, repeats: true)
     tikTok()
   }
   
@@ -36,7 +36,7 @@ class STTimer: NSObject {
   
   func tikTok () {
     if remainingTime > 0 {
-      remainingTime--
+      remainingTime -= 1
     }
     else {
       invalidate()

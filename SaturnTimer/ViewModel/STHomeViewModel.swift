@@ -7,6 +7,7 @@
 //
 
 import ReactiveCocoa
+import ReactiveSwift
 import Result
 import QorumLogs
 
@@ -32,39 +33,39 @@ class STHomeViewModel: STViewModel {
   
   lazy var playButtonAction: Action<Void, PlayButtonActionType, NoError> = {
     return Action({[weak self] _ in
-      guard let _self = self else {return SignalProducer(value: PlayButtonActionType.None)}
+      guard let _self = self else {return SignalProducer(value: PlayButtonActionType.none)}
       if _self.playing.value {
         if _self.pausing.value{
           _self.pausing.value = false
           _self.fireTimer(nil)
-          return SignalProducer(value: PlayButtonActionType.StartTimer)
+          return SignalProducer(value: PlayButtonActionType.startTimer)
         }
         else {
           _self.pausing.value = true
           _self.pauseTimer()
-          return SignalProducer(value: PlayButtonActionType.PauseTimer)
+          return SignalProducer(value: PlayButtonActionType.pauseTimer)
         }
       }
       else {
         _self.playing.value = true
         _self.fireTimer(nil)
-        return SignalProducer(value: PlayButtonActionType.StartTimer)
+        return SignalProducer(value: PlayButtonActionType.startTimer)
       }
     })
   }()
   
   lazy var actionButtonAction: Action<Void, RigthBottomButtonActionType, NoError> = {
     return Action({[weak self] _ in
-      guard let _self = self else {return SignalProducer(value: RigthBottomButtonActionType.None)}
+      guard let _self = self else {return SignalProducer(value: RigthBottomButtonActionType.none)}
       
       if _self.playing.value {
         _self.playing.value = false
         _self.pausing.value = false
         _self.invalidateTimer(clean: true)
-        return SignalProducer(value: RigthBottomButtonActionType.StopTimer)
+        return SignalProducer(value: RigthBottomButtonActionType.stopTimer)
       }
       else {
-        return SignalProducer(value: RigthBottomButtonActionType.MenuAction)
+        return SignalProducer(value: RigthBottomButtonActionType.menuAction)
       }
     })
   }()
@@ -72,31 +73,31 @@ class STHomeViewModel: STViewModel {
   
   //Private
   
-  private let timeChangeObserver: Observer<STTime, NoError>
-  private let timeValidObserver: Observer<Bool, NoError>
-  private let timeTikTokObserver: Observer<STTime, NoError>
+  fileprivate let timeChangeObserver: Observer<STTime, NoError>
+  fileprivate let timeValidObserver: Observer<Bool, NoError>
+  fileprivate let timeTikTokObserver: Observer<STTime, NoError>
 
-  private var time : STTime
-  private var timer : STTimer?
-  private var timerDisposable: Disposable?
+  fileprivate var time : STTime
+  fileprivate var timer : STTimer?
+  fileprivate var timerDisposable: Disposable?
   
   
   //Lifecircle
   //Lifecircle
 
   override init () {
-    if let fileName = NSUserDefaults.standardUserDefaults().stringForKey(HelperConstant.UserDefaultKey.CurrentSoundFileName) {
+    if let fileName = UserDefaults.standard.string(forKey: HelperConstant.UserDefaultKey.CurrentSoundFileName) {
       soundFileName.value = fileName
     }
     
-    if let typeName = NSUserDefaults.standardUserDefaults().stringForKey(HelperConstant.UserDefaultKey.CurrentTagTypeName) {
+    if let typeName = UserDefaults.standard.string(forKey: HelperConstant.UserDefaultKey.CurrentTagTypeName) {
       if let type = STTagType(rawValue: typeName) {
         tagType.value = type
       }
     }
     
     time = STTime(hour: 0, minute: 0, second: 0)
-
+  
     let (timeChangeSignal, timeChangeObserver) = Signal<STTime, NoError>.pipe()
     self.timeChangeSignal = timeChangeSignal
     self.timeChangeObserver = timeChangeObserver
@@ -117,12 +118,12 @@ class STHomeViewModel: STViewModel {
         return hour >= 0 && hour <= 12
       }
       .combinePrevious(-1)
-      .startWithNext {[weak self] (oldHour, newHour) -> () in
+      .startWithValues {[weak self] (oldHour, newHour) -> () in
         guard let _self = self else {return}
         if newHour != oldHour {
           _self.time.hour = newHour
-          timeChangeObserver.sendNext(_self.time)
-          timeValidObserver.sendNext(_self.time.isValid())
+          timeChangeObserver.send(value: _self.time)
+          timeValidObserver.send(value: _self.time.isValid())
         }
     }
     
@@ -132,12 +133,12 @@ class STHomeViewModel: STViewModel {
         return minute >= 0 && minute <= 60
       }
       .combinePrevious(-1)
-      .startWithNext {[weak self] (oldMinute, newMinute) -> () in
+      .startWithValues {[weak self] (oldMinute, newMinute) -> () in
         guard let _self = self else {return}
         if newMinute != oldMinute {
           _self.time.minute = newMinute
-          timeChangeObserver.sendNext(_self.time)
-          timeValidObserver.sendNext(_self.time.isValid())
+          timeChangeObserver.send(value: _self.time)
+          timeValidObserver.send(value: _self.time.isValid())
         }
     }
     
@@ -147,46 +148,48 @@ class STHomeViewModel: STViewModel {
         return second >= 0 && second <= 60
       }
       .combinePrevious(-1)
-      .startWithNext {[weak self] (oldSecond, newSecond) -> () in
+      .startWithValues {[weak self] (oldSecond, newSecond) -> () in
         guard let _self = self else {return}
         if newSecond != oldSecond {
           _self.time.second = newSecond
-          timeChangeObserver.sendNext(_self.time)
-          timeValidObserver.sendNext(_self.time.isValid())
+          timeChangeObserver.send(value: _self.time)
+          timeValidObserver.send(value: _self.time.isValid())
         }
     }
     
     tagType
       .producer
-      .observeOn(UIScheduler())
-      .startWithNext { (type) -> () in
-        NSUserDefaults.standardUserDefaults().setObject(type.rawValue, forKey: HelperConstant.UserDefaultKey.CurrentTagTypeName)
+      .observe(on: UIScheduler())
+      .startWithValues { (type) -> () in
+        UserDefaults.standard.set(type.rawValue, forKey: HelperConstant.UserDefaultKey.CurrentTagTypeName)
     }
     
     soundFileName
       .producer
-      .observeOn(UIScheduler())
-      .startWithNext { (fileName) -> () in
-        NSUserDefaults.standardUserDefaults().setObject(fileName, forKey: HelperConstant.UserDefaultKey.CurrentSoundFileName)
+      .observe(on: UIScheduler())
+      .startWithValues { (fileName) -> () in
+        UserDefaults.standard.set(fileName, forKey: HelperConstant.UserDefaultKey.CurrentSoundFileName)
     }
 
     self.registerNotification()
   }
   
   func registerNotification () {
-    NSNotificationCenter
-      .defaultCenter()
-      .rac_addObserverForName(UIApplicationDidEnterBackgroundNotification, object: nil)
-      .takeUntil(self.rac_willDeallocSignal()).subscribeNext {[weak self] (_) -> Void in
+    NotificationCenter.default
+      .reactive
+      .notifications(forName: NSNotification.Name.UIApplicationDidEnterBackground)
+      .take(during: reactive.lifetime)
+      .observeValues({[weak self] (notification) in
         self?.applicationDidEnterBackground()
-    }
+    })
     
-    NSNotificationCenter
-      .defaultCenter()
-      .rac_addObserverForName(UIApplicationDidBecomeActiveNotification, object: nil)
-      .takeUntil(self.rac_willDeallocSignal()).subscribeNext {[weak self] (_) -> Void in
+    NotificationCenter.default
+      .reactive
+      .notifications(forName: NSNotification.Name.UIApplicationDidBecomeActive)
+      .take(during: reactive.lifetime)
+      .observeValues({[weak self] (notification) in
         self?.applicationDidBecomeActive()
-    }
+    })
   }
   
   func applicationDidEnterBackground () {
@@ -208,24 +211,24 @@ class STHomeViewModel: STViewModel {
           invalidateTimer(clean: true)
           playing.value = false
 //          timeValidObserver.sendNext(true)
-          timeTikTokObserver.sendNext(time)
+          timeTikTokObserver.send(value: time)
         }
       }
     }
   }
   
   //MARK - Timer
-  func convertTimeInterval (ti : NSTimeInterval) -> (hour: Int, minute: Int, second: Int) {
+  func convertTimeInterval (_ ti : TimeInterval) -> (hour: Int, minute: Int, second: Int) {
     let hour = Int(floor(ti / 3600.0))
     let minute = Int(floor((ti - Double(hour * 3600)) / 60.0))
     let second = Int(ti - Double(hour * 3600) - Double(minute * 60))
     return (hour, minute, second)
   }
   
-  func refreshRemainingTime(notification: UILocalNotification) {
+  func refreshRemainingTime(_ notification: UILocalNotification) {
     if let fireDate = notification.fireDate {
-      let remainingTimeInterval = fireDate.timeIntervalSinceDate(NSDate())
-      let ti = NSTimeInterval(lround(remainingTimeInterval))
+      let remainingTimeInterval = fireDate.timeIntervalSince(Date())
+      let ti = TimeInterval(lround(remainingTimeInterval))
       if ti > 0 {
         invalidateTimer(clean: true)
         fireTimer(ti)
@@ -241,28 +244,28 @@ class STHomeViewModel: STViewModel {
     }
   }
   
-  func fireTimer (remainingTime: NSTimeInterval?) {
-    var time: NSTimeInterval = 0.0
+  func fireTimer (_ remainingTime: TimeInterval?) {
+    var time: TimeInterval = 0.0
     if remainingTime != nil {
       time = remainingTime!
     }
     else {
-      time = NSTimeInterval(hour.value * 3600 + minute.value * 60 + second.value)
+      time = TimeInterval(hour.value * 3600 + minute.value * 60 + second.value)
     }
     if timer == nil {
       timer = STTimer(remainingTime: time)
       timerDisposable =
-        DynamicProperty(object: timer!, keyPath: "remainingTime")
+        DynamicProperty<Any>(object: timer!, keyPath: "remainingTime")
           .signal
-          .observeOn(UIScheduler())
-          .observeNext {[weak self] (timeInterval) -> () in
+          .observe(on: UIScheduler())
+          .observeValues {[weak self] (timeInterval) -> () in
             guard let _self = self else {return}
-            if let ti = timeInterval as? NSTimeInterval {
+            if let ti = timeInterval as? TimeInterval {
               let (hour, minute, second) = _self.convertTimeInterval(ti)
               _self.hour.value = hour
               _self.minute.value = minute
               _self.second.value = second
-              _self.timeTikTokObserver.sendNext(_self.time)
+              _self.timeTikTokObserver.send(value: _self.time)
               if hour == 0 && minute == 0 && second == 0 {
                 _self.playing.value = false
                 _self.pausing.value = false
@@ -287,7 +290,7 @@ class STHomeViewModel: STViewModel {
     cancelNotification()
   }
   
-  func invalidateTimer (clean clean: Bool) {
+  func invalidateTimer (clean: Bool) {
     timer?.invalidate()
     timer = nil
     timerDisposable?.dispose()
@@ -303,25 +306,25 @@ class STHomeViewModel: STViewModel {
   
   //MARK: - Notification
   func scheduledNotificationExist () -> (exist: Bool, notification: UILocalNotification?) {
-    if let notifications = UIApplication.sharedApplication().scheduledLocalNotifications where notifications.count > 0 {
+    if let notifications = UIApplication.shared.scheduledLocalNotifications, notifications.count > 0 {
       let notification = notifications[0]
       return (true, notification)
     }
     return (false, nil)
   }
   
-  func generateNotification (remainingTime: NSTimeInterval) {
-    let date = NSDate().dateByAddingTimeInterval(remainingTime)
+  func generateNotification (_ remainingTime: TimeInterval) {
+    let date = Date().addingTimeInterval(remainingTime)
     let notification = UILocalNotification()
-    notification.timeZone = NSTimeZone.defaultTimeZone()
+    notification.timeZone = TimeZone.current
     notification.soundName = soundFileName.value
     notification.alertBody = tagType.value.tagTypeTimeIsUpString()
     notification.fireDate = date
-    UIApplication.sharedApplication().scheduleLocalNotification(notification)
+    UIApplication.shared.scheduleLocalNotification(notification)
   }
 
   func cancelNotification () {
-    UIApplication.sharedApplication().cancelAllLocalNotifications()
+    UIApplication.shared.cancelAllLocalNotifications()
   }
 }
 

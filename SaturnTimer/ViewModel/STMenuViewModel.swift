@@ -8,6 +8,7 @@
 
 import UIKit
 import ReactiveCocoa
+import ReactiveSwift
 import Result
 import QorumLogs
 import AVFoundation
@@ -47,19 +48,19 @@ class STMenuViewModel: STViewModel {
   //Lifecircle
 
   override init() {
-    if let soundsPlistPath = NSBundle.mainBundle().pathForResource("Sounds", ofType: "plist") {
+    if let soundsPlistPath = Bundle.main.path(forResource: "Sounds", ofType: "plist") {
       if let sounds = NSArray(contentsOfFile: soundsPlistPath) as? [String] {
         soundFileNameArray.value = sounds
       }
     }
   }
   
-  func playSoundWithFileName (fileName: String) {
+  func playSoundWithFileName (_ fileName: String) {
     do {
-      let fileNameComponents = fileName.componentsSeparatedByCharactersInSet(NSCharacterSet(charactersInString: "."))
+      let fileNameComponents = fileName.components(separatedBy: CharacterSet(charactersIn: "."))
       if fileNameComponents.count > 1 {
-        if let url = NSBundle.mainBundle().URLForResource(fileNameComponents[0], withExtension: fileNameComponents[1]) {
-          audioPlayer = try AVAudioPlayer(contentsOfURL: url, fileTypeHint: fileNameComponents[1])
+        if let url = Bundle.main.url(forResource: fileNameComponents[0], withExtension: fileNameComponents[1]) {
+          audioPlayer = try AVAudioPlayer(contentsOf: url, fileTypeHint: fileNameComponents[1])
           audioPlayer?.play()
         }
       }
@@ -79,13 +80,13 @@ class STMenuViewModel: STViewModel {
     return 1
   }
   
-  func numberOfSoundsInSection(section: Int) -> Int {
+  func numberOfSoundsInSection(_ section: Int) -> Int {
     return soundFileNameArray.value.count
   }
   
-  func soundNameAtIndexPath(indexPath: NSIndexPath) -> NSAttributedString {
+  func soundNameAtIndexPath(_ indexPath: IndexPath) -> NSAttributedString {
     let soundFileName = soundFileNameArray.value[indexPath.row]
-    let soundName = soundFileName.stringByReplacingOccurrencesOfString(".mp3", withString: "")
+    let soundName = soundFileName.replacingOccurrences(of: ".mp3", with: "")
     let isSurrentSoundFileName = self.soundFileName.value == soundFileName
     let attributes = [
       NSForegroundColorAttributeName: isSurrentSoundFileName ? HelperColor.primaryColor : HelperColor.lightGrayColor
@@ -96,7 +97,7 @@ class STMenuViewModel: STViewModel {
   
   //Sound Selection
   
-  func selectSoundAtIndexPath(indexPath: NSIndexPath) {
+  func selectSoundAtIndexPath(_ indexPath: IndexPath) {
     let soundFileName = soundFileNameArray.value[indexPath.row]
     stopPlayingSound()
     playSoundWithFileName(soundFileName)

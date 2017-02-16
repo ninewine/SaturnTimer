@@ -10,7 +10,7 @@ import UIKit
 
 public protocol HighlightableProtocol {
   
-  func setHighlightStatus (highlighted: Bool, animated: Bool)
+  func setHighlightStatus (_ highlighted: Bool, animated: Bool)
   func layersNeedToBeHighlighted () -> [CAShapeLayer]?
   
 }

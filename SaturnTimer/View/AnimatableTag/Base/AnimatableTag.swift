@@ -13,16 +13,16 @@ import pop
 class AnimatableTag: UIControl, HighlightableProtocol {
 	
 	var _pausing = false
-  var _fixedSize: CGSize = CGSizeZero
+  var _fixedSize: CGSize = CGSize.zero
   var _contentView = UIView()
   var st_highlighted: Bool {
     get {
       return _highlighted
     }
   }
-  private var _highlighted = false
+  fileprivate var _highlighted = false
   
-  private let _innerButton = UIButton(type: .Custom)
+  fileprivate let _innerButton = UIButton(type: .custom)
   
 	required init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
@@ -39,10 +39,10 @@ class AnimatableTag: UIControl, HighlightableProtocol {
 	}
 	
 	func viewConfig () {
-    backgroundColor = UIColor.clearColor()
+    backgroundColor = UIColor.clear
     clipsToBounds = false
     
-    _contentView.backgroundColor = UIColor.clearColor()
+    _contentView.backgroundColor = UIColor.clear
     _contentView.frame = CGRect(
       x: (frame.width - _fixedSize.width) * 0.5,
       y: (frame.height - _fixedSize.height) * 0.5,
@@ -60,34 +60,36 @@ class AnimatableTag: UIControl, HighlightableProtocol {
     )
     addSubview(_innerButton)
     
-    _innerButton.rac_signalForControlEvents(.TouchUpInside).subscribeNext {[weak self] (_) -> Void in
-      self?.sendActionsForControlEvents(.TouchUpInside)
+    _innerButton.reactive.controlEvents(.touchUpInside).observeValues {[weak self] (button) in
+      self?.sendActions(for: .touchUpInside)
     }
     
 		self.registerNotification()
 	}
 	
 	func registerNotification () {
-		NSNotificationCenter
-			.defaultCenter()
-			.rac_addObserverForName(UIApplicationWillResignActiveNotification, object: nil)
-			.takeUntil(self.rac_willDeallocSignal()).subscribeNext {[weak self] (_) -> Void in
+    NotificationCenter.default
+      .reactive
+      .notifications(forName: NSNotification.Name.UIApplicationWillResignActive)
+      .take(during: reactive.lifetime)
+      .observeValues({[weak self] (notification) in
         self?.stopAnimation()
-		}
-		
-		NSNotificationCenter
-			.defaultCenter()
-			.rac_addObserverForName(UIApplicationWillEnterForegroundNotification, object: nil)
-			.takeUntil(self.rac_willDeallocSignal()).subscribeNext {[weak self] (_) -> Void in
+    })
+    
+    NotificationCenter.default
+      .reactive
+      .notifications(forName: NSNotification.Name.UIApplicationWillEnterForeground)
+      .take(during: reactive.lifetime)
+      .observeValues({[weak self] (notification) in
         self?.startAnimation()
-		}
-	}
-  
-  func currentAppearenceColor () -> CGColorRef {
-    return _highlighted ? HelperColor.primaryColor.CGColor : HelperColor.lightGrayColor.CGColor
+    })
   }
   
-  func setHighlightStatus(highlighted: Bool, animated: Bool) {
+  func currentAppearenceColor () -> CGColor {
+    return _highlighted ? HelperColor.primaryColor.cgColor : HelperColor.lightGrayColor.cgColor
+  }
+  
+  func setHighlightStatus(_ highlighted: Bool, animated: Bool) {
     if highlighted == _highlighted {
       return
     }
@@ -98,18 +100,19 @@ class AnimatableTag: UIControl, HighlightableProtocol {
     
     let _ = layers.flatMap { (layer) -> CAShapeLayer in
       if animated {
-        let propertyName = layer.colorType == .Fill ? kPOPShapeLayerFillColor : kPOPShapeLayerStrokeColor
+        let type: ShapeLayerColorType? = layer.colorType
+        let propertyName = type == .fill ? kPOPShapeLayerFillColor : kPOPShapeLayerStrokeColor
         let colorAnimation = POPBasicAnimation(propertyNamed: propertyName)
-        colorAnimation.duration = 0.2
-        colorAnimation.toValue = highlighted ? HelperColor.primaryColor.CGColor : HelperColor.lightGrayColor.CGColor
-        layer.pop_addAnimation(colorAnimation, forKey: "ColorAnimation")
+        colorAnimation?.duration = 0.2
+        colorAnimation?.toValue = highlighted ? HelperColor.primaryColor.cgColor : HelperColor.lightGrayColor.cgColor
+        layer.pop_add(colorAnimation, forKey: "ColorAnimation")
       }
       else {
-        if layer.colorType == .Fill {
-          layer.fillColor = highlighted ? HelperColor.primaryColor.CGColor : HelperColor.lightGrayColor.CGColor
+        if layer.colorType == .fill {
+          layer.fillColor = highlighted ? HelperColor.primaryColor.cgColor : HelperColor.lightGrayColor.cgColor
         }
         else {
-          layer.strokeColor = highlighted ? HelperColor.primaryColor.CGColor : HelperColor.lightGrayColor.CGColor
+          layer.strokeColor = highlighted ? HelperColor.primaryColor.cgColor : HelperColor.lightGrayColor.cgColor
         }
       }
       return layer

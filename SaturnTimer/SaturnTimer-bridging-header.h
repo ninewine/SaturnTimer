@@ -6,4 +6,4 @@
 //  Copyright © 2016 Tidy Nine. All rights reserved.
 //
 
-#import "MobClick.h"
+#import "UMMobClick/MobClick.h"

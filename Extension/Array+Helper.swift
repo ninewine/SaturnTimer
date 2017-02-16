@@ -8,31 +8,35 @@
 
 import Foundation
 
-extension CollectionType where Index == Int {
-	func shuffle() -> [Generator.Element] {
-		var list = Array(self)
-		list.shuffleInPlace()
-		return list
-	}
+extension MutableCollection where Indices.Iterator.Element == Index {
+
+  mutating func shuffle() {
+    let c = count
+    guard c > 1 else { return }
+    
+    for (firstUnshuffled , unshuffledCount) in zip(indices, stride(from: c, to: 1, by: -1)) {
+      let d: IndexDistance = numericCast(arc4random_uniform(numericCast(unshuffledCount)))
+      guard d != 0 else { continue }
+      let i = index(firstUnshuffled, offsetBy: d)
+      swap(&self[firstUnshuffled], &self[i])
+    }
+  }
 }
 
-extension MutableCollectionType where Index == Int {
-	mutating func shuffleInPlace() {
-		if count < 2 { return }
-		
-		for i in 0..<count - 1 {
-			let j = Int(arc4random_uniform(UInt32(count - i))) + i
-			if (i != j){
-				swap(&self[i], &self[j])
-			}
-		}
-	}
+extension Sequence {
+
+  func shuffled() -> [Iterator.Element] {
+    var result = Array(self)
+    result.shuffle()
+    return result
+  }
 }
 
 extension Array where Element: Equatable {
-	mutating func removeObject (object: Generator.Element) -> Bool {
-		if let idx = self.indexOf(object) {
-			self.removeAtIndex(idx)
+  @discardableResult
+	mutating func remove (_ object: Iterator.Element) -> Bool {
+		if let idx = self.index(of: object) {
+			self.remove(at: idx)
 			return true
 		}
 		return false

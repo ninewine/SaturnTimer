@@ -13,24 +13,25 @@ class AnimatableLayer : CALayer, HighlightableProtocol {
   
   var transitionDuration: Double = 0.5
   
-  func setHighlightStatus(highlighted: Bool, animated: Bool) {
+  func setHighlightStatus(_ highlighted: Bool, animated: Bool) {
     guard let layers = layersNeedToBeHighlighted() else {return}
     
     let _ = layers.flatMap { (layer) -> CAShapeLayer in
       layer.pop_removeAllAnimations()
       if animated {
-        let propertyName = layer.colorType == .Fill ? kPOPShapeLayerFillColor : kPOPShapeLayerStrokeColor
+        let type: ShapeLayerColorType = layer.colorType ?? .fill
+        let propertyName = type == .fill ? kPOPShapeLayerFillColor : kPOPShapeLayerStrokeColor
         let colorAnimation = POPBasicAnimation(propertyNamed: propertyName)
-        colorAnimation.duration = 0.2
-        colorAnimation.toValue = highlighted ? HelperColor.primaryColor.CGColor : HelperColor.lightGrayColor.CGColor
-        layer.pop_addAnimation(colorAnimation, forKey: "ColorAnimation")
+        colorAnimation?.duration = 0.2
+        colorAnimation?.toValue = highlighted ? HelperColor.primaryColor.cgColor : HelperColor.lightGrayColor.cgColor
+        layer.pop_add(colorAnimation, forKey: "ColorAnimation")
       }
       else {
-        if layer.colorType == .Fill {
-          layer.fillColor = highlighted ? HelperColor.primaryColor.CGColor : HelperColor.lightGrayColor.CGColor
+        if layer.colorType == .fill {
+          layer.fillColor = highlighted ? HelperColor.primaryColor.cgColor : HelperColor.lightGrayColor.cgColor
         }
         else {
-          layer.strokeColor = highlighted ? HelperColor.primaryColor.CGColor : HelperColor.lightGrayColor.CGColor
+          layer.strokeColor = highlighted ? HelperColor.primaryColor.cgColor : HelperColor.lightGrayColor.cgColor
         }
       }
       return layer
@@ -41,13 +42,13 @@ class AnimatableLayer : CALayer, HighlightableProtocol {
     return nil
   }
 
-  func transitionIn (completion: (()->())?) {
+  func transitionIn (_ completion: (()->())?) {
     if let block = completion {
       block()
     }
   }
   
-  func transitionOut (completion: (()->())?) {
+  func transitionOut (_ completion: (()->())?) {
     if let block = completion {
       block()
     }

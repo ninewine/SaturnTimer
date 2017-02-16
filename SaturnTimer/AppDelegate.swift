@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   var window: UIWindow?
   
-  func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     #if DEBUG
       QorumLogs.enabled = true
     #endif
@@ -31,12 +31,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
 
   func configUmeng () {
-    MobClick.startWithAppkey(HelperConstant.UmengReference.AppKey, reportPolicy: BATCH, channelId: nil)
+    let config = UMAnalyticsConfig.sharedInstance()
+    config?.appKey = HelperConstant.UmengReference.AppKey
+    config?.ePolicy = BATCH
+    MobClick.start(withConfigure: config)
   }
   
-  func handleLaunchOptions (launchOptions: [NSObject: AnyObject]?) {
+  func handleLaunchOptions (_ launchOptions: [AnyHashable: Any]?) {
     if let option = launchOptions {
-      if let notification = option[UIApplicationLaunchOptionsLocalNotificationKey] as? UILocalNotification{
+      if let notification = option[UIApplicationLaunchOptionsKey.localNotification] as? UILocalNotification{
         receivedLocalNotification(notification)
       }
     }
@@ -46,7 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   //MARK: - Action
   
   func isFirstLaunch () -> Bool {
-    if let isFirstLauch = NSUserDefaults.standardUserDefaults().valueForKey(HelperConstant.UserDefaultKey.IsFirstLaunch) as? Bool {
+    if let isFirstLauch = UserDefaults.standard.value(forKey: HelperConstant.UserDefaultKey.IsFirstLaunch) as? Bool {
       return isFirstLauch
     }
     else {
@@ -55,39 +58,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
   
   func firstLaunchAction () {
-    NSUserDefaults
-      .standardUserDefaults()
-      .setBool(false,
+    UserDefaults.standard
+      .set(false,
         forKey: HelperConstant.UserDefaultKey.IsFirstLaunch)
     
-    NSUserDefaults
-      .standardUserDefaults()
+    UserDefaults.standard
       .setValue(STTagType.SaturnType.rawValue,
         forKey: HelperConstant.UserDefaultKey.CurrentTagTypeName)
     
-    NSUserDefaults
-      .standardUserDefaults()
+    UserDefaults.standard
       .setValue(HelperConstant.UserDefaultValue.DefaultSoundFileName,
         forKey: HelperConstant.UserDefaultKey.CurrentSoundFileName)
     
-    UIApplication.sharedApplication().cancelAllLocalNotifications()
+    UIApplication.shared.cancelAllLocalNotifications()
   }
   
   //MARK: - Helper
   
   class func getAppDelegate () -> AppDelegate {
-    return UIApplication.sharedApplication().delegate as! AppDelegate
+    return UIApplication.shared.delegate as! AppDelegate
   }
 
   //MARK: - Nofitication
   
-  func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
+  func application(_ application: UIApplication, didReceive notification: UILocalNotification) {
     receivedLocalNotification(notification)
   }
 
-  func receivedLocalNotification (notification: UILocalNotification) {
+  func receivedLocalNotification (_ notification: UILocalNotification) {
     STTimerNotification.shareInstance.showNotificationWithLocalNotification(notification)
-    UIApplication.sharedApplication().cancelLocalNotification(notification)
+    UIApplication.shared.cancelLocalNotification(notification)
   }
 }
 

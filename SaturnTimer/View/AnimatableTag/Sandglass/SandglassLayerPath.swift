@@ -14,36 +14,36 @@ struct _GlassLayerPath {
 	//MARK: - Glass
 	static var topPath: UIBezierPath {
 		let path = UIBezierPath()
-		path.moveToPoint(CGPointMake(1.5, 1.5))
-		path.addLineToPoint(CGPointMake(18.5, 1.5))
+		path.move(to: CGPoint(x: 1.5, y: 1.5))
+		path.addLine(to: CGPoint(x: 18.5, y: 1.5))
 		return path
 	}
 	
 	static var topGlassPath: UIBezierPath {
 		let path = UIBezierPath()
-		path.moveToPoint(CGPointMake(4, 2))
-		path.addLineToPoint(CGPointMake(4, 8.27))
-		path.addCurveToPoint(CGPointMake(10, 14.27), controlPoint1: CGPointMake(4, 11.58), controlPoint2: CGPointMake(6.69, 14.27))
-		path.addCurveToPoint(CGPointMake(16, 8.27), controlPoint1: CGPointMake(13.31, 14.27), controlPoint2: CGPointMake(16, 11.58))
-		path.addLineToPoint(CGPointMake(16, 2.03))
+		path.move(to: CGPoint(x: 4, y: 2))
+		path.addLine(to: CGPoint(x: 4, y: 8.27))
+		path.addCurve(to: CGPoint(x: 10, y: 14.27), controlPoint1: CGPoint(x: 4, y: 11.58), controlPoint2: CGPoint(x: 6.69, y: 14.27))
+		path.addCurve(to: CGPoint(x: 16, y: 8.27), controlPoint1: CGPoint(x: 13.31, y: 14.27), controlPoint2: CGPoint(x: 16, y: 11.58))
+		path.addLine(to: CGPoint(x: 16, y: 2.03))
 		path.usesEvenOddFillRule = true
 		return path
 	}
 	
 	static var basePath: UIBezierPath {
 		let path = UIBezierPath()
-		path.moveToPoint(CGPointMake(1.5, 27.5))
-		path.addLineToPoint(CGPointMake(18.5, 27.5))
+		path.move(to: CGPoint(x: 1.5, y: 27.5))
+		path.addLine(to: CGPoint(x: 18.5, y: 27.5))
 		return path
 	}
 	
 	static var baseGlassPath: UIBezierPath {
 		let path = UIBezierPath()
-		path.moveToPoint(CGPointMake(4, 27))
-		path.addLineToPoint(CGPointMake(4, 20.73))
-		path.addCurveToPoint(CGPointMake(10, 14.73), controlPoint1: CGPointMake(4, 17.42), controlPoint2: CGPointMake(6.69, 14.73))
-		path.addCurveToPoint(CGPointMake(16, 20.73), controlPoint1: CGPointMake(13.31, 14.73), controlPoint2: CGPointMake(16, 17.42))
-		path.addLineToPoint(CGPointMake(16, 26.97))
+		path.move(to: CGPoint(x: 4, y: 27))
+		path.addLine(to: CGPoint(x: 4, y: 20.73))
+		path.addCurve(to: CGPoint(x: 10, y: 14.73), controlPoint1: CGPoint(x: 4, y: 17.42), controlPoint2: CGPoint(x: 6.69, y: 14.73))
+		path.addCurve(to: CGPoint(x: 16, y: 20.73), controlPoint1: CGPoint(x: 13.31, y: 14.73), controlPoint2: CGPoint(x: 16, y: 17.42))
+		path.addLine(to: CGPoint(x: 16, y: 26.97))
 		path.usesEvenOddFillRule = true
 		return path
 	}
@@ -51,102 +51,102 @@ struct _GlassLayerPath {
 	//MARK: Sand
 	static var sandTopLevel1Path: UIBezierPath {
 		let path = UIBezierPath()
-		path.moveToPoint(CGPointMake(4, 4))
-		path.addLineToPoint(CGPointMake(4, 8.27))
-		path.addCurveToPoint(CGPointMake(10, 14.27), controlPoint1: CGPointMake(4, 11.58), controlPoint2: CGPointMake(6.69, 14.27))
-		path.addCurveToPoint(CGPointMake(16, 8.27), controlPoint1: CGPointMake(13.31, 14.27), controlPoint2: CGPointMake(16, 11.58))
-		path.addLineToPoint(CGPointMake(16, 4))
-		path.addLineToPoint(CGPointMake(4, 4))
-		path.closePath()
+		path.move(to: CGPoint(x: 4, y: 4))
+		path.addLine(to: CGPoint(x: 4, y: 8.27))
+		path.addCurve(to: CGPoint(x: 10, y: 14.27), controlPoint1: CGPoint(x: 4, y: 11.58), controlPoint2: CGPoint(x: 6.69, y: 14.27))
+		path.addCurve(to: CGPoint(x: 16, y: 8.27), controlPoint1: CGPoint(x: 13.31, y: 14.27), controlPoint2: CGPoint(x: 16, y: 11.58))
+		path.addLine(to: CGPoint(x: 16, y: 4))
+		path.addLine(to: CGPoint(x: 4, y: 4))
+		path.close()
 		path.usesEvenOddFillRule = true
 		return path
 	}
 	
 	static var sandTopLevel2Path: UIBezierPath {
 		let path = UIBezierPath()
-		path.moveToPoint(CGPointMake(4, 7.92))
-		path.addLineToPoint(CGPointMake(4, 8.27))
-		path.addCurveToPoint(CGPointMake(10, 14.27), controlPoint1: CGPointMake(4, 11.58), controlPoint2: CGPointMake(6.69, 14.27))
-		path.addCurveToPoint(CGPointMake(16, 8.27), controlPoint1: CGPointMake(13.31, 14.27), controlPoint2: CGPointMake(16, 11.58))
-		path.addLineToPoint(CGPointMake(16, 7.92))
-		path.addLineToPoint(CGPointMake(4, 7.92))
-		path.closePath()
+		path.move(to: CGPoint(x: 4, y: 7.92))
+		path.addLine(to: CGPoint(x: 4, y: 8.27))
+		path.addCurve(to: CGPoint(x: 10, y: 14.27), controlPoint1: CGPoint(x: 4, y: 11.58), controlPoint2: CGPoint(x: 6.69, y: 14.27))
+		path.addCurve(to: CGPoint(x: 16, y: 8.27), controlPoint1: CGPoint(x: 13.31, y: 14.27), controlPoint2: CGPoint(x: 16, y: 11.58))
+		path.addLine(to: CGPoint(x: 16, y: 7.92))
+		path.addLine(to: CGPoint(x: 4, y: 7.92))
+		path.close()
 		path.usesEvenOddFillRule = true
 		return path
 	}
 	
 	static var sandTopLevel3Path: UIBezierPath {
 		let path = UIBezierPath()
-		path.moveToPoint(CGPointMake(4, 10.15))
-		path.addLineToPoint(CGPointMake(4, 10.4))
-		path.addCurveToPoint(CGPointMake(10, 14.27), controlPoint1: CGPointMake(4, 11.1), controlPoint2: CGPointMake(6.69, 14.27))
-		path.addCurveToPoint(CGPointMake(16, 10.4), controlPoint1: CGPointMake(13.31, 14.27), controlPoint2: CGPointMake(16, 11.1))
-		path.addLineToPoint(CGPointMake(16, 10.15))
-		path.addLineToPoint(CGPointMake(4, 10.15))
-		path.closePath()
+		path.move(to: CGPoint(x: 4, y: 10.15))
+		path.addLine(to: CGPoint(x: 4, y: 10.4))
+		path.addCurve(to: CGPoint(x: 10, y: 14.27), controlPoint1: CGPoint(x: 4, y: 11.1), controlPoint2: CGPoint(x: 6.69, y: 14.27))
+		path.addCurve(to: CGPoint(x: 16, y: 10.4), controlPoint1: CGPoint(x: 13.31, y: 14.27), controlPoint2: CGPoint(x: 16, y: 11.1))
+		path.addLine(to: CGPoint(x: 16, y: 10.15))
+		path.addLine(to: CGPoint(x: 4, y: 10.15))
+		path.close()
 		path.usesEvenOddFillRule = true
 		return path
 	}
 	
 	static var sandTopLevel4Path: UIBezierPath {
 		let path = UIBezierPath()
-		path.moveToPoint(CGPointMake(5.02, 11.64))
-		path.addLineToPoint(CGPointMake(5.29, 12.21))
-		path.addCurveToPoint(CGPointMake(10, 14.27), controlPoint1: CGPointMake(5.76, 12.76), controlPoint2: CGPointMake(6.69, 14.27))
-		path.addCurveToPoint(CGPointMake(14.73, 12.21), controlPoint1: CGPointMake(13.31, 14.27), controlPoint2: CGPointMake(14.23, 12.91))
-		path.addLineToPoint(CGPointMake(15.06, 11.64))
-		path.addLineToPoint(CGPointMake(5.02, 11.64))
-		path.closePath()
+		path.move(to: CGPoint(x: 5.02, y: 11.64))
+		path.addLine(to: CGPoint(x: 5.29, y: 12.21))
+		path.addCurve(to: CGPoint(x: 10, y: 14.27), controlPoint1: CGPoint(x: 5.76, y: 12.76), controlPoint2: CGPoint(x: 6.69, y: 14.27))
+		path.addCurve(to: CGPoint(x: 14.73, y: 12.21), controlPoint1: CGPoint(x: 13.31, y: 14.27), controlPoint2: CGPoint(x: 14.23, y: 12.91))
+		path.addLine(to: CGPoint(x: 15.06, y: 11.64))
+		path.addLine(to: CGPoint(x: 5.02, y: 11.64))
+		path.close()
 		path.usesEvenOddFillRule = true
 		return path
 	}
 	
 	static var sandTopLevel5Path: UIBezierPath {
 		let path = UIBezierPath()
-		path.moveToPoint(CGPointMake(6.25, 12.96))
-		path.addLineToPoint(CGPointMake(7.55, 13.71))
-		path.addCurveToPoint(CGPointMake(10, 14.27), controlPoint1: CGPointMake(8.74, 14.34), controlPoint2: CGPointMake(9.43, 14.27))
-		path.addCurveToPoint(CGPointMake(12.51, 13.71), controlPoint1: CGPointMake(10.57, 14.27), controlPoint2: CGPointMake(11.62, 14.27))
-		path.addLineToPoint(CGPointMake(13.87, 12.96))
-		path.addLineToPoint(CGPointMake(6.25, 12.96))
-		path.closePath()
+		path.move(to: CGPoint(x: 6.25, y: 12.96))
+		path.addLine(to: CGPoint(x: 7.55, y: 13.71))
+		path.addCurve(to: CGPoint(x: 10, y: 14.27), controlPoint1: CGPoint(x: 8.74, y: 14.34), controlPoint2: CGPoint(x: 9.43, y: 14.27))
+		path.addCurve(to: CGPoint(x: 12.51, y: 13.71), controlPoint1: CGPoint(x: 10.57, y: 14.27), controlPoint2: CGPoint(x: 11.62, y: 14.27))
+		path.addLine(to: CGPoint(x: 13.87, y: 12.96))
+		path.addLine(to: CGPoint(x: 6.25, y: 12.96))
+		path.close()
 		path.usesEvenOddFillRule = true
 		return path
 	}
 	
 	static var sandBottomLevel1Path: UIBezierPath {
 		let path = UIBezierPath()
-		path.moveToPoint(CGPointMake(8.38, 27))
-		path.addLineToPoint(CGPointMake(9.98, 25.4))
-		path.addLineToPoint(CGPointMake(11.61, 27.03))
-		path.addLineToPoint(CGPointMake(11.61, 27.97))
-		path.addLineToPoint(CGPointMake(8.38, 27.97))
-		path.addLineToPoint(CGPointMake(8.38, 27))
-		path.closePath()
+		path.move(to: CGPoint(x: 8.38, y: 27))
+		path.addLine(to: CGPoint(x: 9.98, y: 25.4))
+		path.addLine(to: CGPoint(x: 11.61, y: 27.03))
+		path.addLine(to: CGPoint(x: 11.61, y: 27.97))
+		path.addLine(to: CGPoint(x: 8.38, y: 27.97))
+		path.addLine(to: CGPoint(x: 8.38, y: 27))
+		path.close()
 		return path
 	}
 	
 	static var sandBottomLevel2Path: UIBezierPath {
 		let path = UIBezierPath()
-		path.moveToPoint(CGPointMake(4.1, 27.02))
-		path.addLineToPoint(CGPointMake(10.01, 21.11))
-		path.addLineToPoint(CGPointMake(15.91, 27.02))
-		path.addLineToPoint(CGPointMake(15.91, 27.47))
-		path.addLineToPoint(CGPointMake(4.1, 27.47))
-		path.addLineToPoint(CGPointMake(4.1, 27.02))
-		path.closePath()
+		path.move(to: CGPoint(x: 4.1, y: 27.02))
+		path.addLine(to: CGPoint(x: 10.01, y: 21.11))
+		path.addLine(to: CGPoint(x: 15.91, y: 27.02))
+		path.addLine(to: CGPoint(x: 15.91, y: 27.47))
+		path.addLine(to: CGPoint(x: 4.1, y: 27.47))
+		path.addLine(to: CGPoint(x: 4.1, y: 27.02))
+		path.close()
 		return path
 	}
 	
 	static var sandBottomLevel3Path: UIBezierPath {
 		let path = UIBezierPath()
-		path.moveToPoint(CGPointMake(4.1, 24.02))
-		path.addLineToPoint(CGPointMake(10.01, 18.11))
-		path.addLineToPoint(CGPointMake(15.91, 24.02))
-		path.addLineToPoint(CGPointMake(15.91, 27.47))
-		path.addLineToPoint(CGPointMake(4.1, 27.47))
-		path.addLineToPoint(CGPointMake(4.1, 24.02))
-		path.closePath()
+		path.move(to: CGPoint(x: 4.1, y: 24.02))
+		path.addLine(to: CGPoint(x: 10.01, y: 18.11))
+		path.addLine(to: CGPoint(x: 15.91, y: 24.02))
+		path.addLine(to: CGPoint(x: 15.91, y: 27.47))
+		path.addLine(to: CGPoint(x: 4.1, y: 27.47))
+		path.addLine(to: CGPoint(x: 4.1, y: 24.02))
+		path.close()
 		return path
 	}
 	

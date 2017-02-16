@@ -8,10 +8,11 @@
 
 import UIKit
 import ReactiveCocoa
+import ReactiveSwift
 import pop
 
 class STMenuViewController: STViewController, UITableViewDataSource, UITableViewDelegate {
-  private var viewModel: STMenuViewModel = STMenuViewModel()
+  fileprivate var viewModel: STMenuViewModel = STMenuViewModel()
 
   weak var actionButton: STActionButton?
   
@@ -33,9 +34,9 @@ class STMenuViewController: STViewController, UITableViewDataSource, UITableView
   @IBOutlet weak var settingsPanelView: UIView!
   @IBOutlet weak var soundsPanelView: UIView!
   
-  private var activeTagView: AnimatableTag?
+  fileprivate var activeTagView: AnimatableTag?
   
-  private var actionButtonDisposable: RACDisposable?
+  fileprivate var actionButtonDisposable: Disposable?
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -43,7 +44,7 @@ class STMenuViewController: STViewController, UITableViewDataSource, UITableView
     // Do any additional setup after loading the view.
   }
   
-  func bindViewModelToHomeViewModel(viewModel: STHomeViewModel) {
+  func bindViewModelToHomeViewModel(_ viewModel: STHomeViewModel) {
     self.viewModel.tagType.value = viewModel.tagType.value
     self.viewModel.soundFileName.value = viewModel.soundFileName.value
     
@@ -52,9 +53,9 @@ class STMenuViewController: STViewController, UITableViewDataSource, UITableView
     
     self.viewModel.soundFileName
       .producer
-      .observeOn(UIScheduler())
-      .map {$0.stringByReplacingOccurrencesOfString(".mp3", withString: "")}
-      .startWithNext {[weak self] (soundName) -> () in
+      .observe(on: QueueScheduler.main)
+      .map {$0.replacingOccurrences(of: ".mp3", with: "")}
+      .startWithValues {[weak self] (soundName) -> () in
         self?.soundNameLabel?.text = soundName
     }
     
@@ -93,45 +94,41 @@ class STMenuViewController: STViewController, UITableViewDataSource, UITableView
   }
   
   func configTagView() {
-    if let tagTypeName = NSUserDefaults.standardUserDefaults().stringForKey(HelperConstant.UserDefaultKey.CurrentTagTypeName) {
+    if let tagTypeName = UserDefaults.standard.string(forKey: HelperConstant.UserDefaultKey.CurrentTagTypeName) {
       if let type = STTagType(rawValue: tagTypeName) {
         activateTag(type)
       }
     }
     
-    saturn.rac_signalForControlEvents(.TouchUpInside).subscribeNext {[weak self] (btn) -> Void in
+    saturn.reactive.controlEvents(.touchUpInside).observeValues {[weak self] (button) in
       self?.activateTag(.SaturnType)
     }
-    
-    sandglass.rac_signalForControlEvents(.TouchUpInside).subscribeNext {[weak self] (btn) -> Void in
+
+    sandglass.reactive.controlEvents(.touchUpInside).observeValues {[weak self] (button) in
       self?.activateTag(.SandglassType)
     }
     
-    television.rac_signalForControlEvents(.TouchUpInside).subscribeNext {[weak self] (btn) -> Void in
+    television.reactive.controlEvents(.touchUpInside).observeValues {[weak self] (button) in
       self?.activateTag(.TelevisionType)
     }
     
-    plate.rac_signalForControlEvents(.TouchUpInside).subscribeNext {[weak self] (btn) -> Void in
+    plate.reactive.controlEvents(.touchUpInside).observeValues {[weak self] (button) in
       self?.activateTag(.PlateType)
     }
+    
   }
   
   func configActionButton () {
     //subscribe for one open-close operation
-    actionButtonDisposable = actionButton?
-      .rac_signalForControlEvents(.TouchUpInside)
-      .takeUntil(self.rac_willDeallocSignal())
-      .subscribeNext({[weak self] (button) -> Void in
-        if let btn = button as? STActionButton {
-          btn.type = .Close
-          self?.actionButtonDisposable?.dispose()
-          self?.actionButtonDisposable = nil
-          self?.hideSoundsList()
-        }
-    })
+    actionButtonDisposable = actionButton?.reactive.controlEvents(.touchUpInside).observeValues {[weak self] (button) in
+      button.type = .close
+      self?.actionButtonDisposable?.dispose()
+      self?.actionButtonDisposable = nil
+      self?.hideSoundsList()
+    }
   }
   
-  func activateTag(type: STTagType) {
+  func activateTag(_ type: STTagType) {
     
     activeTagView?.setHighlightStatus(false, animated: true)
     
@@ -154,7 +151,7 @@ class STMenuViewController: STViewController, UITableViewDataSource, UITableView
       break
     }
     
-    CocoaAction(viewModel.changeTagAction, { _ in return type }).execute(nil)
+    CocoaAction<Any>(viewModel.changeTagAction, { _ in return type }).execute(())
   }
   
   func showSoundsList () {
@@ -166,14 +163,14 @@ class STMenuViewController: STViewController, UITableViewDataSource, UITableView
     moveSoundsList(false)
   }
   
-  func moveSoundsList (show: Bool) {
+  func moveSoundsList (_ show: Bool) {
     constraintLeadingSettings.constant = show ? -settingsPanelView.frame.width : 0
 
     let frame1 = settingsPanelView.frame
     let frameAnim1 = POPSpringAnimation(propertyNamed: kPOPViewFrame)
 
-    frameAnim1.toValue =
-      NSValue(CGRect:
+    frameAnim1?.toValue =
+      NSValue(cgRect:
         CGRect(
           x: show ? -frame1.width : 0,
           y: frame1.origin.y,
@@ -181,12 +178,12 @@ class STMenuViewController: STViewController, UITableViewDataSource, UITableView
           height: frame1.height
         )
     )
-    settingsPanelView.pop_addAnimation(frameAnim1, forKey: "CenterAnimation")
+    settingsPanelView.pop_add(frameAnim1, forKey: "CenterAnimation")
     
     let frame2 = soundsPanelView.frame
     let frameAnim2 = POPSpringAnimation(propertyNamed: kPOPViewFrame)
-    frameAnim2.toValue =
-      NSValue(CGRect:
+    frameAnim2?.toValue =
+      NSValue(cgRect:
         CGRect(
           x: show ? 0 : frame2.width,
           y: frame2.origin.y,
@@ -199,11 +196,11 @@ class STMenuViewController: STViewController, UITableViewDataSource, UITableView
 //      _self.layoutConstraintSettingsLeading.constant = show ? -_self.settingsPanelView.frame.width : 0
 //    }
     
-    soundsPanelView.pop_addAnimation(frameAnim2, forKey: "CenterAnimation")
+    soundsPanelView.pop_add(frameAnim2, forKey: "CenterAnimation")
   }
   
-  @IBAction func changeSound(sender: AnyObject) {
-    actionButton?.type = .Back
+  @IBAction func changeSound(_ sender: AnyObject) {
+    actionButton?.type = .back
     
     configActionButton()
     
@@ -213,16 +210,16 @@ class STMenuViewController: STViewController, UITableViewDataSource, UITableView
   
   //MARK: UITableView Datasource
   
-  func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+  func numberOfSections(in tableView: UITableView) -> Int {
     return viewModel.numberOfSections()
   }
   
-  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return viewModel.numberOfSoundsInSection(section)
   }
   
-  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier("SoundNameCell", forIndexPath: indexPath) as! STSoundNameTableViewCell
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: "SoundNameCell", for: indexPath) as! STSoundNameTableViewCell
     cell.soundNameLabel.attributedText = viewModel.soundNameAtIndexPath(indexPath)
     return cell
   }
@@ -230,7 +227,7 @@ class STMenuViewController: STViewController, UITableViewDataSource, UITableView
   
   //MARK: UITableView Delegate
   
-  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     viewModel.selectSoundAtIndexPath(indexPath)
     tableView.reloadData()
   }

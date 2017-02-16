@@ -19,21 +19,21 @@ class STTimerNotification: NSObject {
 
   var audioPlayer: AVAudioPlayer?
 
-  func showNotificationWithLocalNotification(notification: UILocalNotification) {
+  func showNotificationWithLocalNotification(_ notification: UILocalNotification) {
     showNotification(notification.alertBody)
     playSoundWithNotification(notification)
   }
   
-  func showNotificationWithString (alertBody: String?) {
+  func showNotificationWithString (_ alertBody: String?) {
     showNotification(alertBody)
   }
   
-  func playSoundWithFileName (fileName: String) {
-    let soundFileComponents = fileName.componentsSeparatedByCharactersInSet(NSCharacterSet(charactersInString: "."))
+  func playSoundWithFileName (_ fileName: String) {
+    let soundFileComponents = fileName.components(separatedBy: CharacterSet(charactersIn: "."))
     if soundFileComponents.count > 1 {
-      if let url = NSBundle.mainBundle().URLForResource(soundFileComponents[0], withExtension: soundFileComponents[1]) {
+      if let url = Bundle.main.url(forResource: soundFileComponents[0], withExtension: soundFileComponents[1]) {
         do {
-          audioPlayer = try AVAudioPlayer(contentsOfURL: url, fileTypeHint: soundFileComponents[1])
+          audioPlayer = try AVAudioPlayer(contentsOf: url, fileTypeHint: soundFileComponents[1])
           audioPlayer?.play()
         }
         catch {
@@ -42,19 +42,19 @@ class STTimerNotification: NSObject {
     }
   }
   
-  private func showNotification (alertBody: String?) {
+  fileprivate func showNotification (_ alertBody: String?) {
     let alert = RCAlertView(title: nil, message: alertBody, image: nil)
     
-    alert.addButtonWithTitle(HelperLocalization.Done, type: .Fill, handler: {[weak self] _ in
+    alert.addButtonWithTitle(HelperLocalization.Done, type: .fill, handler: {[weak self] _ in
       self?.audioPlayer?.stop()
       })
     alert.show()
   }
   
-  private func playSoundWithNotification (notification: UILocalNotification) {
+  fileprivate func playSoundWithNotification (_ notification: UILocalNotification) {
     if let fireDate = notification.fireDate {
-      if NSDate().timeIntervalSinceDate(fireDate) < 0.5 {
-        if let soundFileName = notification.soundName where soundFileName != UILocalNotificationDefaultSoundName {
+      if Date().timeIntervalSince(fireDate) < 0.5 {
+        if let soundFileName = notification.soundName, soundFileName != UILocalNotificationDefaultSoundName {
           playSoundWithFileName(soundFileName)
         }
       }

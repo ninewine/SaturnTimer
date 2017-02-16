@@ -11,46 +11,46 @@ import UIKit
 struct HelperNotification {
   
   static func isAccessible () -> Bool {
-    if let settings = UIApplication.sharedApplication().currentUserNotificationSettings() {
-      if settings.types.contains(.Alert) && settings.types.contains(.Sound) {
+    if let settings = UIApplication.shared.currentUserNotificationSettings {
+      if settings.types.contains(.alert) && settings.types.contains(.sound) {
         return true
       }
     }
     return false
   }
   
-  static func checkAccessibility (completion: ((granted: Bool, ignore: Bool) -> Void)?) {
+  static func checkAccessibility (_ completion: ((_ granted: Bool, _ ignore: Bool) -> Void)?) {
     if self.isAccessible() {
-      completion?(granted: true, ignore: false)
+      completion?(true, false)
     }
     else {
       let alert = RCAlertView(title: nil, message: HelperLocalization.CheckNotificationPermissionFailed, image: nil)
-      alert.addButtonWithTitle(HelperLocalization.Settings, type: RCAlertViewButtonType.Fill, handler: { (_) -> Void in
-        if let url = NSURL(string: UIApplicationOpenSettingsURLString) {
-          UIApplication.sharedApplication().openURL(url)
+      alert.addButtonWithTitle(HelperLocalization.Settings, type: RCAlertViewButtonType.fill, handler: { (_) -> Void in
+        if let url = URL(string: UIApplicationOpenSettingsURLString) {
+          UIApplication.shared.openURL(url)
         }
-        completion?(granted: false, ignore: false)
+        completion?(false, false)
       })
-      alert.addButtonWithTitle(HelperLocalization.Ignore, type: RCAlertViewButtonType.Cancel, handler: { (_) -> Void in
-        UIApplication.sharedApplication().idleTimerDisabled = true
-        completion?(granted: false, ignore: true)
+      alert.addButtonWithTitle(HelperLocalization.Ignore, type: RCAlertViewButtonType.cancel, handler: { (_) -> Void in
+        UIApplication.shared.isIdleTimerDisabled = true
+        completion?(false, true)
       })
       alert.show()
     }
   }
   
   static func askForPermission () {
-    let asked = NSUserDefaults.standardUserDefaults().boolForKey(HelperConstant.UserDefaultKey.AlreadyAskedForNotificationPermission)
+    let asked = UserDefaults.standard.bool(forKey: HelperConstant.UserDefaultKey.AlreadyAskedForNotificationPermission)
     if asked {
       self.checkAccessibility(nil)
     }
     else {
       let alert = RCAlertView(title: nil, message: HelperLocalization.AskForNotificationPermission, image: UIImage(named: "pic-logo-without-text"))
-      alert.addButtonWithTitle(HelperLocalization.OK, type: RCAlertViewButtonType.Fill) { (_) -> Void in
-        NSUserDefaults.standardUserDefaults().setBool(true, forKey: HelperConstant.UserDefaultKey.AlreadyAskedForNotificationPermission)
-        let types:UIUserNotificationType = [.Badge, .Sound, .Alert]
-        let settings = UIUserNotificationSettings(forTypes: types, categories: nil)
-        UIApplication.sharedApplication().registerUserNotificationSettings(settings)
+      alert.addButtonWithTitle(HelperLocalization.OK, type: RCAlertViewButtonType.fill) { (_) -> Void in
+        UserDefaults.standard.set(true, forKey: HelperConstant.UserDefaultKey.AlreadyAskedForNotificationPermission)
+        let types:UIUserNotificationType = [.badge, .sound, .alert]
+        let settings = UIUserNotificationSettings(types: types, categories: nil)
+        UIApplication.shared.registerUserNotificationSettings(settings)
       }
       alert.show()
     }

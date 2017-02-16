@@ -9,6 +9,7 @@
 import UIKit
 import QorumLogs
 import ReactiveCocoa
+import ReactiveSwift
 import pop
 
 class STDialPlateSliderView: UIView {
@@ -24,11 +25,11 @@ class STDialPlateSliderView: UIView {
   
   var ovalCenter: CGPoint?
   var ovalRadius: CGFloat?
-  var zeroPointCenter = CGPointZero
+  var zeroPointCenter = CGPoint.zero
 
-  private var degree: CGFloat = 0
-  private let imageLayer = CALayer()
-  private let dazzlelightLayer = CALayer()
+  fileprivate var degree: CGFloat = 0
+  fileprivate let imageLayer = CALayer()
+  fileprivate let dazzlelightLayer = CALayer()
     
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder);
@@ -39,7 +40,7 @@ class STDialPlateSliderView: UIView {
     let height: CGFloat = width
     super.init(frame: CGRect(x: 0, y: 0, width: width, height: height))
     
-    backgroundColor = UIColor.clearColor()
+    backgroundColor = UIColor.clear
     let size = image.size
     imageLayer.frame = CGRect(
       x: (width - size.width) * 0.5,
@@ -47,41 +48,43 @@ class STDialPlateSliderView: UIView {
       width: size.width,
       height: size.height
     )
-    imageLayer.contents = image.CGImage
+    imageLayer.contents = image.cgImage
     layer.addSublayer(imageLayer)
     
-    let dazzlelightFrame = CGRectInset(imageLayer.frame, -4, -4)
+    let dazzlelightFrame = imageLayer.frame.insetBy(dx: -4, dy: -4)
     dazzlelightLayer.frame = dazzlelightFrame
-    dazzlelightLayer.contents = UIImage(named: "pic-dazzlelight")?.CGImage
+    dazzlelightLayer.contents = UIImage(named: "pic-dazzlelight")?.cgImage
     layer.insertSublayer(dazzlelightLayer, below: imageLayer)
     
-    NSNotificationCenter
-      .defaultCenter()
-      .rac_addObserverForName(UIApplicationWillResignActiveNotification, object: nil)
-      .takeUntil(self.rac_willDeallocSignal()).subscribeNext {[weak self] (_) -> Void in
+    NotificationCenter.default
+      .reactive
+      .notifications(forName: NSNotification.Name.UIApplicationWillResignActive)
+      .take(during: reactive.lifetime)
+      .observeValues({[weak self] (notification) in
         self?.dazzlelightLayer.removeAllAnimations()
-    }
+    })
     
-    NSNotificationCenter
-      .defaultCenter()
-      .rac_addObserverForName(UIApplicationWillEnterForegroundNotification, object: nil)
-      .takeUntil(self.rac_willDeallocSignal()).subscribeNext {[weak self] (_) -> Void in
+    NotificationCenter.default
+      .reactive
+      .notifications(forName: NSNotification.Name.UIApplicationWillEnterForeground)
+      .take(during: reactive.lifetime)
+      .observeValues({[weak self] (notification) in
         guard let _self = self else {return}
         let enabled = _self.enabled
         _self.enabled = enabled
-    }
+    })
   }
   
-  func dazzlelightAnimation (enabled: Bool) {
+  func dazzlelightAnimation (_ enabled: Bool) {
     if enabled {
       dazzlelightLayer.opacityAnimation(0.0, to: 1.0, duration: 1.0, completion: {[weak self] () -> Void in
         let scaleAnim = POPBasicAnimation(propertyNamed: kPOPLayerScaleXY)
-        scaleAnim.fromValue = NSValue(CGPoint:CGPointMake(1.0, 1.0))
-        scaleAnim.toValue = NSValue(CGPoint:CGPointMake(1.2, 1.2))
-        scaleAnim.duration = 1.5
-        scaleAnim.autoreverses = true
-        scaleAnim.repeatForever = true
-        self?.dazzlelightLayer.pop_addAnimation(scaleAnim, forKey: "ScaleAnimation")
+        scaleAnim?.fromValue = NSValue(cgPoint:CGPoint(x: 1.0, y: 1.0))
+        scaleAnim?.toValue = NSValue(cgPoint:CGPoint(x: 1.2, y: 1.2))
+        scaleAnim?.duration = 1.5
+        scaleAnim?.autoreverses = true
+        scaleAnim?.repeatForever = true
+        self?.dazzlelightLayer.pop_add(scaleAnim, forKey: "ScaleAnimation")
       })
     }
     else {
@@ -91,7 +94,7 @@ class STDialPlateSliderView: UIView {
     }
   }
   
-  func slideWithRefrencePoint (point: CGPoint) {
+  func slideWithRefrencePoint (_ point: CGPoint) {
     guard let center = ovalCenter, let radius = ovalRadius else {
       print("Slide must have a oval center and a radius")
       return
@@ -123,7 +126,7 @@ class STDialPlateSliderView: UIView {
     progress.value = moveToProgress
   }
 
-  func slideToProgress (progress: Double, duration: Double) {    
+  func slideToProgress (_ progress: Double, duration: Double) {    
     if progress < 0.0 || progress > 1.0 {
       print("Progress must be a value between 0.0 and 1.0")
       return
@@ -149,7 +152,7 @@ class STDialPlateSliderView: UIView {
     slideAnimationFrom(self.center, to: toPoint, duration: duration, clockwise: clockwise)
   }
   
-  func slideAnimationFrom(from: CGPoint, to: CGPoint, duration: Double, clockwise: Bool) {
+  func slideAnimationFrom(_ from: CGPoint, to: CGPoint, duration: Double, clockwise: Bool) {
     guard let center = ovalCenter, let radius = ovalRadius else {
       print("Slide must have a oval center and a radius")
       return
@@ -158,18 +161,18 @@ class STDialPlateSliderView: UIView {
     let (_, toRadian) = calculateDeltaAngle(to)
 
     let path = UIBezierPath()
-    path.addArcWithCenter(center, radius: radius, startAngle: fromRadian - CGFloat(M_PI_2), endAngle: toRadian - CGFloat(M_PI_2), clockwise: clockwise)
+    path.addArc(withCenter: center, radius: radius, startAngle: fromRadian - CGFloat(M_PI_2), endAngle: toRadian - CGFloat(M_PI_2), clockwise: clockwise)
     let pathAnim = CAKeyframeAnimation(keyPath: "position")
-    pathAnim.path = path.CGPath
+    pathAnim.path = path.cgPath
     pathAnim.duration = duration
     pathAnim.fillMode = kCAFillModeForwards
     pathAnim.calculationMode = kCAAnimationCubicPaced
     pathAnim.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-    layer.addAnimation(pathAnim, forKey: "PositionAnimation")
+    layer.add(pathAnim, forKey: "PositionAnimation")
     self.center = to
   }
   
-  func calculateDeltaAngle (referncePoint: CGPoint) -> (oneQuadrantRadian: CGFloat, fourQuadrantRadian : CGFloat) {
+  func calculateDeltaAngle (_ referncePoint: CGPoint) -> (oneQuadrantRadian: CGFloat, fourQuadrantRadian : CGFloat) {
     guard let center = ovalCenter else {
       print("Slide must have a oval center and  radius")
       return (0, 0)
@@ -194,7 +197,7 @@ class STDialPlateSliderView: UIView {
     return (oneQuadrantRadian, fourQuadrantRadian)
   }
   
-  func transformPoint (point: CGPoint, coordinateSystemCenter center: CGPoint) -> CGPoint {
+  func transformPoint (_ point: CGPoint, coordinateSystemCenter center: CGPoint) -> CGPoint {
     return CGPoint(
       x: point.x - center.x,
       y: point.y - center.y

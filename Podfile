@@ -14,6 +14,7 @@ pod 'SnapKit'
 pod 'QorumLogs'
 pod 'GPUImage'
 pod 'UMengAnalytics-NO-IDFA'
+pod 'Reveal-SDK', :configurations => ['Debug']
 
 end
 

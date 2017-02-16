@@ -25,7 +25,7 @@ struct HelperLocalization {
   static let timesupStringTelevisionTag: String = HelperLocalization.string(key: "TimeIsUpStringTelevisionTag")
   static let timesupStringPlateTag: String = HelperLocalization.string(key: "TimeIsUpStringPlateTag")
 
-  static func string (key key: String) -> String {
+  static func string (key: String) -> String {
     return NSLocalizedString(key, comment: "")
   }
 }

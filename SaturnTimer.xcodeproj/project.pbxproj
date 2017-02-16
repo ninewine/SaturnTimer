@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		860F6BCC1E54B1530090B589 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 860F6BC91E54B1530090B589 /* ReactiveCocoa.framework */; };
+		860F6BCD1E54B1530090B589 /* ReactiveCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 860F6BC91E54B1530090B589 /* ReactiveCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		860F6BCE1E54B1530090B589 /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 860F6BCA1E54B1530090B589 /* ReactiveSwift.framework */; };
+		860F6BCF1E54B1530090B589 /* ReactiveSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 860F6BCA1E54B1530090B589 /* ReactiveSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		860F6BD01E54B1530090B589 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 860F6BCB1E54B1530090B589 /* Result.framework */; };
+		860F6BD11E54B1530090B589 /* Result.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 860F6BCB1E54B1530090B589 /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A008773576893966FAD23632 /* Pods_SaturnTimer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ECF8C37077D0F3FB3D8DAFA /* Pods_SaturnTimer.framework */; };
 		B104B34E1C818D0B00B097FD /* STMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B104B34D1C818D0B00B097FD /* STMenuViewController.swift */; };
 		B104B3501C818D2200B097FD /* STMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B104B34F1C818D2200B097FD /* STMenuViewModel.swift */; };
 		B104B3521C81A03F00B097FD /* NSObject+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B104B3511C81A03F00B097FD /* NSObject+Helper.swift */; };
@@ -33,8 +40,6 @@
 		B15A43EA1C7713F1005D605E /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15A43D91C7713F1005D605E /* UIColor+Hex.swift */; };
 		B15A43EB1C7713F1005D605E /* HelperColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15A43DB1C7713F1005D605E /* HelperColor.swift */; };
 		B1716CE61C7C03A800FFD7FF /* STTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1716CE51C7C03A800FFD7FF /* STTime.swift */; };
-		B1730EFE1C869EA80050E48C /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1730EFC1C869EA80050E48C /* ReactiveCocoa.framework */; };
-		B1730EFF1C869EA80050E48C /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1730EFD1C869EA80050E48C /* Result.framework */; };
 		B17695E81C7AD4D800C99FEE /* AnimatableTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17695D71C7AD4D800C99FEE /* AnimatableTag.swift */; };
 		B17695E91C7AD4D800C99FEE /* Plate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17695D91C7AD4D800C99FEE /* Plate.swift */; };
 		B17695EA1C7AD4D800C99FEE /* PlateLayerPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17695DA1C7AD4D800C99FEE /* PlateLayerPath.swift */; };
@@ -78,12 +83,31 @@
 		B1FEF0081C80993E00F9F5FD /* AnimatableCrossLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FEF0071C80993E00F9F5FD /* AnimatableCrossLayer.swift */; };
 		B1FEF00A1C8099E200F9F5FD /* HighlightableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FEF0091C8099E200F9F5FD /* HighlightableProtocol.swift */; };
 		B1FEF00C1C809A4800F9F5FD /* AnimatableRingLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FEF00B1C809A4800F9F5FD /* AnimatableRingLayer.swift */; };
-		D263F8F2FD82C72FEA10A3F1 /* Pods_SaturnTimer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39BB3C67DF2FAC6FE6D3489D /* Pods_SaturnTimer.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		860F6BD21E54B1540090B589 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				860F6BD11E54B1530090B589 /* Result.framework in Embed Frameworks */,
+				860F6BCD1E54B1530090B589 /* ReactiveCocoa.framework in Embed Frameworks */,
+				860F6BCF1E54B1530090B589 /* ReactiveSwift.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		39BB3C67DF2FAC6FE6D3489D /* Pods_SaturnTimer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SaturnTimer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		996269BD96DEE1838A3B4D72 /* Pods-SaturnTimer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaturnTimer.release.xcconfig"; path = "Pods/Target Support Files/Pods-SaturnTimer/Pods-SaturnTimer.release.xcconfig"; sourceTree = "<group>"; };
+		4ECF8C37077D0F3FB3D8DAFA /* Pods_SaturnTimer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SaturnTimer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6ABF9B568D03363520F6792D /* Pods-SaturnTimer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaturnTimer.release.xcconfig"; path = "Pods/Target Support Files/Pods-SaturnTimer/Pods-SaturnTimer.release.xcconfig"; sourceTree = "<group>"; };
+		860F6BC91E54B1530090B589 /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/iOS/ReactiveCocoa.framework; sourceTree = "<group>"; };
+		860F6BCA1E54B1530090B589 /* ReactiveSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveSwift.framework; path = Carthage/Build/iOS/ReactiveSwift.framework; sourceTree = "<group>"; };
+		860F6BCB1E54B1530090B589 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
+		992902AEE95714EBC92511FF /* Pods-SaturnTimer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaturnTimer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SaturnTimer/Pods-SaturnTimer.debug.xcconfig"; sourceTree = "<group>"; };
 		B104B34D1C818D0B00B097FD /* STMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = STMenuViewController.swift; path = Menu/STMenuViewController.swift; sourceTree = "<group>"; };
 		B104B34F1C818D2200B097FD /* STMenuViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STMenuViewModel.swift; sourceTree = "<group>"; };
 		B104B3511C81A03F00B097FD /* NSObject+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+Helper.swift"; sourceTree = "<group>"; };
@@ -112,8 +136,6 @@
 		B15A43D91C7713F1005D605E /* UIColor+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		B15A43DB1C7713F1005D605E /* HelperColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperColor.swift; sourceTree = "<group>"; };
 		B1716CE51C7C03A800FFD7FF /* STTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STTime.swift; sourceTree = "<group>"; };
-		B1730EFC1C869EA80050E48C /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/iOS/ReactiveCocoa.framework; sourceTree = "<group>"; };
-		B1730EFD1C869EA80050E48C /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
 		B17695D71C7AD4D800C99FEE /* AnimatableTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatableTag.swift; sourceTree = "<group>"; };
 		B17695D91C7AD4D800C99FEE /* Plate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plate.swift; sourceTree = "<group>"; };
 		B17695DA1C7AD4D800C99FEE /* PlateLayerPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlateLayerPath.swift; sourceTree = "<group>"; };
@@ -132,13 +154,12 @@
 		B185D1E41C84980C000C61D8 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
 		B185D1E61C849810000C61D8 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		B185D1E81C849816000C61D8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
-		B185D1E91C854A58000C61D8 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
 		B185D2141C8574C9000C61D8 /* STComet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STComet.swift; sourceTree = "<group>"; };
 		B185D2161C8585EC000C61D8 /* Number+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Number+Helper.swift"; sourceTree = "<group>"; };
 		B185D2181C85891F000C61D8 /* RangeReplaceableCollectionType+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RangeReplaceableCollectionType+Helper.swift"; sourceTree = "<group>"; };
 		B185D21A1C85A81C000C61D8 /* SaturnTimer-bridging-header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SaturnTimer-bridging-header.h"; sourceTree = "<group>"; };
 		B186751E1C7C5F15002EA264 /* STTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STTimer.swift; sourceTree = "<group>"; };
-		B18A94871C8DE2BC004494C6 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; };
+		B18A94871C8DE2BC004494C6 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		B18A94B91C91227E004494C6 /* STTimerNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STTimerNotification.swift; sourceTree = "<group>"; };
 		B1AAF0911C84023900A9543A /* AnimatableArrowLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatableArrowLayer.swift; sourceTree = "<group>"; };
 		B1C239211C7DA48E00C58A5B /* UIWindow+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+Helper.swift"; sourceTree = "<group>"; };
@@ -168,7 +189,6 @@
 		B1FEF0071C80993E00F9F5FD /* AnimatableCrossLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatableCrossLayer.swift; sourceTree = "<group>"; };
 		B1FEF0091C8099E200F9F5FD /* HighlightableProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighlightableProtocol.swift; sourceTree = "<group>"; };
 		B1FEF00B1C809A4800F9F5FD /* AnimatableRingLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatableRingLayer.swift; sourceTree = "<group>"; };
-		E80CA5B8264A6A7FF674D4FD /* Pods-SaturnTimer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaturnTimer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SaturnTimer/Pods-SaturnTimer.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,35 +196,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B1730EFE1C869EA80050E48C /* ReactiveCocoa.framework in Frameworks */,
-				B1730EFF1C869EA80050E48C /* Result.framework in Frameworks */,
 				B185D1DC1C844FAA000C61D8 /* AVFoundation.framework in Frameworks */,
-				D263F8F2FD82C72FEA10A3F1 /* Pods_SaturnTimer.framework in Frameworks */,
+				860F6BCC1E54B1530090B589 /* ReactiveCocoa.framework in Frameworks */,
+				860F6BD01E54B1530090B589 /* Result.framework in Frameworks */,
+				A008773576893966FAD23632 /* Pods_SaturnTimer.framework in Frameworks */,
+				860F6BCE1E54B1530090B589 /* ReactiveSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04BFDC8A4A0E74EB4718D01A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				992902AEE95714EBC92511FF /* Pods-SaturnTimer.debug.xcconfig */,
+				6ABF9B568D03363520F6792D /* Pods-SaturnTimer.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		5DF9A4A8415CF636FCEA24DC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B1730EFC1C869EA80050E48C /* ReactiveCocoa.framework */,
-				B1730EFD1C869EA80050E48C /* Result.framework */,
-				B185D1E91C854A58000C61D8 /* SpriteKit.framework */,
+				860F6BC91E54B1530090B589 /* ReactiveCocoa.framework */,
+				860F6BCA1E54B1530090B589 /* ReactiveSwift.framework */,
+				860F6BCB1E54B1530090B589 /* Result.framework */,
 				B185D1DB1C844FAA000C61D8 /* AVFoundation.framework */,
-				39BB3C67DF2FAC6FE6D3489D /* Pods_SaturnTimer.framework */,
+				4ECF8C37077D0F3FB3D8DAFA /* Pods_SaturnTimer.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		A2A88EC13E5F6151BF1AA0AD /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				E80CA5B8264A6A7FF674D4FD /* Pods-SaturnTimer.debug.xcconfig */,
-				996269BD96DEE1838A3B4D72 /* Pods-SaturnTimer.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 		B104B34C1C818CCB00B097FD /* Menu */ = {
@@ -255,8 +276,8 @@
 			children = (
 				B15A43A21C7713BF005D605E /* SaturnTimer */,
 				B15A43A11C7713BF005D605E /* Products */,
-				A2A88EC13E5F6151BF1AA0AD /* Pods */,
 				5DF9A4A8415CF636FCEA24DC /* Frameworks */,
+				04BFDC8A4A0E74EB4718D01A /* Pods */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -455,14 +476,15 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B15A43C81C7713BF005D605E /* Build configuration list for PBXNativeTarget "SaturnTimer" */;
 			buildPhases = (
-				4BDF06DD92DC4D925EF56051 /* Check Pods Manifest.lock */,
+				43CB9DCD63C1E9B6E79B942C /* [CP] Check Pods Manifest.lock */,
 				B15A439C1C7713BF005D605E /* Sources */,
 				B15A439D1C7713BF005D605E /* Frameworks */,
 				B15A439E1C7713BF005D605E /* Resources */,
-				9B4E36AEBB2D75C183DD15CC /* Embed Pods Frameworks */,
-				858355FF4E402677F8877F6D /* Copy Pods Resources */,
 				B19705911C7EB448006185F2 /* Auto-Increment Build Number */,
 				B1730F001C869ED30050E48C /* Copy Embed Frameworks */,
+				1E31534282443589A72FEB57 /* [CP] Embed Pods Frameworks */,
+				1900C3CB92ED3DED3708D59A /* [CP] Copy Pods Resources */,
+				860F6BD21E54B1540090B589 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -481,12 +503,14 @@
 			attributes = {
 				CLASSPREFIX = ST;
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Tidy Nine";
 				TargetAttributes = {
 					B15A439F1C7713BF005D605E = {
 						CreatedOnToolsVersion = 7.2.1;
 						DevelopmentTeam = AF2Q9UV2AS;
+						LastSwiftMigration = 0820;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -538,29 +562,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4BDF06DD92DC4D925EF56051 /* Check Pods Manifest.lock */ = {
+		1900C3CB92ED3DED3708D59A /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		858355FF4E402677F8877F6D /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -568,20 +577,34 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SaturnTimer/Pods-SaturnTimer-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9B4E36AEBB2D75C183DD15CC /* Embed Pods Frameworks */ = {
+		1E31534282443589A72FEB57 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/myfile",
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SaturnTimer/Pods-SaturnTimer-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		43CB9DCD63C1E9B6E79B942C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		B1730F001C869ED30050E48C /* Copy Embed Frameworks */ = {
@@ -718,6 +741,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -727,8 +751,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -764,6 +790,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -773,8 +800,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -793,6 +822,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -800,11 +830,13 @@
 		};
 		B15A43C91C7713BF005D605E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E80CA5B8264A6A7FF674D4FD /* Pods-SaturnTimer.debug.xcconfig */;
+			baseConfigurationReference = 992902AEE95714EBC92511FF /* Pods-SaturnTimer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = AF2Q9UV2AS;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -817,17 +849,20 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.rocketchild.SaturnTimer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "SaturnTimer/SaturnTimer-bridging-header.h";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		B15A43CA1C7713BF005D605E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 996269BD96DEE1838A3B4D72 /* Pods-SaturnTimer.release.xcconfig */;
+			baseConfigurationReference = 6ABF9B568D03363520F6792D /* Pods-SaturnTimer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Guizhou Timeline Information Technology Co., Ltd. (AF2Q9UV2AS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = AF2Q9UV2AS;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -840,6 +875,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.rocketchild.SaturnTimer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "SaturnTimer/SaturnTimer-bridging-header.h";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

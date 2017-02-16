@@ -1,0 +1,21 @@
+*.xcscheme
+*.xcclassmodel/
+*.xcbkptlist
+
+xcuserdata/
+DerivedData/
+
+.DS_Store
+*.xccheckout
+*.xcuserstate
+
+# Carthage
+/Carthage
+*.resolved
+
+# Cocospods
+/Pods
+*.lock
+
+*.dSYM
+*.bcsymbolmap

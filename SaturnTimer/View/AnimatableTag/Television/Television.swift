@@ -11,40 +11,40 @@ import pop
 
 class Television: AnimatableTag {
   
-	private let _body: CAShapeLayer = CAShapeLayer()
-	private let _st_screen: CAShapeLayer = CAShapeLayer()
-	private let _antenna1: CAShapeLayer = CAShapeLayer()
-	private let _antenna2: CAShapeLayer = CAShapeLayer()
-	private let _switch: CAShapeLayer = CAShapeLayer()
-	private let _speaker1: CAShapeLayer = CAShapeLayer()
-	private let _speaker2: CAShapeLayer = CAShapeLayer()
+	fileprivate let _body: CAShapeLayer = CAShapeLayer()
+	fileprivate let _st_screen: CAShapeLayer = CAShapeLayer()
+	fileprivate let _antenna1: CAShapeLayer = CAShapeLayer()
+	fileprivate let _antenna2: CAShapeLayer = CAShapeLayer()
+	fileprivate let _switch: CAShapeLayer = CAShapeLayer()
+	fileprivate let _speaker1: CAShapeLayer = CAShapeLayer()
+	fileprivate let _speaker2: CAShapeLayer = CAShapeLayer()
 	
-	private var _snowAry: [CALayer]!
+	fileprivate var _snowAry: [CALayer]!
 	
-	private let _duration: CFTimeInterval = 1.0
+	fileprivate let _duration: CFTimeInterval = 1.0
 	
 	override func viewConfig() {
-    _fixedSize = CGSizeMake(23, 24)
+    _fixedSize = CGSize(width: 23, height: 24)
     
 		super.viewConfig()
 		
-		_body.path = _TelevisionLayerPath.bodyPath.CGPath
-		_st_screen.path =  _TelevisionLayerPath.screenPath.CGPath
-		_antenna1.path = _TelevisionLayerPath.antennaPath1.CGPath
-		_antenna2.path = _TelevisionLayerPath.antennaPath2.CGPath
-		_switch.path = _TelevisionLayerPath.switchPath.CGPath
-		_speaker1.path = _TelevisionLayerPath.speakerPath1.CGPath
-		_speaker2.path = _TelevisionLayerPath.speakerPath2.CGPath
+		_body.path = _TelevisionLayerPath.bodyPath.cgPath
+		_st_screen.path =  _TelevisionLayerPath.screenPath.cgPath
+		_antenna1.path = _TelevisionLayerPath.antennaPath1.cgPath
+		_antenna2.path = _TelevisionLayerPath.antennaPath2.cgPath
+		_switch.path = _TelevisionLayerPath.switchPath.cgPath
+		_speaker1.path = _TelevisionLayerPath.speakerPath1.cgPath
+		_speaker2.path = _TelevisionLayerPath.speakerPath2.cgPath
 		
 		let layersStroke = [_body, _st_screen, _antenna1, _antenna2, _switch, _speaker1, _speaker2]
 		for layer in layersStroke {
-			layer.opaque = true
+			layer.isOpaque = true
 			layer.lineCap = kCALineCapRound
 			layer.lineWidth = 1.5
 			layer.strokeStart = 0.0
 			layer.strokeEnd = 0.0
 			layer.strokeColor = currentAppearenceColor()
-			layer.fillColor = UIColor.clearColor().CGColor
+			layer.fillColor = UIColor.clear.cgColor
 			_contentView.layer.addSublayer(layer)
 		}
 		
@@ -54,19 +54,19 @@ class Television: AnimatableTag {
 		_antenna2.anchorPoint = CGPoint(x: 0.0, y: 1.0)
 
 		//Snow
-		
-		_snowAry = (0..<9).flatMap({ (index) -> CALayer in
-			let snow = CALayer()
-			snow.frame = CGRect(x: 0, y: 0, width: 1, height: 1)
-			let row: Int = index / 3
-			let col: Int = index % 3
-			let gap: Int = 2
-			snow.opacity = 0.0
-			snow.position = CGPointMake(CGFloat(row * gap) + 7.3, CGFloat(col * gap) + 13.1)
-			snow.backgroundColor = HelperColor.lightGrayColor.CGColor
-			_contentView.layer.addSublayer(snow)
-			return snow
-		}).shuffle()
+		_snowAry = (0..<9).flatMap({ (index) -> CALayer? in
+      let snow = CALayer()
+      snow.frame = CGRect(x: 0, y: 0, width: 1, height: 1)
+      let row: Int = index / 3
+      let col: Int = index % 3
+      let gap: Int = 2
+      snow.opacity = 0.0
+      snow.position = CGPoint(x: CGFloat(row * gap) + 7.3, y: CGFloat(col * gap) + 13.1)
+      snow.backgroundColor = HelperColor.lightGrayColor.cgColor
+      _contentView.layer.addSublayer(snow)
+      return snow
+    })
+		_snowAry = _snowAry.shuffled()
 
 		enterAnimation()
 	}
@@ -97,21 +97,21 @@ class Television: AnimatableTag {
 	// Enter Animation
 	
 	func enterAnimation () {
-		_body.pathStokeAnimationFrom(0.0, to: 1.0, duration: _duration, type: .End) {[weak self] () -> Void in
+		_body.pathStokeAnimationFrom(0.0, to: 1.0, duration: _duration, type: .end) {[weak self] () -> Void in
       guard let _self = self else {return}
       
-			_self._st_screen.pathStokeAnimationFrom(0.0, to: 1.0, duration: _self._duration * 0.5, type: .End, completion: {[weak self] () -> Void in
+			_self._st_screen.pathStokeAnimationFrom(0.0, to: 1.0, duration: _self._duration * 0.5, type: .end, completion: {[weak self] () -> Void in
         guard let _self = self else {return}
 				
-				_self._switch.pathStokeAnimationFrom(0.0, to: 1.0, duration: _self._duration * 0.5, type: .End, completion: {[weak self] () -> Void in
+				_self._switch.pathStokeAnimationFrom(0.0, to: 1.0, duration: _self._duration * 0.5, type: .end, completion: {[weak self] () -> Void in
           guard let _self = self else {return}
 
-					_self._speaker1.pathStokeAnimationFrom(0.0, to: 1.0, duration: _self._duration * 0.5, type: .End)
-					_self._speaker2.pathStokeAnimationFrom(0.0, to: 1.0, duration: _self._duration * 0.5, type: .End, completion: {[weak self] () -> Void in
+					_self._speaker1.pathStokeAnimationFrom(0.0, to: 1.0, duration: _self._duration * 0.5, type: .end)
+					_self._speaker2.pathStokeAnimationFrom(0.0, to: 1.0, duration: _self._duration * 0.5, type: .end, completion: {[weak self] () -> Void in
             guard let _self = self else {return}
 						
-						_self._antenna1.pathStokeAnimationFrom(0.0, to: 1.0, duration: _self._duration * 0.5, type: .End)
-						_self._antenna2.pathStokeAnimationFrom(0.0, to: 1.0, duration: _self._duration * 0.5, type: .End, completion: {[weak self] () -> Void in
+						_self._antenna1.pathStokeAnimationFrom(0.0, to: 1.0, duration: _self._duration * 0.5, type: .end)
+						_self._antenna2.pathStokeAnimationFrom(0.0, to: 1.0, duration: _self._duration * 0.5, type: .end, completion: {[weak self] () -> Void in
               guard let _self = self else {return}
 
 							_self.televisionAnimation()
@@ -131,47 +131,44 @@ class Television: AnimatableTag {
 		}
 
 		let rotationAnimFrom1 = POPSpringAnimation(propertyNamed: kPOPLayerRotation)
-		rotationAnimFrom1.toValue = -M_PI_2 * 0.2
-		rotationAnimFrom1.completionBlock = {[weak self] anim in
+		rotationAnimFrom1?.toValue = -M_PI_2 * 0.2
+		rotationAnimFrom1?.completionBlock = {[weak self] anim in
       guard let _self = self else {return}
 
 			let rotationAnimTo1 = POPSpringAnimation(propertyNamed: kPOPLayerRotation)
-			rotationAnimTo1.toValue = 0
-			_self._antenna1.pop_addAnimation(rotationAnimTo1, forKey: "RotationAnimTo")
+			rotationAnimTo1?.toValue = 0
+			_self._antenna1.pop_add(rotationAnimTo1, forKey: "RotationAnimTo")
 		}
-		_antenna1.pop_addAnimation(rotationAnimFrom1, forKey: "RotationAnimFrom")
+		_antenna1.pop_add(rotationAnimFrom1, forKey: "RotationAnimFrom")
 		
 		let rotationAnimFrom2 = POPSpringAnimation(propertyNamed: kPOPLayerRotation)
-		rotationAnimFrom2.toValue = M_PI_2 * 0.2
-		rotationAnimFrom2.completionBlock = {[weak self] anim in
+		rotationAnimFrom2?.toValue = M_PI_2 * 0.2
+		rotationAnimFrom2?.completionBlock = {[weak self] anim in
       guard let _self = self else {return}
 
 			let rotationAnimTo2 = POPSpringAnimation(propertyNamed: kPOPLayerRotation)
-			rotationAnimTo2.toValue = 0
-			rotationAnimTo2.completionBlock = { anim in
-				let dispatchTime: dispatch_time_t = dispatch_time(DISPATCH_TIME_NOW, Int64(1.0 * Double(NSEC_PER_SEC)))
-				dispatch_after(dispatchTime, dispatch_get_main_queue(), {[weak self] () -> Void in
-          guard let _self = self else {return}
-
-					_self.televisionAnimation()
-				})
+			rotationAnimTo2?.toValue = 0
+			rotationAnimTo2?.completionBlock = { anim in
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.0, execute: {[weak self] in
+          self?.televisionAnimation()
+        })
 			}
-			_self._antenna2.pop_addAnimation(rotationAnimTo2, forKey: "RotationAnimTo")
+			_self._antenna2.pop_add(rotationAnimTo2, forKey: "RotationAnimTo")
 		}
-		_antenna2.pop_addAnimation(rotationAnimFrom2, forKey: "RotationAnimFrom")
+		_antenna2.pop_add(rotationAnimFrom2, forKey: "RotationAnimFrom")
 	}
 	
 	//Snow Animation
 	
 	func snowAnimation () {
-		for (index, snow) in  _snowAry.enumerate() {
+		for (index, snow) in  _snowAry.enumerated() {
 			let opacityAnim = POPBasicAnimation(propertyNamed: kPOPLayerOpacity)
-			opacityAnim.toValue = 1.0
-			opacityAnim.repeatForever = true
-			opacityAnim.autoreverses = true
-			opacityAnim.duration = 0.6
-			opacityAnim.beginTime = CACurrentMediaTime() + CFTimeInterval(index) * 0.7
-			snow.pop_addAnimation(opacityAnim, forKey: "OpacityAnimation")
+			opacityAnim?.toValue = 1.0
+			opacityAnim?.repeatForever = true
+			opacityAnim?.autoreverses = true
+			opacityAnim?.duration = 0.6
+			opacityAnim?.beginTime = CACurrentMediaTime() + CFTimeInterval(index) * 0.7
+			snow.pop_add(opacityAnim, forKey: "OpacityAnimation")
 		}
 	}
 }

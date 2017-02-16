@@ -8,6 +8,7 @@
 
 import UIKit
 import ReactiveCocoa
+import ReactiveSwift
 import QorumLogs
 import Result
 
@@ -19,57 +20,57 @@ class STDialPlateView: UIView {
   
   var playButton : STPlayButton!
   
-  var touchEndSignal: Signal<Void, NoError>!
+  var touchEndSignal: Signal<Any?, NoError>!
   
-  private var touchEndObserver: Observer<Void, NoError>!
+  fileprivate var touchEndObserver: Observer<Any?, NoError>!
   
-  private var _sliderEnabled = true
+  fileprivate var _sliderEnabled = true
   
-  private let _outerRing: CAShapeLayer = CAShapeLayer()
-  private let _innerRing: CAShapeLayer = CAShapeLayer()
+  fileprivate let _outerRing: CAShapeLayer = CAShapeLayer()
+  fileprivate let _innerRing: CAShapeLayer = CAShapeLayer()
   
-  private let _outerCyanRing: CAShapeLayer = CAShapeLayer()
-  private let _outerCyanDot: CAShapeLayer = CAShapeLayer()
-  private let _innerCyanRing: CAShapeLayer = CAShapeLayer()
-  private let _innerCyanDot: CAShapeLayer = CAShapeLayer()
+  fileprivate let _outerCyanRing: CAShapeLayer = CAShapeLayer()
+  fileprivate let _outerCyanDot: CAShapeLayer = CAShapeLayer()
+  fileprivate let _innerCyanRing: CAShapeLayer = CAShapeLayer()
+  fileprivate let _innerCyanDot: CAShapeLayer = CAShapeLayer()
   
-  private let _padding: CGFloat = 20.0
-  private let _gapOfRings: CGFloat = 42.0
-  private let _outerCyanDotDiameter: CGFloat = 10.0
-  private let _innerCyanDotDiameter: CGFloat = 15.0
+  fileprivate let _padding: CGFloat = 20.0
+  fileprivate let _gapOfRings: CGFloat = 42.0
+  fileprivate let _outerCyanDotDiameter: CGFloat = 10.0
+  fileprivate let _innerCyanDotDiameter: CGFloat = 15.0
   
-  private var _outerRingRadius: CGFloat = 0.0
-  private var _innerRingRadius: CGFloat = 0.0
+  fileprivate var _outerRingRadius: CGFloat = 0.0
+  fileprivate var _innerRingRadius: CGFloat = 0.0
   
-  private var _innerCenter: CGPoint = CGPointZero
+  fileprivate var _innerCenter: CGPoint = CGPoint.zero
   
   func configView () {
     clipsToBounds = false
-    backgroundColor = UIColor.clearColor()
+    backgroundColor = UIColor.clear
     
     //Touch End Signal and Observer
-    let (touchEndSignal, touchEndObserver) = Signal<Void, NoError>.pipe()
+    let (touchEndSignal, touchEndObserver) = Signal<Any?, NoError>.pipe()
     self.touchEndSignal = touchEndSignal
     self.touchEndObserver = touchEndObserver
     
     //Outer Ring
 
-    _outerRing.strokeColor = HelperColor.lightGrayColor.CGColor
-    _outerRing.fillColor = UIColor.clearColor().CGColor
+    _outerRing.strokeColor = HelperColor.lightGrayColor.cgColor
+    _outerRing.fillColor = UIColor.clear.cgColor
     _outerRing.lineWidth = 2.0
     layer.addSublayer(_outerRing)
     
     //Inner Ring
 
-    _innerRing.strokeColor = HelperColor.lightGrayColor.CGColor
-    _innerRing.fillColor = UIColor.clearColor().CGColor
+    _innerRing.strokeColor = HelperColor.lightGrayColor.cgColor
+    _innerRing.fillColor = UIColor.clear.cgColor
     _innerRing.lineWidth = 4.0
     layer.addSublayer(_innerRing)
     
     //Outer Cryan Ring
     
-    _outerCyanRing.strokeColor = HelperColor.primaryColor.CGColor
-    _outerCyanRing.fillColor = UIColor.clearColor().CGColor
+    _outerCyanRing.strokeColor = HelperColor.primaryColor.cgColor
+    _outerCyanRing.fillColor = UIColor.clear.cgColor
     _outerCyanRing.lineWidth = 2.0
     _outerCyanRing.strokeEnd = 0.0
     layer.addSublayer(_outerCyanRing)
@@ -77,14 +78,14 @@ class STDialPlateView: UIView {
     
     //Outer Cryan Dot
 
-    _outerCyanDot.strokeColor = UIColor.clearColor().CGColor
-    _outerCyanDot.fillColor = HelperColor.primaryColor.CGColor
+    _outerCyanDot.strokeColor = UIColor.clear.cgColor
+    _outerCyanDot.fillColor = HelperColor.primaryColor.cgColor
     layer.addSublayer(_outerCyanDot)
     
     //Inner Cryan Ring
 
-    _innerCyanRing.strokeColor = HelperColor.primaryColor.CGColor
-    _innerCyanRing.fillColor = UIColor.clearColor().CGColor
+    _innerCyanRing.strokeColor = HelperColor.primaryColor.cgColor
+    _innerCyanRing.fillColor = UIColor.clear.cgColor
     _innerCyanRing.lineWidth = 4.0
     _innerCyanRing.strokeEnd = 0.0
     layer.addSublayer(_innerCyanRing)
@@ -92,8 +93,8 @@ class STDialPlateView: UIView {
     
     //Inner Cryan Dot
     
-    _innerCyanDot.strokeColor = UIColor.clearColor().CGColor
-    _innerCyanDot.fillColor = HelperColor.primaryColor.CGColor
+    _innerCyanDot.strokeColor = UIColor.clear.cgColor
+    _innerCyanDot.fillColor = HelperColor.primaryColor.cgColor
     layer.addSublayer(_innerCyanDot)
     
     self.ringPathSetting()
@@ -110,17 +111,15 @@ class STDialPlateView: UIView {
     
     //Play Button
     
-    playButton = STPlayButton(frame: CGRectZero)
+    playButton = STPlayButton(frame: CGRect.zero)
     playButton.enabled = false
     addSubview(playButton)
     
     //Observe changes of bounds
-    
-    DynamicProperty(object: self, keyPath: "bounds").signal.observeNext {[weak self] (bounds) -> () in
-      guard let _self = self else {return}
-      _self.ringPathSetting()
-      _self.resetSliderPosition()
-      _self.resetPlayButtonFrame()
+    reactive.values(forKeyPath: "bounds").startWithValues {[weak self] (rect) in
+      self?.ringPathSetting()
+      self?.resetSliderPosition()
+      self?.resetPlayButtonFrame()
     }
     
     //Observe changes of Sliders
@@ -130,8 +129,8 @@ class STDialPlateView: UIView {
       .filter { (progress) -> Bool in
         return progress >= 0.0 && progress <= 1.0
       }
-      .observeOn(UIScheduler())
-      .startWithNext {[weak self] (progress) -> () in
+      .observe(on: UIScheduler())
+      .startWithValues {[weak self] (progress) -> () in
         guard let _self = self else {return}
 
         _self._outerCyanRing.setValueWithoutImplicitAnimation(CGFloat(progress), forKey: "strokeEnd")
@@ -144,8 +143,8 @@ class STDialPlateView: UIView {
       .filter { (progress) -> Bool in
         return progress >= 0.0 && progress <= 1.0
       }
-      .observeOn(UIScheduler())
-      .startWithNext {[weak self] (progress) -> () in
+      .observe(on: UIScheduler())
+      .startWithValues {[weak self] (progress) -> () in
         guard let _self = self else {return}
         
         _self._innerCyanRing.setValueWithoutImplicitAnimation(CGFloat(progress), forKey: "strokeEnd")
@@ -156,38 +155,38 @@ class STDialPlateView: UIView {
     let playButtonWidth: CGFloat = 90.0
     let playButtonHeight: CGFloat = 90.0
     
-    let rect = CGRectMake(
-      (bounds.width - playButtonWidth) * 0.5 ,
-      (bounds.height - playButtonHeight) * 0.5 ,
-      playButtonWidth,
-      playButtonHeight
+    let rect = CGRect(
+      x: (bounds.width - playButtonWidth) * 0.5 ,
+      y: (bounds.height - playButtonHeight) * 0.5 ,
+      width: playButtonWidth,
+      height: playButtonHeight
     )
     
     playButton.frame = rect
   }
   
   func ringPathSetting () {
-    _outerRing.path = _DialPlateLayerPath.ringPath(CGRectInset(bounds, _padding, _padding)).CGPath
-    _innerRing.path = _DialPlateLayerPath.ringPath(CGRectInset(bounds, _padding + _gapOfRings, _padding + _gapOfRings)).CGPath
-    _outerCyanDot.path = _DialPlateLayerPath.ringPath(CGRectMake(0, 0, _outerCyanDotDiameter, _outerCyanDotDiameter)).CGPath
+    _outerRing.path = _DialPlateLayerPath.ringPath(bounds.insetBy(dx: _padding, dy: _padding)).cgPath
+    _innerRing.path = _DialPlateLayerPath.ringPath(bounds.insetBy(dx: _padding + _gapOfRings, dy: _padding + _gapOfRings)).cgPath
+    _outerCyanDot.path = _DialPlateLayerPath.ringPath(CGRect(x: 0, y: 0, width: _outerCyanDotDiameter, height: _outerCyanDotDiameter)).cgPath
     _outerCyanDot.position = CGPoint(
       x: bounds.width * 0.5 - _outerCyanDotDiameter * 0.5,
       y: -(_outerCyanDotDiameter * 0.5) + _padding
     )
-    _innerCyanDot.path = _DialPlateLayerPath.ringPath(CGRectMake(0, 0, _innerCyanDotDiameter, _innerCyanDotDiameter)).CGPath
+    _innerCyanDot.path = _DialPlateLayerPath.ringPath(CGRect(x: 0, y: 0, width: _innerCyanDotDiameter, height: _innerCyanDotDiameter)).cgPath
     _innerCyanDot.position = CGPoint(
       x: bounds.width * 0.5 - _innerCyanDotDiameter * 0.5,
       y: -(_innerCyanDotDiameter * 0.5) + _padding + _gapOfRings
     )
-    _outerCyanRing.frame = CGRectInset(bounds, _padding, _padding)
-    _outerCyanRing.path = _DialPlateLayerPath.ringPath(_outerCyanRing.bounds).CGPath
-    _innerCyanRing.frame = CGRectInset(bounds, _padding + _gapOfRings, _padding + _gapOfRings)
-    _innerCyanRing.path = _DialPlateLayerPath.ringPath(_innerCyanRing.bounds).CGPath
+    _outerCyanRing.frame = bounds.insetBy(dx: _padding, dy: _padding)
+    _outerCyanRing.path = _DialPlateLayerPath.ringPath(_outerCyanRing.bounds).cgPath
+    _innerCyanRing.frame = bounds.insetBy(dx: _padding + _gapOfRings, dy: _padding + _gapOfRings)
+    _innerCyanRing.path = _DialPlateLayerPath.ringPath(_innerCyanRing.bounds).cgPath
   }
   
   //MARK: - Play Button
   
-  func changePlayButtonAppearence (playing: Bool) {
+  func changePlayButtonAppearence (_ playing: Bool) {
     playButton.highlighting = playing
     playButton.changeButtonAppearance(playing)
   }
@@ -195,7 +194,7 @@ class STDialPlateView: UIView {
   
   //MARK: - Slider
   func resetSliderPosition () {
-    _innerCenter = CGPointMake(bounds.width * 0.5, bounds.height * 0.5)
+    _innerCenter = CGPoint(x: bounds.width * 0.5, y: bounds.height * 0.5)
     _outerRingRadius = _innerCenter.y - _padding
     _innerRingRadius = _innerCenter.y - _padding - _gapOfRings
     
@@ -236,78 +235,78 @@ class STDialPlateView: UIView {
     hourSlider.ovalRadius = _innerRingRadius
   }
   
-  func enableSlider (enabled: Bool) {
+  func enableSlider (_ enabled: Bool) {
     _sliderEnabled = enabled
     minuteSlider.enabled = enabled
     hourSlider.enabled = enabled
   }
   
-  func slideSlidersToProgress (progress: Double, duration: Double) {
+  func slideSlidersToProgress (_ progress: Double, duration: Double) {
     slideHourSliderToProgress(progress, duration: duration)
     slideMinuteSliderToProgress(progress, duration: duration)
   }
   
-  func slideHourSliderToProgress (progress: Double,  duration: Double) {
+  func slideHourSliderToProgress (_ progress: Double,  duration: Double) {
     hourSlider.slideToProgress(progress, duration: duration)
-    _innerCyanRing.pathStokeAnimationFrom(nil, to: CGFloat(progress), duration: duration, type: .End, timingFunctionName: kCAMediaTimingFunctionEaseInEaseOut)
+    _innerCyanRing.pathStokeAnimationFrom(nil, to: CGFloat(progress), duration: duration, type: .end, timingFunctionName: kCAMediaTimingFunctionEaseInEaseOut)
 
   }
   
-  func slideMinuteSliderToProgress (progress: Double,  duration: Double) {
+  func slideMinuteSliderToProgress (_ progress: Double,  duration: Double) {
     minuteSlider.slideToProgress(progress, duration: duration)
-    _outerCyanRing.pathStokeAnimationFrom(nil, to: CGFloat(progress), duration: duration, type: .End, timingFunctionName: kCAMediaTimingFunctionEaseInEaseOut)
+    _outerCyanRing.pathStokeAnimationFrom(nil, to: CGFloat(progress), duration: duration, type: .end, timingFunctionName: kCAMediaTimingFunctionEaseInEaseOut)
     
   }
   
   
   //MARK: - Touch
   
-  override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+  override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
     if !_sliderEnabled {
       return
     }
     
-    guard let point = touches.first?.locationInView(self) else {return}
-    if CGRectContainsPoint(hourSlider.frame, point) {
+    guard let point = touches.first?.location(in: self) else {return}
+    if hourSlider.frame.contains(point) {
       hourSlider.active = true
       _activeSlider = hourSlider
     }
-    else if CGRectContainsPoint(minuteSlider.frame, point) {
+    else if minuteSlider.frame.contains(point) {
       minuteSlider.active = true
       _activeSlider = minuteSlider
     }
   }
   
-  override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+  override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
     if !_sliderEnabled {
       return
     }
     
-    guard let point = touches.first?.locationInView(self), let slider = _activeSlider else {return}
+    guard let point = touches.first?.location(in: self), let slider = _activeSlider else {return}
     slider.slideWithRefrencePoint(point)
   }
   
-  override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-    if let point = touches.first?.locationInView(self), let slider = _activeSlider {
+  override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+    if let point = touches.first?.location(in: self), let slider = _activeSlider {
       slider.slideWithRefrencePoint(point)
     }
     
     hourSlider.active = false
     minuteSlider.active = false
     _activeSlider = nil
-    touchEndObserver.sendNext()
+    touchEndObserver.send(value: nil)
 
   }
   
-  override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
-    if let point = touches?.first?.locationInView(self), let slider = _activeSlider {
+  override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+    if let point = touches.first?.location(in: self), let slider = _activeSlider {
       slider.slideWithRefrencePoint(point)
     }
     
     hourSlider.active = false
     minuteSlider.active = false
     _activeSlider = nil
-    touchEndObserver.sendNext()
+    touchEndObserver.send(value: nil)
   }
   
   

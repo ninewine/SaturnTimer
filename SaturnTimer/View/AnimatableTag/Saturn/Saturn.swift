@@ -11,33 +11,33 @@ import pop
 
 class Saturn: AnimatableTag {
 	
-	private let _planet: CAShapeLayer = CAShapeLayer()
-	private let _ring: CAShapeLayer = CAShapeLayer()
-	private let _light1: CAShapeLayer = CAShapeLayer()
-	private let _light2: CAShapeLayer = CAShapeLayer()
+	fileprivate let _planet: CAShapeLayer = CAShapeLayer()
+	fileprivate let _ring: CAShapeLayer = CAShapeLayer()
+	fileprivate let _light1: CAShapeLayer = CAShapeLayer()
+	fileprivate let _light2: CAShapeLayer = CAShapeLayer()
 
-	private let _duration: CFTimeInterval = 1.0
+	fileprivate let _duration: CFTimeInterval = 1.0
 
 	override func viewConfig() {
-    _fixedSize = CGSizeMake(30, 24)
+    _fixedSize = CGSize(width: 30, height: 24)
     
 		super.viewConfig()
 
-		_planet.path = _SaturnLayerPath.planetPath.CGPath
-		_ring.path = _SaturnLayerPath.ringPath.CGPath
-		_light1.path = _SaturnLayerPath.light1.CGPath
-		_light2.path = _SaturnLayerPath.light2.CGPath
+		_planet.path = _SaturnLayerPath.planetPath.cgPath
+		_ring.path = _SaturnLayerPath.ringPath.cgPath
+		_light1.path = _SaturnLayerPath.light1.cgPath
+		_light2.path = _SaturnLayerPath.light2.cgPath
 		
 		let layersStroke = [_planet, _ring, _light1, _light2]
 		for layer in layersStroke {
-			layer.opaque = true
+			layer.isOpaque = true
 			layer.lineCap = kCALineCapRound
 			layer.lineWidth = 1.5
 			layer.miterLimit = 1.5
 			layer.strokeStart = 0.0
 			layer.strokeEnd = 0.0
 			layer.strokeColor = currentAppearenceColor()
-			layer.fillColor = UIColor.clearColor().CGColor
+			layer.fillColor = UIColor.clear.cgColor
 			_contentView.layer.addSublayer(layer)
 		}
 		
@@ -67,13 +67,13 @@ class Saturn: AnimatableTag {
 	
 	func enterAnimation () {
 		//Planet
-		_planet.pathStokeAnimationFrom(0.0, to: 1.0, duration: _duration, type: .End) {[weak self] () -> Void in
+		_planet.pathStokeAnimationFrom(0.0, to: 1.0, duration: _duration, type: .end) {[weak self] () -> Void in
       guard let _self = self else {return}
 
-			_self._light1.pathStokeAnimationFrom(0.0, to: 1.0, duration: _self._duration * 0.5, type: .End, completion: {[weak self] () -> Void in
+			_self._light1.pathStokeAnimationFrom(0.0, to: 1.0, duration: _self._duration * 0.5, type: .end, completion: {[weak self] () -> Void in
         guard let _self = self else {return}
 
-				_self._light2.pathStokeAnimationFrom(0.0, to: 1.0, duration: _self._duration * 0.5, type: .End, completion: {[weak self] () -> Void in
+				_self._light2.pathStokeAnimationFrom(0.0, to: 1.0, duration: _self._duration * 0.5, type: .end, completion: {[weak self] () -> Void in
           guard let _self = self else {return}
 
 					_self.startAnimation()
@@ -96,7 +96,7 @@ class Saturn: AnimatableTag {
     _contentView.layer.addSublayer(_ring)
 		
     
-		_ring.pathStokeAnimationFrom(0.0, to: 1.0, duration: _duration * 0.5, type: .End) {[weak self] () -> Void in
+		_ring.pathStokeAnimationFrom(0.0, to: 1.0, duration: _duration * 0.5, type: .end) {[weak self] () -> Void in
       guard let _self = self else {return}
 
 			_self.ringTailAnimation()
@@ -108,10 +108,10 @@ class Saturn: AnimatableTag {
 			return
 		}
 
-		_ring.pathStokeAnimationFrom(0.0, to: 1.0, duration: _duration * 0.5, type: .Start)
+		_ring.pathStokeAnimationFrom(0.0, to: 1.0, duration: _duration * 0.5, type: .start)
 			{() -> Void in
-				let dispatchTime: dispatch_time_t = dispatch_time(DISPATCH_TIME_NOW, Int64(1.0 * Double(NSEC_PER_SEC)))
-				dispatch_after(dispatchTime, dispatch_get_main_queue(), {[weak self] () -> Void in
+				let dispatchTime: DispatchTime = DispatchTime.now() + Double(Int64(1.0 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
+				DispatchQueue.main.asyncAfter(deadline: dispatchTime, execute: {[weak self] () -> Void in
           guard let _self = self else {return}
 
 					_self.ringHeadAnimation()

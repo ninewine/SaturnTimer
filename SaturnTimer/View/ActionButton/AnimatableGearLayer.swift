@@ -9,7 +9,7 @@
 import UIKit
 
 class AnimatableGearLayer: AnimatableLayer {
-  private let _gear: CAShapeLayer = CAShapeLayer ()
+  fileprivate let _gear: CAShapeLayer = CAShapeLayer ()
   
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
@@ -19,10 +19,10 @@ class AnimatableGearLayer: AnimatableLayer {
     super.init()
     _gear.frame = frame
     _gear.position = CGPoint(x: frame.width * 0.5, y: frame.height * 0.5)
-    _gear.path = _ActionButtonLayerPath.gearPath.CGPath
-    _gear.strokeColor = HelperColor.lightGrayColor.CGColor
-    _gear.fillColor = UIColor.clearColor().CGColor
-    _gear.colorType = ShapeLayerColorType.Stroke
+    _gear.path = _ActionButtonLayerPath.gearPath.cgPath
+    _gear.strokeColor = HelperColor.lightGrayColor.cgColor
+    _gear.fillColor = UIColor.clear.cgColor
+    _gear.colorType = ShapeLayerColorType.stroke
     _gear.strokeEnd = 0.0
     addSublayer(_gear)
   }
@@ -31,8 +31,8 @@ class AnimatableGearLayer: AnimatableLayer {
     return [_gear]
   }
   
-  override func transitionIn(completion: (() -> ())?) {
-    _gear.pathStokeAnimationFrom(nil, to: 1.0, duration: transitionDuration, type: .End) { () -> Void in
+  override func transitionIn(_ completion: (() -> ())?) {
+    _gear.pathStokeAnimationFrom(nil, to: 1.0, duration: transitionDuration, type: .end) { () -> Void in
       if let block = completion {
         block()
       }
@@ -40,8 +40,8 @@ class AnimatableGearLayer: AnimatableLayer {
   }
   
   
-  override func transitionOut(completion: (() -> ())?) {
-    _gear.pathStokeAnimationFrom(nil, to: 0.0, duration: transitionDuration, type: .End) { () -> Void in
+  override func transitionOut(_ completion: (() -> ())?) {
+    _gear.pathStokeAnimationFrom(nil, to: 0.0, duration: transitionDuration, type: .end) { () -> Void in
       if let block = completion {
         block ()
       }

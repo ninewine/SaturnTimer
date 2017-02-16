@@ -9,8 +9,8 @@
 import UIKit
 
 struct _DialPlateLayerPath {
-  static func ringPath (rect: CGRect) -> UIBezierPath {
-    let path = UIBezierPath(ovalInRect: rect)
+  static func ringPath (_ rect: CGRect) -> UIBezierPath {
+    let path = UIBezierPath(ovalIn: rect)
     return path
   }
 }

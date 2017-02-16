@@ -11,25 +11,25 @@ import ReactiveCocoa
 import QorumLogs
 
 enum ActionButtonType: Int {
-  case None, Menu, Stop, Close, Back
+  case none, menu, stop, close, back
 }
 
 class STActionButton: UIButton {
-  var type: ActionButtonType = .None {
+  var type: ActionButtonType = .none {
     willSet {
       changeButtonType(newValue)
     }
   }
   
-  private var _ring: AnimatableRingLayer!
-  private var _square: AnimatableSquareLayer!
-  private var _gear: AnimatableGearLayer!
-  private var _cross: AnimatableCrossLayer!
-  private var _arrow: AnimatableArrowLayer!
+  fileprivate var _ring: AnimatableRingLayer!
+  fileprivate var _square: AnimatableSquareLayer!
+  fileprivate var _gear: AnimatableGearLayer!
+  fileprivate var _cross: AnimatableCrossLayer!
+  fileprivate var _arrow: AnimatableArrowLayer!
 
-  private var _showingAnimatableLayer: AnimatableLayer?
+  fileprivate var _showingAnimatableLayer: AnimatableLayer?
   
-  private let _contentLayer: CALayer = CALayer ()
+  fileprivate let _contentLayer: CALayer = CALayer ()
   
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
@@ -46,7 +46,7 @@ class STActionButton: UIButton {
   }
   
   func configView () {
-    backgroundColor = UIColor.clearColor()
+    backgroundColor = UIColor.clear
     
     _contentLayer.frame = CGRect(x: 0, y: 0, width: 38, height: 38)
     _contentLayer.position = CGPoint(x: bounds.width * 0.5, y: bounds.height * 0.5)
@@ -61,18 +61,16 @@ class STActionButton: UIButton {
     _gear = AnimatableGearLayer(frame: _contentLayer.bounds)
     _arrow = AnimatableArrowLayer(frame: _contentLayer.bounds)
 
-    
-    DynamicProperty(object: self, keyPath: "bounds").signal.observeNext {[weak self] (_) -> () in
-      guard let _self = self else {return}
-      _self.resetContentLayer()
+    reactive.values(forKeyPath: "bounds").startWithValues {[weak self] (rect) in
+      self?.resetContentLayer()
     }
     
-    rac_signalForControlEvents(.TouchDown).subscribeNext {[weak self] (button) -> Void in
+    reactive.controlEvents(.touchDown).observeValues {[weak self] (button) in
       self?._ring.setHighlightStatus(true, animated: true)
       self?._showingAnimatableLayer?.setHighlightStatus(true, animated: true)
     }
     
-    rac_signalForControlEvents([.TouchUpInside, .TouchUpOutside, .TouchCancel]).subscribeNext {[weak self] (button) -> Void in
+    reactive.controlEvents([.touchUpInside, .touchUpOutside, .touchCancel]).observeValues {[weak self] (button) in
       self?._ring.setHighlightStatus(false, animated: true)
       self?._showingAnimatableLayer?.setHighlightStatus(false, animated: true)
     }
@@ -82,7 +80,7 @@ class STActionButton: UIButton {
     _contentLayer.position = CGPoint(x: bounds.width * 0.5, y: bounds.height * 0.5)
   }
   
-  func changeButtonType (type: ActionButtonType) {
+  func changeButtonType (_ type: ActionButtonType) {
     if type == self.type {
       return
     }
@@ -93,25 +91,25 @@ class STActionButton: UIButton {
       _gear.transitionIn(nil)
     }
     else {
-      userInteractionEnabled = false
+      isUserInteractionEnabled = false
       _showingAnimatableLayer?.transitionOut({[weak self] () -> () in
         guard let _self = self else {return}
         
         _self._showingAnimatableLayer?.removeFromSuperlayer()
         switch type {
-        case .Menu:
+        case .menu:
           _self._contentLayer.addSublayer(_self._gear)
           _self._showingAnimatableLayer = _self._gear
           break
-        case .Stop:
+        case .stop:
           _self._contentLayer.addSublayer(_self._square)
           _self._showingAnimatableLayer = _self._square
           break
-        case .Close:
+        case .close:
           _self._contentLayer.addSublayer(_self._cross)
           _self._showingAnimatableLayer = _self._cross
           break
-        case .Back:
+        case .back:
           _self._contentLayer.addSublayer(_self._arrow)
           _self._showingAnimatableLayer = _self._arrow
           break
@@ -120,7 +118,7 @@ class STActionButton: UIButton {
         }
         
         _self._showingAnimatableLayer?.transitionIn({[weak self] () -> () in
-          self?.userInteractionEnabled = true
+          self?.isUserInteractionEnabled = true
         })
       })
     }

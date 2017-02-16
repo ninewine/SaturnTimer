@@ -8,7 +8,7 @@
 
 
 extension Optional {
-	func withExtendedLifetime(body: Wrapped -> Void) {
+	func withExtendedLifetime(_ body: (Wrapped) -> Void) {
 		if let strongSelf = self {
 			body(strongSelf)
 		}

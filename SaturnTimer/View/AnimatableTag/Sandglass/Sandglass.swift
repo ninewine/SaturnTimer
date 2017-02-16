@@ -11,23 +11,23 @@ import pop
 
 //MARK: - Sandglass
 
-class Sandglass: AnimatableTag, UICollisionBehaviorDelegate {
+class Sandglass: AnimatableTag, UICollisionBehaviorDelegate, CAAnimationDelegate {
 
-	private var _glass: _Glass!
+	fileprivate var _glass: _Glass!
 	
-	private var _sandAppearDuration: Double = 1.0
+	fileprivate var _sandAppearDuration: Double = 1.0
 	
-	private let _reverseCircleTimeInterval: Double = 4
+	fileprivate let _reverseCircleTimeInterval: Double = 4
 
-	private let _sandTop: CAShapeLayer = CAShapeLayer()
-	private let _sandBottom: CAShapeLayer = CAShapeLayer()
-	private var _sandAnimationStepTop: Int = 0
-	private var _sandAnimationStepBottom: Int = 0
+	fileprivate let _sandTop: CAShapeLayer = CAShapeLayer()
+	fileprivate let _sandBottom: CAShapeLayer = CAShapeLayer()
+	fileprivate var _sandAnimationStepTop: Int = 0
+	fileprivate var _sandAnimationStepBottom: Int = 0
 	
-	private var _particles: [UIView] = []
+	fileprivate var _particles: [UIView] = []
 	
 	override func viewConfig () {
-    _fixedSize = CGSizeMake(20, 29)
+    _fixedSize = CGSize(width: 20, height: 29)
     
 		super.viewConfig()
 		
@@ -36,10 +36,10 @@ class Sandglass: AnimatableTag, UICollisionBehaviorDelegate {
 		
 		let layersFill = [_sandTop, _sandBottom]
 		for layer in layersFill {
-			layer.opaque = true
-			layer.strokeColor = UIColor.clearColor().CGColor
+			layer.isOpaque = true
+			layer.strokeColor = UIColor.clear.cgColor
 			layer.fillColor = currentAppearenceColor()
-      layer.colorType = .Fill
+      layer.colorType = .fill
 			_contentView.layer.addSublayer(layer)
 		}
 		
@@ -47,11 +47,11 @@ class Sandglass: AnimatableTag, UICollisionBehaviorDelegate {
 		startAnimation()
 	}
   
-  override func setHighlightStatus(hightlightd: Bool, animated: Bool) {
+  override func setHighlightStatus(_ hightlightd: Bool, animated: Bool) {
     super.setHighlightStatus(hightlightd, animated: animated)
 
     for particle in _particles {
-      particle.backgroundColor = UIColor(CGColor: currentAppearenceColor())
+      particle.backgroundColor = UIColor(cgColor: currentAppearenceColor())
     }
   }
   
@@ -66,13 +66,13 @@ class Sandglass: AnimatableTag, UICollisionBehaviorDelegate {
 		_sandTop.opacity = 0.0
 		_sandBottom.opacity = 0.0
 		
-		_sandTop.path = _GlassLayerPath.sandTopLevel1Path.CGPath
-		_sandBottom.path = _GlassLayerPath.sandBottomLevel1Path.CGPath
+		_sandTop.path = _GlassLayerPath.sandTopLevel1Path.cgPath
+		_sandBottom.path = _GlassLayerPath.sandBottomLevel1Path.cgPath
 		
 		let opacityAnim = POPBasicAnimation(propertyNamed: kPOPLayerOpacity)
-		opacityAnim.toValue = 1.0
-		opacityAnim.duration = _sandAppearDuration
-		opacityAnim.animationDidReachToValueBlock = {[weak self] anim in
+		opacityAnim?.toValue = 1.0
+		opacityAnim?.duration = _sandAppearDuration
+		opacityAnim?.animationDidReachToValueBlock = {[weak self] anim in
       guard let _self = self else {return}
 
       _self.dropSand()
@@ -80,12 +80,12 @@ class Sandglass: AnimatableTag, UICollisionBehaviorDelegate {
       _self.startBottomSandAnimation()
 			
 		}
-		_sandTop.pop_addAnimation(opacityAnim, forKey: "opacity animation")
+		_sandTop.pop_add(opacityAnim, forKey: "opacity animation")
 		
 		let opacityAnim1 = POPBasicAnimation(propertyNamed: kPOPLayerOpacity)
-		opacityAnim1.toValue = 1.0
-		opacityAnim1.duration = _sandAppearDuration
-		_sandBottom.pop_addAnimation(opacityAnim1, forKey: "opacity animation")
+		opacityAnim1?.toValue = 1.0
+		opacityAnim1?.duration = _sandAppearDuration
+		_sandBottom.pop_add(opacityAnim1, forKey: "opacity animation")
 	}
 	
 	override func stopAnimation() {
@@ -131,7 +131,7 @@ class Sandglass: AnimatableTag, UICollisionBehaviorDelegate {
 		animateBottomSandWithStep(_sandAnimationStepBottom)
 	}
 	
-	func animateTopSandWithStep (step: Int) {
+	func animateTopSandWithStep (_ step: Int) {
 		if step >= _GlassLayerPath.sandPathsTop.count - 1 || _pausing {
 			_sandAnimationStepTop = 0
 			completeASandCircle()
@@ -141,8 +141,8 @@ class Sandglass: AnimatableTag, UICollisionBehaviorDelegate {
 		let duration: Double = _reverseCircleTimeInterval / Double(_GlassLayerPath.sandPathsTop.count)
 		
 		let pathAnim = CABasicAnimation(keyPath: "path")
-		pathAnim.fromValue = _GlassLayerPath.sandPathsTop[step].CGPath
-		pathAnim.toValue = _GlassLayerPath.sandPathsTop[step+1].CGPath
+		pathAnim.fromValue = _GlassLayerPath.sandPathsTop[step].cgPath
+		pathAnim.toValue = _GlassLayerPath.sandPathsTop[step+1].cgPath
 		pathAnim.duration = duration
 		pathAnim.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
 		pathAnim.setValue("SandAnimationTop", forKey: "animation")
@@ -150,7 +150,7 @@ class Sandglass: AnimatableTag, UICollisionBehaviorDelegate {
 		_sandTop.st_applyAnimation(pathAnim)
 	}
 	
-	func animateBottomSandWithStep (step: Int) {
+	func animateBottomSandWithStep (_ step: Int) {
 		if step >= _GlassLayerPath.sandPathsBottom.count - 1 || _pausing{
 			_sandAnimationStepBottom = 0
 			return
@@ -159,8 +159,8 @@ class Sandglass: AnimatableTag, UICollisionBehaviorDelegate {
 		let duration: Double = _reverseCircleTimeInterval / Double(_GlassLayerPath.sandPathsBottom.count)
 		
 		let pathAnim = CABasicAnimation(keyPath: "path")
-		pathAnim.fromValue = _GlassLayerPath.sandPathsBottom[step].CGPath
-		pathAnim.toValue = _GlassLayerPath.sandPathsBottom[step+1].CGPath
+		pathAnim.fromValue = _GlassLayerPath.sandPathsBottom[step].cgPath
+		pathAnim.toValue = _GlassLayerPath.sandPathsBottom[step+1].cgPath
 		pathAnim.duration = duration
 		pathAnim.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
 		pathAnim.setValue("SandAnimationBottom", forKey: "animation")
@@ -171,21 +171,21 @@ class Sandglass: AnimatableTag, UICollisionBehaviorDelegate {
 	func dropSand () {
 		if _particles.count == 0 {
 			_particles = (0...12).flatMap({ (_) -> UIView? in
-				let particle = UIView(frame: CGRectMake(frame.width * 0.5, frame.height * 0.5, 1, 1))
+				let particle = UIView(frame: CGRect(x: frame.width * 0.5, y: frame.height * 0.5, width: 1, height: 1))
         particle.backgroundColor = st_highlighted ? HelperColor.primaryColor : HelperColor.lightGrayColor
 				addSubview(particle)
 				return particle
 			})
 		}
 	
-		for (index, particle) in _particles.enumerate() {
+		for (index, particle) in _particles.enumerated() {
 			let gap = Double(index) * 0.23
 			addSubview(particle)
 
-			UIView.animateWithDuration(0.4, delay: gap, options: UIViewAnimationOptions.CurveLinear, animations: {[weak self] () -> Void in
+			UIView.animate(withDuration: 0.4, delay: gap, options: UIViewAnimationOptions.curveLinear, animations: {[weak self] () -> Void in
         guard let _self = self else {return}
         
-        particle.center = CGPointMake(_self.frame.width * 0.5, _self.frame.height - 2)
+        particle.center = CGPoint(x: _self.frame.width * 0.5, y: _self.frame.height - 2)
 				
 				}, completion: { (flag) -> Void in
 					particle.removeFromSuperview()
@@ -195,7 +195,7 @@ class Sandglass: AnimatableTag, UICollisionBehaviorDelegate {
 	
 	func resetSand () {
 		_particles =  _particles.map { (particle) -> UIView in
-			particle.center = CGPointMake(frame.width * 0.5, frame.height * 0.5)
+			particle.center = CGPoint(x: frame.width * 0.5, y: frame.height * 0.5)
 			particle.removeFromSuperview()
 			return particle
 		}
@@ -203,18 +203,18 @@ class Sandglass: AnimatableTag, UICollisionBehaviorDelegate {
 	
 	//MARK: Animation Delegate
 	
-	override func animationDidStop(anim: CAAnimation, finished flag: Bool) {
+  func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
 		if _pausing {
 			return
 		}
 		
-		if let value = anim.valueForKey("animation") as? String {
+		if let value = anim.value(forKey: "animation") as? String {
 			if value == "SandAnimationTop" {
-				_sandAnimationStepTop++
+				_sandAnimationStepTop += 1
 				animateTopSandWithStep(_sandAnimationStepTop)
 			}
 			else if value == "SandAnimationBottom" {
-				_sandAnimationStepBottom++
+				_sandAnimationStepBottom += 1
 				animateBottomSandWithStep(_sandAnimationStepBottom)
 			}
 		}
@@ -230,8 +230,8 @@ class _Glass: UIView {
 	let _baseGlass: CAShapeLayer = CAShapeLayer()
 	
 	//MARK: Private
-	private var _reversed = false
-	private var _reversing = false
+	fileprivate var _reversed = false
+	fileprivate var _reversing = false
 	
 	//MARK: Method
 	
@@ -242,45 +242,45 @@ class _Glass: UIView {
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		
-		_top.path = _GlassLayerPath.topPath.CGPath
-		_topGlass.path = _GlassLayerPath.topGlassPath.CGPath
-		_base.path = _GlassLayerPath.basePath.CGPath
-		_baseGlass.path = _GlassLayerPath.baseGlassPath.CGPath
+		_top.path = _GlassLayerPath.topPath.cgPath
+		_topGlass.path = _GlassLayerPath.topGlassPath.cgPath
+		_base.path = _GlassLayerPath.basePath.cgPath
+		_baseGlass.path = _GlassLayerPath.baseGlassPath.cgPath
 		
 		let layersStroke = [_top, _base, _topGlass, _baseGlass]
 		for layer in layersStroke {
-			layer.opaque = true
+			layer.isOpaque = true
 			layer.lineCap = kCALineCapRound
 			layer.lineWidth = 1.5
 			layer.miterLimit = 1.5
 			layer.strokeStart = 0.5
 			layer.strokeEnd = 0.5
-			layer.strokeColor = HelperColor.lightGrayColor.CGColor
-			layer.fillColor = UIColor.clearColor().CGColor
+			layer.strokeColor = HelperColor.lightGrayColor.cgColor
+			layer.fillColor = UIColor.clear.cgColor
 			self.layer.addSublayer(layer)
 		}
 	}
 	
-	func glassShowing (duration: Double) {
+	func glassShowing (_ duration: Double) {
 		let layers = [_top, _base, _topGlass, _baseGlass]
 		for layer in layers {
-			layer.pathStokeAnimationFrom(0.5 ,to: 0.0, duration: duration, type: .Start)
-			layer.pathStokeAnimationFrom(0.5 ,to: 1.0, duration: duration, type: .End)
+			layer.pathStokeAnimationFrom(0.5 ,to: 0.0, duration: duration, type: .start)
+			layer.pathStokeAnimationFrom(0.5 ,to: 1.0, duration: duration, type: .end)
 		}
 	}
 	
-	func reverseGlass (completion :(()->Void)?) {
+	func reverseGlass (_ completion :(()->Void)?) {
 		if _reversing {
 			return
 		}
 		_reversing = true
 		
 		let reverseAnim = POPSpringAnimation(propertyNamed: kPOPLayerRotation)
-		reverseAnim.springSpeed = 15
-		reverseAnim.springBounciness = 5
-		reverseAnim.fromValue = _reversed ? -M_PI : 0
-		reverseAnim.toValue = _reversed ? 0 : M_PI
-		reverseAnim.animationDidReachToValueBlock = {[weak self] anim in
+		reverseAnim?.springSpeed = 15
+		reverseAnim?.springBounciness = 5
+		reverseAnim?.fromValue = _reversed ? -M_PI : 0
+		reverseAnim?.toValue = _reversed ? 0 : M_PI
+		reverseAnim?.animationDidReachToValueBlock = {[weak self] anim in
 			if let _self = self {
 				_self._reversing = false
 			}
@@ -288,7 +288,7 @@ class _Glass: UIView {
 				block()
 			}
 		}
-		layer.pop_addAnimation(reverseAnim, forKey: "glass rotation")
+		layer.pop_add(reverseAnim, forKey: "glass rotation")
 		_reversed = !_reversed
 	}
 }

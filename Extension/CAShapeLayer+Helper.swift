@@ -9,11 +9,11 @@
 import UIKit
 
 enum ShapeLayerColorType: Int {
-  case Stroke, Fill
+  case stroke, fill
 }
 
 extension CAShapeLayer {
-  private struct AssociatedKeys {
+  fileprivate struct AssociatedKeys {
     static var ColorType = "ST_ColorType"
   }
   

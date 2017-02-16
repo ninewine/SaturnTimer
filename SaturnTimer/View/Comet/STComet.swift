@@ -10,41 +10,41 @@ import UIKit
 import ReactiveCocoa
 
 protocol STCometDelegate: NSObjectProtocol {
-  func cometAnimationDidStop (comet: STComet)
+  func cometAnimationDidStop (_ comet: STComet)
 }
 
-class STComet: CALayer {
+class STComet: CALayer, CAAnimationDelegate {
   
   weak var comet_delegate: STCometDelegate?
   
-  private let _innerLayer = CAShapeLayer()
-  private let _maxRectInset: CGFloat = 100.0
-  private let _maxInnerLayerY: CGFloat = 50.0
-  private let _flyDuration = 8.0
+  fileprivate let _innerLayer = CAShapeLayer()
+  fileprivate let _maxRectInset: CGFloat = 100.0
+  fileprivate let _maxInnerLayerY: CGFloat = 50.0
+  fileprivate let _flyDuration = 8.0
   
-  convenience init(size: CGSize, color: CGColorRef) {
+  convenience init(size: CGSize, color: CGColor) {
     self.init()
     
-    let screenBounds = UIScreen.mainScreen().bounds
+    let screenBounds = UIScreen.main.bounds
     let randomRectInset = CGFloat.random * _maxRectInset
-    frame = CGRectInset(screenBounds, randomRectInset * 0.5, randomRectInset)
+    frame = screenBounds.insetBy(dx: randomRectInset * 0.5, dy: randomRectInset)
     position = CGPoint(x: screenBounds.width * 0.5, y: screenBounds.height * 0.5)
     
-    _innerLayer.path = UIBezierPath(ovalInRect: CGRect(x: 0, y: 0, width: size.width, height: size.height)).CGPath
-    _innerLayer.strokeColor = UIColor.clearColor().CGColor
+    _innerLayer.path = UIBezierPath(ovalIn: CGRect(x: 0, y: 0, width: size.width, height: size.height)).cgPath
+    _innerLayer.strokeColor = UIColor.clear.cgColor
     _innerLayer.fillColor = color
     _innerLayer.opacity = 0.8
     addSublayer(_innerLayer)
     
     let randomAngle = CGFloat.random * CGFloat(M_PI) * 2
-    setAffineTransform(CGAffineTransformMakeRotation(randomAngle))
+    setAffineTransform(CGAffineTransform(rotationAngle: randomAngle))
   }
   
   func run () {
-    let path = UIBezierPath(ovalInRect: bounds)
+    let path = UIBezierPath(ovalIn: bounds)
     
     let pathAnim = CAKeyframeAnimation(keyPath: "position")
-    pathAnim.path = path.CGPath
+    pathAnim.path = path.cgPath
     pathAnim.calculationMode = kCAAnimationPaced
     
     let opacityAnim = CAKeyframeAnimation(keyPath: "opacity")
@@ -56,10 +56,10 @@ class STComet: CALayer {
     animGroup.duration = _flyDuration + Double.random * 0.4
     animGroup.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
     animGroup.animations = [pathAnim, opacityAnim]
-    _innerLayer.addAnimation(animGroup, forKey: "CometAnimation")
+    _innerLayer.add(animGroup, forKey: "CometAnimation")
   }
   
-  override func animationDidStop(anim: CAAnimation, finished flag: Bool) {
+  func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
     removeFromSuperlayer()
     comet_delegate?.cometAnimationDidStop(self)
   }
@@ -69,31 +69,33 @@ class STCometManager: NSObject, STCometDelegate {
   weak var contentView: UIView?
   
   
-  private var comets = [STComet]()
-  private let maxCometAmount: Int = 20
-  private let minCometDiameter: CGFloat = 1.0
-  private let bornInterval: NSTimeInterval = 0.5
-  private var timer: NSTimer?
+  fileprivate var comets = [STComet]()
+  fileprivate let maxCometAmount: Int = 20
+  fileprivate let minCometDiameter: CGFloat = 1.0
+  fileprivate let bornInterval: TimeInterval = 0.5
+  fileprivate var timer: Timer?
   
 
   override init () {
     super.init()
-    NSNotificationCenter
-      .defaultCenter()
-      .rac_addObserverForName(UIApplicationWillResignActiveNotification, object: nil)
-      .takeUntil(self.rac_willDeallocSignal()).subscribeNext {[weak self] (_) -> Void in
+    NotificationCenter.default
+      .reactive
+      .notifications(forName: NSNotification.Name.UIApplicationWillResignActive)
+      .take(during: reactive.lifetime)
+      .observeValues {[weak self] (notification) in
         self?.stop()
     }
     
-    NSNotificationCenter
-      .defaultCenter()
-      .rac_addObserverForName(UIApplicationWillEnterForegroundNotification, object: nil)
-      .takeUntil(self.rac_willDeallocSignal()).subscribeNext {[weak self] (_) -> Void in
+    NotificationCenter.default
+      .reactive
+      .notifications(forName: NSNotification.Name.UIApplicationWillEnterForeground)
+      .take(during: reactive.lifetime)
+      .observeValues {[weak self] (notification) in
         self?.resume()
     }
   }
   
-  func startWithContentView(contentView: UIView?) {
+  func startWithContentView(_ contentView: UIView?) {
     guard let aView = contentView else {
       print("Comet Manager must have a contentView")
       return
@@ -101,18 +103,18 @@ class STCometManager: NSObject, STCometDelegate {
     
     self.contentView = aView
     
-    timer = NSTimer(timeInterval: bornInterval, target: self, selector: Selector("makeComet"), userInfo: nil, repeats: true)
+    timer = Timer(timeInterval: bornInterval, target: self, selector: #selector(STCometManager.makeComet), userInfo: nil, repeats: true)
     if timer != nil {
-      NSRunLoop.mainRunLoop().addTimer(timer!, forMode: NSRunLoopCommonModes)
+      RunLoop.main.add(timer!, forMode: RunLoopMode.commonModes)
     }
   }
   
   func resume () {
     timer?.invalidate()
     timer = nil
-    timer = NSTimer(timeInterval: bornInterval, target: self, selector: Selector("makeComet"), userInfo: nil, repeats: true)
+    timer = Timer(timeInterval: bornInterval, target: self, selector: #selector(STCometManager.makeComet), userInfo: nil, repeats: true)
     if timer != nil {
-      NSRunLoop.mainRunLoop().addTimer(timer!, forMode: NSRunLoopCommonModes)
+      RunLoop.main.add(timer!, forMode: RunLoopMode.commonModes)
     }
   }
   
@@ -137,20 +139,20 @@ class STCometManager: NSObject, STCometDelegate {
     let sizeSeed = CGFloat(drand48())
     let diamiter = minCometDiameter + (sizeSeed * 1.0)
     
-    let comet = STComet(size: CGSize(width: diamiter, height: diamiter), color: HelperColor.lightGrayColor.CGColor)
+    let comet = STComet(size: CGSize(width: diamiter, height: diamiter), color: HelperColor.lightGrayColor.cgColor)
     comet.comet_delegate = self
     contentView?.layer.addSublayer(comet)
     comets.append(comet)
     comet.run()
   }
   
-  private func removeComet (comet: STComet) {
-    comets.removeObject(comet)
+  fileprivate func removeComet (_ comet: STComet) {
+    comets.remove(comet)
   }
   
   //MARK: - Comet Delegate
   
-  func cometAnimationDidStop(comet: STComet) {
+  func cometAnimationDidStop(_ comet: STComet) {
     removeComet(comet)
   }
 }

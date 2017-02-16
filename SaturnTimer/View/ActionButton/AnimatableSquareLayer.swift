@@ -9,7 +9,7 @@
 import UIKit
 
 class AnimatableSquareLayer: AnimatableLayer {
-  private let _square: CAShapeLayer = CAShapeLayer ()
+  fileprivate let _square: CAShapeLayer = CAShapeLayer ()
   
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
@@ -19,9 +19,9 @@ class AnimatableSquareLayer: AnimatableLayer {
     super.init()
     _square.frame = frame
     _square.position = CGPoint(x: frame.width * 0.5, y: frame.height * 0.5)
-    _square.path = _ActionButtonLayerPath.squarePath.CGPath
-    _square.fillColor = HelperColor.lightGrayColor.CGColor
-    _square.colorType = ShapeLayerColorType.Fill
+    _square.path = _ActionButtonLayerPath.squarePath.cgPath
+    _square.fillColor = HelperColor.lightGrayColor.cgColor
+    _square.colorType = ShapeLayerColorType.fill
     addSublayer(_square)
   }
   

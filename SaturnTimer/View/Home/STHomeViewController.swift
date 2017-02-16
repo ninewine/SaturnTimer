@@ -8,20 +8,21 @@
 
 import UIKit
 import ReactiveCocoa
+import ReactiveSwift
 import SnapKit
 import QorumLogs
 import GPUImage
 
 enum PlayButtonActionType: Int {
-  case None, StartTimer, PauseTimer
+  case none, startTimer, pauseTimer
 }
 
 enum RigthBottomButtonActionType: Int {
-  case None, StopTimer, MenuAction
+  case none, stopTimer, menuAction
 }
 
 class STHomeViewController: STViewController {
-  private var viewModel: STHomeViewModel!
+  fileprivate var viewModel: STHomeViewModel!
 
   var dialPlateView: STDialPlateView!
   
@@ -39,15 +40,15 @@ class STHomeViewController: STViewController {
   
   @IBOutlet weak var actionButton: STActionButton!
   
-  private var menuViewController: STMenuViewController!
+  fileprivate var menuViewController: STMenuViewController!
   
-  private var playButtonAction: CocoaAction!
-  private var actionButtonAction: CocoaAction!
+  fileprivate var playButtonAction: CocoaAction<Any?>!
+  fileprivate var actionButtonAction: CocoaAction<Any?>!
   
-  private let cometManager = STCometManager()
+  fileprivate let cometManager = STCometManager()
   
-  private var blurScreenshotImage: UIImage?
-  private let blurScreenshotWorkerQueue: dispatch_queue_t = dispatch_queue_create("SaturnTimer.BlurScreenshotWorkerQueue", DISPATCH_QUEUE_SERIAL)
+  fileprivate var blurScreenshotImage: UIImage?
+  fileprivate let blurScreenshotWorkerQueue: DispatchQueue = DispatchQueue(label: "SaturnTimer.BlurScreenshotWorkerQueue", attributes: [])
   
   let widthOfTimeItem: CGFloat = 60
   
@@ -58,7 +59,7 @@ class STHomeViewController: STViewController {
     bindViewModel()
   }
   
-  override func viewDidAppear(animated: Bool) {
+  override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     HelperNotification.askForPermission()
     generateScreenshotWithBlurEffect()
@@ -68,7 +69,7 @@ class STHomeViewController: STViewController {
     dialPlateView = STDialPlateView()
     view.insertSubview(dialPlateView, belowSubview: actionButton)
     
-    dialPlateView.snp_makeConstraints { (make) -> Void in
+    dialPlateView.snp.makeConstraints { (make) -> Void in
       let leftRightMargin = HelperCommon.currentDeviceType == .iPad ? 180 : 15
       let topMargin =
       HelperCommon.currentDeviceType == .iPad
@@ -78,36 +79,36 @@ class STHomeViewController: STViewController {
       make.left.equalTo(leftRightMargin)
       make.right.equalTo(-leftRightMargin)
       make.top.equalTo(topMargin)
-      make.width.equalTo(dialPlateView.snp_height).multipliedBy(1.0)
+      make.width.equalTo(dialPlateView.snp.height).multipliedBy(1.0)
     }
     
     dialPlateView.configView()
     
     dialPlateView.hourSlider.progress
       .producer
-      .observeOn(QueueScheduler.mainQueueScheduler)
+      .observe(on: QueueScheduler.main)
       .filter { (progress) -> Bool in
         return progress >= 0.0 && progress <= 1.0
       }
-      .startWithNext {[weak self] (progress) -> () in
+      .startWithValues {[weak self] (progress) -> () in
         let hour: Int = Int(floor(12 * progress)) % 12
         self?.viewModel.hour.value = hour
     }
     
     dialPlateView.minuteSlider.progress
       .producer
-      .observeOn(QueueScheduler.mainQueueScheduler)
+      .observe(on: QueueScheduler.main)
       .filter { (progress) -> Bool in
         return progress >= 0.0 && progress <= 1.0
       }
-      .startWithNext {[weak self] (progress) -> () in
+      .startWithValues {[weak self] (progress) -> () in
         let minute: Int = Int(floor(60 * progress))
         self?.viewModel.minute.value = minute
     }
     
     dialPlateView.touchEndSignal
-      .observeOn(UIScheduler())
-      .observeNext {[weak self] () -> () in
+      .observe(on: UIScheduler())
+      .observeValues({[weak self] (_) in
         guard let _self = self else {return}
         if _self.viewModel.hour.value == 0 {
           _self.dialPlateView.slideHourSliderToProgress(0.0, duration: 0.5)
@@ -116,19 +117,17 @@ class STHomeViewController: STViewController {
           _self.dialPlateView.slideMinuteSliderToProgress(0.0, duration: 0.5)
         }
         _self.generateScreenshotWithBlurEffect()
-    }
+      })
     
-    actionButton.rac_signalForControlEvents(.TouchUpInside).subscribeNext {[weak self] (button) -> Void in
-      guard let btn = button as? STActionButton else {return}
-      
-      switch btn.type {
-      case .Menu:
+    actionButton.reactive.controlEvents(.touchUpInside).observeValues {[weak self] (button) in
+      switch button.type {
+      case .menu:
         self?.openSettingsAction()
         break
-      case .Stop:
+      case .stop:
         self?.stopTimerAction()
         break
-      case .Close:
+      case .close:
         self?.closeSettingsAction()
         break
       default:
@@ -152,7 +151,7 @@ class STHomeViewController: STViewController {
   }
   
   func configTagView () {
-    if let tagTypeName = NSUserDefaults.standardUserDefaults().stringForKey(HelperConstant.UserDefaultKey.CurrentTagTypeName) {
+    if let tagTypeName = UserDefaults.standard.string(forKey: HelperConstant.UserDefaultKey.CurrentTagTypeName) {
       if let TagClass = STTagType.animatableTagClass(tagTypeName) as? AnimatableTag.Type {
         for view in tagContentView.subviews {
           view.removeFromSuperview()
@@ -172,25 +171,25 @@ class STHomeViewController: STViewController {
     viewModel = STHomeViewModel()
     
     viewModel.timeChangeSignal
-      .observeOn(UIScheduler())
-      .observeNext {[weak self] (time) -> () in
+      .observe(on: UIScheduler())
+      .observeValues {[weak self] (time) -> () in
         self?.hourLabel.text = time.hour < 10 ? "0\(time.hour)" : "\(time.hour)"
         self?.minuteLabel.text = time.minute < 10 ? "0\(time.minute)" : "\(time.minute)"
         self?.secondLabel.text = time.second < 10 ? "0\(time.second)" : "\(time.second)"
     }
     
     viewModel.timeValidSignal
-      .observeOn(UIScheduler())
+      .observe(on: UIScheduler())
       .combinePrevious(false)
-      .observeNext { (oldValid, newValid) -> () in
+      .observeValues { (oldValid, newValid) -> () in
         if newValid != oldValid {
           self.dialPlateView.playButton.enabled = newValid
         }
     }
     
     viewModel.timeTikTokSignal
-      .observeOn(UIScheduler())
-      .observeNext {[weak self] (time) -> () in
+      .observe(on: UIScheduler())
+      .observeValues {[weak self] (time) -> () in
         let minuteProgress = Double(time.minute) / 60.0 + Double(time.second) / 3600.0
         self?.dialPlateView.slideMinuteSliderToProgress(minuteProgress, duration: 0.9)
 
@@ -205,12 +204,12 @@ class STHomeViewController: STViewController {
     
     viewModel.playing
       .producer
-      .observeOn(UIScheduler())
-      .startWithNext {[weak self] (playing) -> () in
+      .observe(on: UIScheduler())
+      .startWithValues {[weak self] (playing) -> () in
         guard let _self = self else {return}
         UIView.beginAnimations("Time Item Animation", context: nil)
         UIView.setAnimationDuration(0.4)
-        UIView.setAnimationCurve(.EaseInOut)
+        UIView.setAnimationCurve(.easeInOut)
         if playing {
           if _self.viewModel.hour.value == 0 {
             _self.constraintWidthHourView.constant = 0
@@ -235,16 +234,16 @@ class STHomeViewController: STViewController {
         _self.dialPlateView.enableSlider(!playing)
         _self.dialPlateView.changePlayButtonAppearence(playing)
         
-        _self.actionButton.type = playing ? .Stop : .Menu
+        _self.actionButton.type = playing ? .stop : .menu
         
         _self.generateScreenshotWithBlurEffect()
     }
     
     viewModel.tagType
       .signal
-      .observeOn(UIScheduler())
+      .observe(on: UIScheduler())
       .combinePrevious(.SaturnType)
-      .observeNext {[weak self] (oldType, newType) -> () in
+      .observeValues {[weak self] (oldType, newType) -> () in
         if newType != oldType {
           self?.configTagView()
         }
@@ -252,18 +251,17 @@ class STHomeViewController: STViewController {
     
     viewModel.actionButtonAction
       .events
-      .observeNext { (event) -> () in
+      .observeValues { (event) -> () in
     }
     
     
     playButtonAction = CocoaAction(viewModel.playButtonAction, { _ in return () })
     actionButtonAction = CocoaAction(viewModel.actionButtonAction, {_ in return ()})
-    
-    
-    dialPlateView.playButton.pressedSignalProducer().startWithNext {[weak self] () -> () in
-      self?.playButtonAction.execute(nil)
+
+    dialPlateView.playButton.pressedSignal.observeValues {[weak self] (button) in
+      self?.playButtonAction.execute(())
     }
-    
+
   }
   
   //MARK: - Actions
@@ -273,28 +271,28 @@ class STHomeViewController: STViewController {
       dialPlateView.playButton.highlighting = false
       dialPlateView.slideSlidersToProgress(0.0, duration: 1.0)
     }
-    actionButtonAction.execute(nil)
+    actionButtonAction.execute(())
   }
   
   func openSettingsAction () {
-    actionButton.type = .Close
+    actionButton.type = .close
     
     if menuViewController == nil {
-      if let viewController = self.storyboard?.instantiateViewControllerWithIdentifier(STMenuViewController.classString()) as? STMenuViewController {
+      if let viewController = self.storyboard?.instantiateViewController(withIdentifier: STMenuViewController.classString()) as? STMenuViewController {
         if let image = blurScreenshotImage {
-          viewController.view.layer.contents = image.CGImage
+          viewController.view.layer.contents = image.cgImage
         }
         viewController.bindViewModelToHomeViewModel(viewModel)
         viewController.actionButton = self.actionButton
         viewController.view.alpha = 0.0
-        viewController.willMoveToParentViewController(self)
+        viewController.willMove(toParentViewController: self)
         view.insertSubview(viewController.view, belowSubview: actionButton)
-        viewController.didMoveToParentViewController(self)
-        UIView.animateWithDuration(0.3, animations: { () -> Void in
+        viewController.didMove(toParentViewController: self)
+        UIView.animate(withDuration: 0.3, animations: { () -> Void in
           viewController.view.alpha = 1.0
-          }) {(flag) -> Void in
-            viewController.didMoveToParentViewController(self)
-        }
+          }, completion: {(flag) -> Void in
+            viewController.didMove(toParentViewController: self)
+        }) 
         menuViewController = viewController
 
       }
@@ -302,20 +300,20 @@ class STHomeViewController: STViewController {
   }
   
   func closeSettingsAction () {
-    if actionButton.type == .Back {
+    if actionButton.type == .back {
       //Close Change Sounds View, proceeding in STMenuViewController
       return
     }
     
-    actionButton.type = .Menu
+    actionButton.type = .menu
 
     if menuViewController != nil {
-      menuViewController.willMoveToParentViewController(nil)
-      UIView.animateWithDuration(0.2, animations: { () -> Void in
+      menuViewController.willMove(toParentViewController: nil)
+      UIView.animate(withDuration: 0.2, animations: { () -> Void in
         self.menuViewController.view.alpha = 0.0
         }, completion: { (flag) -> Void in
           self.menuViewController.view.removeFromSuperview()
-          self.menuViewController.didMoveToParentViewController(nil)
+          self.menuViewController.didMove(toParentViewController: nil)
           self.menuViewController = nil
       })
     }
@@ -324,14 +322,14 @@ class STHomeViewController: STViewController {
   
   
   func generateScreenshotWithBlurEffect () {
-    dispatch_async(blurScreenshotWorkerQueue) {[weak self] () -> Void in
-      let screenBounds = UIScreen.mainScreen().bounds
-      let screenScale = UIScreen.mainScreen().scale
+    blurScreenshotWorkerQueue.async {[weak self] () -> Void in
+      let screenBounds = UIScreen.main.bounds
+      let screenScale = UIScreen.main.scale
       
       UIGraphicsBeginImageContextWithOptions(screenBounds.size, true, screenScale)
       var screenshot: UIImage?
       if let context = UIGraphicsGetCurrentContext() {
-        self?.view.window?.layer.renderInContext(context)
+        self?.view.window?.layer.render(in: context)
         screenshot = UIGraphicsGetImageFromCurrentImageContext()
       }
       UIGraphicsEndImageContext()
@@ -339,18 +337,18 @@ class STHomeViewController: STViewController {
       //resize
       let size = CGSize(width: screenBounds.width / screenScale, height: screenBounds.height / screenScale)
       UIGraphicsBeginImageContext(size)
-      screenshot?.drawInRect(CGRect(x: 0, y: 0, width: size.width, height: size.height))
+      screenshot?.draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
       let image = UIGraphicsGetImageFromCurrentImageContext()
       UIGraphicsEndImageContext()
       
       let blurImageSource = GPUImagePicture(image: image)
       
-      let blurImageFillter = GPUImageGaussianBlurFilter() // GPUImageiOSBlurFilter()
-      blurImageFillter.forceProcessingAtSize(screenBounds.size)
+      let blurImageFillter = GPUImageGaussianBlurFilter()
+      blurImageFillter.forceProcessing(at: screenBounds.size)
       blurImageFillter.blurRadiusInPixels = 12
-      blurImageSource.addTarget(blurImageFillter)
+      blurImageSource?.addTarget(blurImageFillter)
       blurImageFillter.useNextFrameForImageCapture()
-      blurImageSource.processImage()
+      blurImageSource?.processImage()
       
       let outputImage = blurImageFillter.imageFromCurrentFramebuffer()
             

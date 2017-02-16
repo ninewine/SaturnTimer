@@ -11,10 +11,10 @@ import UIKit
 extension NSObject {
   class func classString() -> String {
     let className: String = NSStringFromClass(self)
-    let dotRange = className.rangeOfString(".")
+    let dotRange = className.range(of: ".")
     if (dotRange != nil) {
-      let rangeNeedToBeRemoved: Range<String.Index> = Range<String.Index>(start: className.startIndex, end:dotRange!.endIndex)
-      return className.stringByReplacingCharactersInRange(rangeNeedToBeRemoved, withString:"")
+      let rangeNeedToBeRemoved: Range<String.Index> = (className.startIndex ..< dotRange!.upperBound)
+      return className.replacingCharacters(in: rangeNeedToBeRemoved, with:"")
     }
     return ""
   }

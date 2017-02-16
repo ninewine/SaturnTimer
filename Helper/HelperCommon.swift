@@ -14,11 +14,11 @@ enum DeviceType: Int {
 
 struct HelperCommon {
   static var currentDeviceType: DeviceType {
-    if UIDevice.currentDevice().userInterfaceIdiom == UIUserInterfaceIdiom.Pad {
+    if UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad {
       return .iPad
     }
     else {
-      let screenBounds = UIScreen.mainScreen().bounds
+      let screenBounds = UIScreen.main.bounds
       if screenBounds.size.height < 568.0 {
         return .iPhone4
       }
@@ -34,7 +34,7 @@ struct HelperCommon {
     }
   }
   
-  static func randomNumberBetween(min: Int, max: Int) -> Int {
+  static func randomNumberBetween(_ min: Int, max: Int) -> Int {
     return Int(arc4random_uniform(UInt32(max-min+1))) + min
   }
 

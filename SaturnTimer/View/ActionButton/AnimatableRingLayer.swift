@@ -9,7 +9,7 @@
 import UIKit
 
 class AnimatableRingLayer: AnimatableLayer {
-  private let _ring: CAShapeLayer = CAShapeLayer ()
+  fileprivate let _ring: CAShapeLayer = CAShapeLayer ()
   
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
@@ -19,11 +19,11 @@ class AnimatableRingLayer: AnimatableLayer {
     super.init()
     _ring.frame = frame
     _ring.position = CGPoint(x: frame.width * 0.5, y: frame.height * 0.5)
-    _ring.path = _ActionButtonLayerPath.ringPath.CGPath
-    _ring.strokeColor = HelperColor.lightGrayColor.CGColor
-    _ring.fillColor = UIColor.clearColor().CGColor
+    _ring.path = _ActionButtonLayerPath.ringPath.cgPath
+    _ring.strokeColor = HelperColor.lightGrayColor.cgColor
+    _ring.fillColor = UIColor.clear.cgColor
     _ring.strokeEnd = 0.0
-    _ring.colorType = ShapeLayerColorType.Stroke
+    _ring.colorType = ShapeLayerColorType.stroke
     addSublayer(_ring)
   }
 
@@ -31,8 +31,8 @@ class AnimatableRingLayer: AnimatableLayer {
     return [_ring]
   }
   
-  override func transitionIn(completion: (() -> ())?) {
-    _ring.pathStokeAnimationFrom(nil, to: 1.0, duration: transitionDuration, type: .End) { () -> Void in
+  override func transitionIn(_ completion: (() -> ())?) {
+    _ring.pathStokeAnimationFrom(nil, to: 1.0, duration: transitionDuration, type: .end) { () -> Void in
       if let block = completion {
         block ()
       }

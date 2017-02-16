@@ -23,7 +23,7 @@ enum STTagType: String {
     }
   }
   
-  static func animatableTagClass (tagName: String) -> AnyClass? {
+  static func animatableTagClass (_ tagName: String) -> AnyClass? {
     if let type = STTagType(rawValue: tagName) {
       switch type {
       case .SaturnType: return Saturn.self
