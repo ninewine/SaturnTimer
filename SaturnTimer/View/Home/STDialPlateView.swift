@@ -22,7 +22,7 @@ class STDialPlateView: UIView {
   
   var touchEndSignal: Signal<Any?, NoError>!
   
-  fileprivate var touchEndObserver: Observer<Any?, NoError>!
+  fileprivate var touchEndObserver: Signal<Any?, NoError>.Observer!
   
   fileprivate var _sliderEnabled = true
   
@@ -74,7 +74,7 @@ class STDialPlateView: UIView {
     _outerCyanRing.lineWidth = 2.0
     _outerCyanRing.strokeEnd = 0.0
     layer.addSublayer(_outerCyanRing)
-    _outerCyanRing.transform = CATransform3DMakeRotation(CGFloat(-M_PI_2), 0.0, 0.0, 1.0)
+    _outerCyanRing.transform = CATransform3DMakeRotation(-CGFloat.pi * 0.5, 0.0, 0.0, 1.0)
     
     //Outer Cryan Dot
 
@@ -89,7 +89,7 @@ class STDialPlateView: UIView {
     _innerCyanRing.lineWidth = 4.0
     _innerCyanRing.strokeEnd = 0.0
     layer.addSublayer(_innerCyanRing)
-    _innerCyanRing.transform = CATransform3DMakeRotation(CGFloat(-M_PI_2), 0.0, 0.0, 1.0)
+    _innerCyanRing.transform = CATransform3DMakeRotation(-CGFloat.pi * 0.5, 0.0, 0.0, 1.0)
     
     //Inner Cryan Dot
     
@@ -116,7 +116,7 @@ class STDialPlateView: UIView {
     addSubview(playButton)
     
     //Observe changes of bounds
-    reactive.values(forKeyPath: "bounds").startWithValues {[weak self] (rect) in
+    reactive.producer(forKeyPath: "bounds").startWithValues {[weak self] (rect) in
       self?.ringPathSetting()
       self?.resetSliderPosition()
       self?.resetPlayButtonFrame()

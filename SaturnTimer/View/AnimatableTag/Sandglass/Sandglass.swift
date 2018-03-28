@@ -278,8 +278,8 @@ class _Glass: UIView {
 		let reverseAnim = POPSpringAnimation(propertyNamed: kPOPLayerRotation)
 		reverseAnim?.springSpeed = 15
 		reverseAnim?.springBounciness = 5
-		reverseAnim?.fromValue = _reversed ? -M_PI : 0
-		reverseAnim?.toValue = _reversed ? 0 : M_PI
+		reverseAnim?.fromValue = _reversed ? -CGFloat.pi : 0
+		reverseAnim?.toValue = _reversed ? 0 : CGFloat.pi
 		reverseAnim?.animationDidReachToValueBlock = {[weak self] anim in
 			if let _self = self {
 				_self._reversing = false

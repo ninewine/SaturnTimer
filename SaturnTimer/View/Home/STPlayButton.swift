@@ -45,7 +45,7 @@ class STPlayButton: UIView, CAAnimationDelegate {
   
   fileprivate let _button: UIButton = UIButton()
   
-  fileprivate var pressedObserver: Observer<STPlayButton, NoError>?
+  fileprivate var pressedObserver: Signal<STPlayButton, NoError>.Observer?
   
   fileprivate var currenShape: STPlayButtonBarShape = .bar
   
@@ -88,7 +88,7 @@ class STPlayButton: UIView, CAAnimationDelegate {
     addSubview(_button)
   }
 
-  func pressed () {
+  @objc func pressed () {
     if !enabled {
       return
     }

@@ -63,7 +63,7 @@ extension CALayer {
     }
     anim?.toValue = to
     anim?.duration = duration
-    anim?.completionBlock = {anim in
+    anim?.completionBlock = { (anim, finished) in
       guard let block = completion else {
         return
       }

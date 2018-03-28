@@ -52,11 +52,11 @@ class AnimatableArrowLayer: AnimatableLayer {
     _arrowBottom.pathStokeAnimationFrom(nil, to: 0.0, duration: transitionDuration * 0.3, type: .start)
     _arrowTop.pathStokeAnimationFrom(nil, to: 1.0, duration: transitionDuration * 0.3, type: .end) {[weak self] () -> Void in
       guard let _self = self else {return}
-      _self._arrowTop.rotateAnimation(nil, to: CGFloat(-M_PI_4) * 0.9, duration: _self.transitionDuration * 0.3)
+      _self._arrowTop.rotateAnimation(nil, to: -CGFloat.pi * 0.25 * 0.9, duration: _self.transitionDuration * 0.3)
     }
     _arrowBottom.pathStokeAnimationFrom(nil, to: 1.0, duration: transitionDuration * 0.3, type: .end) {[weak self] () -> Void in
       guard let _self = self else {return}
-      _self._arrowBottom.rotateAnimation(nil, to: CGFloat(M_PI_4) * 0.9, duration: _self.transitionDuration * 0.3) { () -> Void in
+      _self._arrowBottom.rotateAnimation(nil, to: -CGFloat.pi * 0.25 * 0.9, duration: _self.transitionDuration * 0.3) { () -> Void in
         if let block = completion {
           block()
         }

@@ -131,8 +131,8 @@ class Television: AnimatableTag {
 		}
 
 		let rotationAnimFrom1 = POPSpringAnimation(propertyNamed: kPOPLayerRotation)
-		rotationAnimFrom1?.toValue = -M_PI_2 * 0.2
-		rotationAnimFrom1?.completionBlock = {[weak self] anim in
+		rotationAnimFrom1?.toValue = -(Double.pi * 0.5) * 0.2
+		rotationAnimFrom1?.completionBlock = {[weak self] (anim, finished) in
       guard let _self = self else {return}
 
 			let rotationAnimTo1 = POPSpringAnimation(propertyNamed: kPOPLayerRotation)
@@ -142,13 +142,13 @@ class Television: AnimatableTag {
 		_antenna1.pop_add(rotationAnimFrom1, forKey: "RotationAnimFrom")
 		
 		let rotationAnimFrom2 = POPSpringAnimation(propertyNamed: kPOPLayerRotation)
-		rotationAnimFrom2?.toValue = M_PI_2 * 0.2
-		rotationAnimFrom2?.completionBlock = {[weak self] anim in
+		rotationAnimFrom2?.toValue = Double.pi * 0.2
+		rotationAnimFrom2?.completionBlock = {[weak self] (anim, finished) in
       guard let _self = self else {return}
 
 			let rotationAnimTo2 = POPSpringAnimation(propertyNamed: kPOPLayerRotation)
 			rotationAnimTo2?.toValue = 0
-			rotationAnimTo2?.completionBlock = { anim in
+			rotationAnimTo2?.completionBlock = { (anim, finished) in
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.0, execute: {[weak self] in
           self?.televisionAnimation()
         })

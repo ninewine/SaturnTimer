@@ -50,11 +50,11 @@ class AnimatableCrossLayer: AnimatableLayer {
     _cross2.pathStokeAnimationFrom(nil, to: 0.0, duration: transitionDuration * 0.4, type: .start)
     _cross1.pathStokeAnimationFrom(nil, to: 1.0, duration: transitionDuration * 0.4, type: .end) {[weak self] () -> Void in
       guard let _self = self else {return}
-      _self._cross1.rotateAnimation(nil, to: CGFloat(-M_PI_4), duration: _self.transitionDuration * 0.4)
+      _self._cross1.rotateAnimation(nil, to: -CGFloat.pi * 0.25, duration: _self.transitionDuration * 0.4)
     }
     _cross2.pathStokeAnimationFrom(nil, to: 1.0, duration: transitionDuration * 0.4, type: .end) {[weak self] () -> Void in
       guard let _self = self else {return}
-      _self._cross2.rotateAnimation(nil, to: CGFloat(M_PI_4), duration: _self.transitionDuration * 0.4) { () -> Void in
+      _self._cross2.rotateAnimation(nil, to: CGFloat.pi * 0.25, duration: _self.transitionDuration * 0.4) { () -> Void in
         if let block = completion {
           block()
         }

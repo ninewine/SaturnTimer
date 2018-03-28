@@ -144,7 +144,7 @@ class RCAlertButton : UIButton {
     }
   }
   
-  func buttonTouchDown (_ event: UIControlEvents) {
+  @objc func buttonTouchDown (_ event: UIControlEvents) {
     UIView.animate(withDuration: 0.1, animations: { () -> Void in
       if self.type == RCAlertViewButtonType.fill {
         self.backgroundColor = UIColor(hex:RCThemeColorHex, alpha: 0.7)
@@ -155,7 +155,7 @@ class RCAlertButton : UIButton {
     })
   }
   
-  func buttonTouchUp (_ event: UIControlEvents) {
+  @objc func buttonTouchUp (_ event: UIControlEvents) {
     UIView.animate(withDuration: 0.1, animations: { () -> Void in
       if self.type == RCAlertViewButtonType.fill {
         self.backgroundColor = UIColor(hex:RCThemeColorHex)
@@ -489,7 +489,7 @@ class RCAlertView: UIView, POPAnimationDelegate {
       })
   }
   
-  func dismissWithActionSheetStyle () {
+  @objc func dismissWithActionSheetStyle () {
     RCAlertView.setAnimating(true)
     self.dismiss(true, cleanUp: true)
   }
@@ -599,7 +599,7 @@ class RCAlertView: UIView, POPAnimationDelegate {
         let rotateAnim = POPSpringAnimation(propertyNamed: kPOPLayerRotation)
         rotateAnim?.springBounciness = 4
         rotateAnim?.springSpeed = 9
-        rotateAnim?.fromValue = -M_PI_4 * 0.1
+        rotateAnim?.fromValue = -CGFloat.pi * 0.25 * 0.1
         rotateAnim?.toValue = 0.0
         containerView.layer.pop_add(rotateAnim, forKey: "drop_rotate")
         break
@@ -634,7 +634,7 @@ class RCAlertView: UIView, POPAnimationDelegate {
         rotateAnim?.springBounciness = 4
         rotateAnim?.springSpeed = 5
         rotateAnim?.fromValue = 0.0
-        rotateAnim?.toValue = -M_PI_4 * 0.1
+        rotateAnim?.toValue = -CGFloat.pi * 0.25 * 0.1
         containerView.layer.pop_add(rotateAnim, forKey: "drop_rotate")
         break
       case .actionSheet:
@@ -851,10 +851,10 @@ class RCAlertView: UIView, POPAnimationDelegate {
     if self.titleLabel != nil && self.title != nil {
       let paragraphStyle = NSMutableParagraphStyle.default.mutableCopy() as! NSMutableParagraphStyle
       paragraphStyle.lineBreakMode = self.titleLabel!.lineBreakMode
-      let attrs = [
-        NSFontAttributeName: self.titleLabel!.font,
-        NSParagraphStyleAttributeName: paragraphStyle
-      ] as [String : Any]
+      let attrs: [NSAttributedStringKey: Any] = [
+        .font: self.titleLabel!.font,
+        .paragraphStyle: paragraphStyle
+      ]
       let title: NSString = self.title! as NSString
       let maxHeight = self.titleLabel!.font.lineHeight
       let rect = title.boundingRect(with: CGSize(width: container_width - content_padding_left - content_padding_right, height: maxHeight), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: attrs, context: nil)
@@ -867,10 +867,10 @@ class RCAlertView: UIView, POPAnimationDelegate {
     if self.messageLabel != nil && self.message != nil {
       let paragraphStyle = NSMutableParagraphStyle.default.mutableCopy() as! NSMutableParagraphStyle
       paragraphStyle.lineBreakMode = self.messageLabel!.lineBreakMode
-      let attrs = [
-        NSFontAttributeName: self.messageLabel!.font,
-        NSParagraphStyleAttributeName: paragraphStyle
-      ] as [String : Any]
+      let attrs: [NSAttributedStringKey: Any] = [
+        .font: self.messageLabel!.font,
+        .paragraphStyle: paragraphStyle
+      ]
       let title: NSString = self.message! as NSString
       let maxHeight = CGFloat(message_max_line_count) * self.messageLabel!.font.lineHeight
       let rect = title.boundingRect(with: CGSize(width: container_width - content_padding_left - content_padding_right, height: maxHeight), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: attrs, context: nil)
@@ -988,7 +988,7 @@ class RCAlertView: UIView, POPAnimationDelegate {
     return nil
   }
   
-  func buttonAction(_ button: UIButton) {
+  @objc func buttonAction(_ button: UIButton) {
     RCAlertView.setAnimating(true)
     if let item = self.items?.object(at: button.tag) as? RCAlertItem {
       if let action = item.action {

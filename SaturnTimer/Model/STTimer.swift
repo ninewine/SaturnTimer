@@ -11,7 +11,7 @@ import ReactiveCocoa
 import Result
 
 class STTimer: NSObject {
-  dynamic var remainingTime: TimeInterval 
+  @objc dynamic var remainingTime: TimeInterval 
   
   fileprivate var innerTimer: Timer?
   
@@ -34,7 +34,7 @@ class STTimer: NSObject {
     innerTimer = nil
   }
   
-  func tikTok () {
+  @objc func tikTok () {
     if remainingTime > 0 {
       remainingTime -= 1
     }

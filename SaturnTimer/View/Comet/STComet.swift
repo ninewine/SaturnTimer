@@ -36,7 +36,7 @@ class STComet: CALayer, CAAnimationDelegate {
     _innerLayer.opacity = 0.8
     addSublayer(_innerLayer)
     
-    let randomAngle = CGFloat.random * CGFloat(M_PI) * 2
+    let randomAngle = CGFloat.random * CGFloat.pi * 2
     setAffineTransform(CGAffineTransform(rotationAngle: randomAngle))
   }
   
@@ -131,7 +131,7 @@ class STCometManager: NSObject, STCometDelegate {
   }
   
   
-  func makeComet () {
+  @objc func makeComet () {
     if comets.count >= maxCometAmount {
       return
     }

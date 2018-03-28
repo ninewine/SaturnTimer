@@ -22,7 +22,7 @@ class STMenuViewModel: STViewModel {
   
   //Action
   lazy var changeTagAction: Action<STTagType, STTagType, NoError> = {
-    return Action({[weak self] type in
+    return Action(execute: {[weak self] type in
       guard let _self = self else {return SignalProducer(value: STTagType.SaturnType)}
       
       _self.tagType.value = type
@@ -32,7 +32,7 @@ class STMenuViewModel: STViewModel {
   }()
   
   lazy var changeSoundFileNameAction: Action<String, String, NoError> = {
-    return Action({[weak self] fileName in
+    return Action(execute: {[weak self] fileName in
       guard let _self = self else {return SignalProducer(value: UILocalNotificationDefaultSoundName)}
       
       _self.soundFileName.value = fileName
@@ -89,7 +89,7 @@ class STMenuViewModel: STViewModel {
     let soundName = soundFileName.replacingOccurrences(of: ".mp3", with: "")
     let isSurrentSoundFileName = self.soundFileName.value == soundFileName
     let attributes = [
-      NSForegroundColorAttributeName: isSurrentSoundFileName ? HelperColor.primaryColor : HelperColor.lightGrayColor
+      NSAttributedStringKey.foregroundColor: isSurrentSoundFileName ? HelperColor.primaryColor : HelperColor.lightGrayColor
     ]
     let sound = NSAttributedString(string: soundName, attributes: attributes)
     return sound

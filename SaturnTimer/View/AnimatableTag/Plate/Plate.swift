@@ -116,13 +116,13 @@ class Plate: AnimatableTag {
 		let moveUpAnim = POPBasicAnimation(propertyNamed: kPOPLayerPositionY)
 		moveUpAnim?.duration = 0.5
 		moveUpAnim?.toValue = _originalLidPositionY - 3
-		moveUpAnim?.completionBlock = {[weak self] anim in
+		moveUpAnim?.completionBlock = {[weak self] (anim, finished) in
       guard let _self = self else {return}
 
 			let moveDownAnim = POPBasicAnimation(propertyNamed: kPOPLayerPositionY)
 			moveDownAnim?.duration = 0.5
 			moveDownAnim?.toValue = _self._originalLidPositionY
-			moveDownAnim?.completionBlock = {anim in
+			moveDownAnim?.completionBlock = {(_, _) in
 				
 			}
 			_self._lid.pop_add(moveDownAnim, forKey: "MoveUpAnimation")
@@ -131,14 +131,14 @@ class Plate: AnimatableTag {
 		
 		let rotationAnimFrom = POPBasicAnimation(propertyNamed: kPOPLayerRotation)
 		rotationAnimFrom?.duration = 0.5
-		rotationAnimFrom?.toValue = -M_PI_4 * 0.5
-		rotationAnimFrom?.completionBlock = {[weak self] anim in
+		rotationAnimFrom?.toValue = -CGFloat.pi * 0.25 * 0.5
+		rotationAnimFrom?.completionBlock = {[weak self] (anim, finished) in
       guard let _self = self else {return}
 			
 			let rotationAnimTo = POPBasicAnimation(propertyNamed: kPOPLayerRotation)
 			rotationAnimTo?.duration = 0.5
 			rotationAnimTo?.toValue = 0
-			rotationAnimTo?.completionBlock = {anim in
+			rotationAnimTo?.completionBlock = {(_, _) in
         
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1, execute: { [weak self] in
           self?.lidAnimation()

@@ -32,7 +32,7 @@ class STHomeViewModel: STViewModel {
   //Action
   
   lazy var playButtonAction: Action<Void, PlayButtonActionType, NoError> = {
-    return Action({[weak self] _ in
+    return Action(execute: {[weak self] _ in
       guard let _self = self else {return SignalProducer(value: PlayButtonActionType.none)}
       if _self.playing.value {
         if _self.pausing.value{
@@ -55,7 +55,7 @@ class STHomeViewModel: STViewModel {
   }()
   
   lazy var actionButtonAction: Action<Void, RigthBottomButtonActionType, NoError> = {
-    return Action({[weak self] _ in
+    return Action(execute: {[weak self] _ in
       guard let _self = self else {return SignalProducer(value: RigthBottomButtonActionType.none)}
       
       if _self.playing.value {
@@ -73,9 +73,9 @@ class STHomeViewModel: STViewModel {
   
   //Private
   
-  fileprivate let timeChangeObserver: Observer<STTime, NoError>
-  fileprivate let timeValidObserver: Observer<Bool, NoError>
-  fileprivate let timeTikTokObserver: Observer<STTime, NoError>
+  fileprivate let timeChangeObserver: Signal<STTime, NoError>.Observer
+  fileprivate let timeValidObserver: Signal<Bool, NoError>.Observer
+  fileprivate let timeTikTokObserver: Signal<STTime, NoError>.Observer
 
   fileprivate var time : STTime
   fileprivate var timer : STTimer?

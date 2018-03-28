@@ -61,7 +61,7 @@ class STActionButton: UIButton {
     _gear = AnimatableGearLayer(frame: _contentLayer.bounds)
     _arrow = AnimatableArrowLayer(frame: _contentLayer.bounds)
 
-    reactive.values(forKeyPath: "bounds").startWithValues {[weak self] (rect) in
+    reactive.producer(forKeyPath: "bounds").startWithValues {[weak self] (rect) in
       self?.resetContentLayer()
     }
     

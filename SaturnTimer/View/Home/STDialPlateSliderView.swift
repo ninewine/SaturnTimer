@@ -105,7 +105,7 @@ class STDialPlateSliderView: UIView {
     
     let (oneQuadrantRadian, fourQuadrantRadian) = calculateDeltaAngle(point)
     
-    let moveToDegree = fourQuadrantRadian * 180 / CGFloat(M_PI)
+    let moveToDegree = fourQuadrantRadian * 180 / CGFloat.pi
   
     let moveToProgress: Double = Double(moveToDegree) / 360.0
 
@@ -135,9 +135,9 @@ class STDialPlateSliderView: UIView {
       print("Slide must have a oval center and a radius")
       return
     }
-    let radian = 2 * M_PI * progress
+    let radian = 2 * Double.pi * progress
     
-    let toDegree = CGFloat(radian * 180 / M_PI)
+    let toDegree = CGFloat(radian * 180 / Double.pi)
     
     let clockwise = degree < toDegree
     
@@ -161,7 +161,7 @@ class STDialPlateSliderView: UIView {
     let (_, toRadian) = calculateDeltaAngle(to)
 
     let path = UIBezierPath()
-    path.addArc(withCenter: center, radius: radius, startAngle: fromRadian - CGFloat(M_PI_2), endAngle: toRadian - CGFloat(M_PI_2), clockwise: clockwise)
+    path.addArc(withCenter: center, radius: radius, startAngle: fromRadian - (CGFloat.pi * 0.5), endAngle: toRadian - (CGFloat.pi * 0.5), clockwise: clockwise)
     let pathAnim = CAKeyframeAnimation(keyPath: "position")
     pathAnim.path = path.cgPath
     pathAnim.duration = duration
@@ -186,10 +186,10 @@ class STDialPlateSliderView: UIView {
     var fourQuadrantRadian:CGFloat = 0.0
     
     if transformedPoint.y > 0 {
-      fourQuadrantRadian = CGFloat(M_PI) - oneQuadrantRadian
+      fourQuadrantRadian = CGFloat.pi - oneQuadrantRadian
     }
     else if transformedPoint.x < 0 && transformedPoint.y <= 0 {
-      fourQuadrantRadian = CGFloat(M_PI * 2) + oneQuadrantRadian
+      fourQuadrantRadian = (CGFloat.pi * 2) + oneQuadrantRadian
     }
     else {
       fourQuadrantRadian = oneQuadrantRadian
