@@ -17,30 +17,31 @@
 
 - etc.
 
-#Requirements
+
+##Requirements
 - [Cocoapods](https://github.com/CocoaPods/CocoaPods) 0.39.0+
 - [Carthage](https://github.com/Carthage/Carthage) 0.11+
 - iOS 8.0+ 
 - Xcode 7.2+
 
 
-#Setup
+##Setup
 ``` 
 cd SaturnTimer
 pod install
 carthage update
 ```
 Wait for it to finish. Using `SaturnTimer.xcworkspace` to open the project instead of `SaturnTimer.xcodeproj`.
-#Demo
-##Screenshot
+##Demo
+###Screenshot
 ![](https://raw.githubusercontent.com/ninewine/ninewine.github.io/master/assets/saturntimer/image/saturntimer1.gif)  ![](https://raw.githubusercontent.com/ninewine/ninewine.github.io/master/assets/saturntimer/image/saturntimer2.gif)
-##Tag Animation
+###Tag Animation
 ![image](https://raw.githubusercontent.com/ninewine/ninewine.github.io/master/assets/saturntimer/image/tag-saturn.gif)  ![image](https://raw.githubusercontent.com/ninewine/ninewine.github.io/master/assets/saturntimer/image/tag-sandglass.gif)  ![image](https://raw.githubusercontent.com/ninewine/ninewine.github.io/master/assets/saturntimer/image/tag-tv.gif)  ![image](https://raw.githubusercontent.com/ninewine/ninewine.github.io/master/assets/saturntimer/image/tag-plate.gif)
 
-#License
+##License
 Saturn Timer is released under the MIT License, see [LICENSE](https://github.com/ninewine/SaturnTimer/blob/master/LICENSE.md) for details.
 
-#TODO
+##TODO
 - Bugs fix
 - More Tags
 
