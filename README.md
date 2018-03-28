@@ -5,7 +5,7 @@
 [![GitHub release](https://img.shields.io/github/release/ninewine/SaturnTimer.svg)](https://github.com/ninewine/SaturnTimer/releases)
 
 
-[Saturn Timer](https://itunes.apple.com/cn/app/id1089182083) is a free and open sourse iOS app, building with MVVM architectural pattern and [ReactiveCocoa](https://github.com/ReactiveCocoa/ReactiveCocoa) 5.0 Swift API and some other awesome frameworks, such as 
+[Saturn Timer](https://itunes.apple.com/cn/app/id1089182083) is a free and open sourse iOS app, building with MVVM architectural pattern and [ReactiveCocoa](https://github.com/ReactiveCocoa/ReactiveCocoa) 7.0 Swift API and some other awesome frameworks, such as 
 
 - [pop](https://github.com/facebook/pop)
 
