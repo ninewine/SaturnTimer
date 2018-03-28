@@ -20,10 +20,10 @@
 
 ## Requirements
 
-- [Cocoapods](https://github.com/CocoaPods/CocoaPods) 0.39.0+
-- [Carthage](https://github.com/Carthage/Carthage) 0.11+
+- [Cocoapods](https://github.com/CocoaPods/CocoaPods) 1.4.0+
+- [Carthage](https://github.com/Carthage/Carthage) 0.24+
 - iOS 8.0+ 
-- Xcode 7.2+
+- Xcode 9.2+
 
 
 ## Setup
